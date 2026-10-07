@@ -299,7 +299,7 @@ export const NORMALIZERS = {
       program_code: code || hit?.program_code || '',
       slug, sport, division: divKey, governing_body: DIVISIONS[divKey].body, gender: str(row.gender, 20).toLowerCase() || SPORTS[sport].gender,
       school_name: name,
-      official_school_name: str(row.official_school_name, 200) || name,
+      official_school_name: str(row.official_school_name, 200) || hit?.official_school_name || name,
       nickname: str(row.nickname, 80),
       conference,
       conference_slug: slugify(conference),
@@ -574,10 +574,11 @@ const isBlank = (v) => v === undefined || v === null || v === '' || (Array.isArr
  * Decide what an import row would do. Blank incoming values NEVER erase stored
  * ones, so layered imports (programs, then NCAA rounds, then records) compose.
  */
-export function diffRecord(existing, incoming) {
+const PROVENANCE = new Set(["source_url", "source_name", "source_type", "source_type_code"]);
+export function diffRecord(existing, incoming, ignoreProvenance = false) {
   const changes = {};
   for (const [k, v] of Object.entries(incoming)) {
-    if (META.has(k) || k === 'verification_status' || isBlank(v)) continue;
+    if (META.has(k) || k === "verification_status" || isBlank(v) || (ignoreProvenance && PROVENANCE.has(k))) continue;
     if (!sameValue(existing[k], v)) changes[k] = v;
   }
   return changes;
@@ -590,7 +591,7 @@ const isExampleRow = (row) => /^\s*EXAMPLE ROW/i.test(String(row.notes || ''));
  * item (new / update / skipped / duplicate / review / error) -- nothing is dropped silently.
  * ctx: { existing(id), resolveProgram(row), findProgram(row), programSlug(row,name,sport), resolveCoach(programId, ref) }
  */
-export function planImport(kind, rows, ctx, { overwriteVerified = false } = {}) {
+export function planImport(kind, rows, ctx, { overwriteVerified = false, ignoreProvenance = false } = {}) {
   const normalize = NORMALIZERS[kind];
   if (!normalize) throw new Error(`Unknown import kind "${kind}"`);
   const seen = new Set();
@@ -638,7 +639,7 @@ export function planImport(kind, rows, ctx, { overwriteVerified = false } = {}) 
       items.push({ line, action: 'new', id: rec.id, label, messages, record: rec, flagged: messages.length > 0 });
       return;
     }
-    const changes = diffRecord(prev, rec);
+    const changes = diffRecord(prev, rec, ignoreProvenance);
     if (!Object.keys(changes).length) {
       summary.skipped++; summary.duplicate++;
       items.push({ line, action: 'duplicate', id: rec.id, label, messages: ['already up to date'] });

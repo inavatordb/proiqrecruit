@@ -1,0 +1,267 @@
+[
+ {
+  "u": "https://bceagles.com",
+  "status": 200,
+  "final": "https://bceagles.com/"
+ },
+ {
+  "u": "https://bceagles.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://bceagles.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://bceagles.com/sports/2021/6/17/boston-college-athletics-camps-clinics.aspx",
+  "status": 200,
+  "final": "https://bceagles.com/sports/2021/6/17/boston-college-athletics-camps-clinics"
+ },
+ {
+  "u": "https://calbears.com",
+  "status": 200,
+  "final": "https://calbears.com/"
+ },
+ {
+  "u": "https://calbears.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://calbears.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://calbears.com/sports/2013/4/17/208182741.aspx",
+  "status": 200,
+  "final": "https://calbears.com/sports/2013/4/17/208182741"
+ },
+ {
+  "u": "https://clemsontigers.com",
+  "status": 200,
+  "final": "https://clemsontigers.com/"
+ },
+ {
+  "u": "https://clemsontigers.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://clemsontigers.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://clemsonsoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://goduke.com",
+  "status": 200,
+  "final": "https://goduke.com/"
+ },
+ {
+  "u": "https://goduke.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://goduke.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://www.dukesoccercamp.com",
+  "status": 200,
+  "final": "https://www.dukesoccercamp.com/"
+ },
+ {
+  "u": "https://seminoles.com",
+  "status": 200,
+  "final": "https://seminoles.com/"
+ },
+ {
+  "u": "https://seminoles.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://seminoles.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://seminolesoccercamps.com",
+  "status": 404,
+  "final": "https://seminolesoccercamps.com/"
+ },
+ {
+  "u": "https://gocards.com",
+  "status": 200,
+  "final": "https://gocards.com/"
+ },
+ {
+  "u": "https://gocards.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://gocards.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://louisvillesoccercamps.com",
+  "status": "FAIL",
+  "err": "UND_ERR_CONNECT_TIMEOUT"
+ },
+ {
+  "u": "https://miamihurricanes.com",
+  "status": 200,
+  "final": "https://miamihurricanes.com/"
+ },
+ {
+  "u": "https://miamihurricanes.com/sports/womens-soccer",
+  "status": 404,
+  "final": "https://miamihurricanes.com/sports/wsoc"
+ },
+ {
+  "u": "https://miamihurricanes.com/camps",
+  "status": 404,
+  "final": "https://miamihurricanes.com/camps"
+ },
+ {
+  "u": "https://gopack.com",
+  "status": 200,
+  "final": "https://gopack.com/"
+ },
+ {
+  "u": "https://gopack.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://gopack.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://packsoccercamps.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://goheels.com",
+  "status": 200,
+  "final": "https://goheels.com/"
+ },
+ {
+  "u": "https://goheels.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://goheels.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://carolinasoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://und.com",
+  "status": 200,
+  "final": "https://fightingirish.com/"
+ },
+ {
+  "u": "https://und.com/sports/wsoc",
+  "status": 200,
+  "final": "https://fightingirish.com/sports/wsoc"
+ },
+ {
+  "u": "https://camps.und.com/womens-soccer",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://pittsburghpanthers.com",
+  "status": 200,
+  "final": "https://pittsburghpanthers.com/"
+ },
+ {
+  "u": "https://pittsburghpanthers.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://pittsburghpanthers.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://pittsoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://smumustangs.com",
+  "status": 200,
+  "final": "https://smumustangs.com/"
+ },
+ {
+  "u": "https://smumustangs.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://smumustangs.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://smusoccercamp.com",
+  "status": 200,
+  "final": "https://smusoccercamp.com/"
+ },
+ {
+  "u": "https://gostanford.com",
+  "status": 200,
+  "final": "https://gostanford.com/"
+ },
+ {
+  "u": "https://gostanford.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://gostanford.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://stanfordsoccer.com",
+  "status": 200,
+  "final": "https://stanfordsoccer.com/"
+ },
+ {
+  "u": "https://cuse.com",
+  "status": 200,
+  "final": "https://cuse.com/"
+ },
+ {
+  "u": "https://cuse.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://cuse.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://cuse.com/sports/2016/4/4/camps.aspx",
+  "status": 200,
+  "final": "https://cuse.com/sports/2016/4/4/camps"
+ },
+ {
+  "u": "https://virginiasports.com",
+  "status": 200,
+  "final": "https://virginiasports.com/"
+ },
+ {
+  "u": "https://virginiasports.com/sports/womens-soccer",
+  "status": 404,
+  "final": "https://virginiasports.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://virginiasoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://hokiesports.com",
+  "status": 200,
+  "final": "https://hokiesports.com/"
+ },
+ {
+  "u": "https://hokiesports.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://hokiesports.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://vtwsoccercamps.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://godeacs.com",
+  "status": 200,
+  "final": "https://godeacs.com/"
+ },
+ {
+  "u": "https://godeacs.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://godeacs.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://wakeforestsoccercamp.com",
+  "status": 200,
+  "final": "https://www.wakeforestsoccercamp.com/"
+ },
+ {
+  "u": "https://exactsports.com/soccer",
+  "status": 200,
+  "final": "https://exactsports.com/soccer"
+ },
+ {
+  "u": "https://future500soccer.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ }
+]

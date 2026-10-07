@@ -141,3 +141,9 @@ Refresh seeds: `npm run seed:programs`, `npm run seed:ncaa`. Rebuild templates: 
 | UI | `src/` |
 
 Pages: `/` · `/schools` · `/schools/:slug` · `/camps` · `/camps/:id` · `/my-list` · `/profile` · `/compare` · `/auth` · `/player/:slug` · `/list/:token` · `/admin/*`.
+
+## ACC data (2026-10-07)
+
+A supplied ACC research file was checked before import and mostly rejected — see `data/import/acc/REVIEW.md` for what failed and what was loaded instead
+(sourced final polls for every D1 program, ACC season records/staff from Wikipedia season pages, official-directory staff for Clemson and Virginia Tech).
+Everything loaded this way is **Needs Review** (shown as "Unverified" on the site) until an admin checks it against the official page.

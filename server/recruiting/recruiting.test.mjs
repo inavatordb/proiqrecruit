@@ -100,8 +100,8 @@ describe('search + program page', () => {
     expect(d.camps.current).toHaveLength(1);
     expect(d.camps.previous).toHaveLength(1);
     expect(svc.search({ champion: '1' }).results.map((r) => r.school_name)).toEqual(['Adams State University']);
-    expect(svc.search({ top: '15' }).total).toBe(1);
-    expect(svc.search({ ranked: '1', division: 'D1' }).total).toBe(0);
+    expect(svc.search({ top: '15', division: 'D2' }).total).toBe(1);
+    expect(svc.search({ ranked: '1', division: 'D2' }).total).toBe(1);
   });
 });
 

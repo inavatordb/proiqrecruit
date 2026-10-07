@@ -10,6 +10,13 @@ import Workspace from './Workspace';
 
 const SECTIONS = [['snapshot', 'Snapshot'], ['staff', 'Coaches'], ['performance', 'Results'], ['rankings', 'Rankings'], ['camps', 'Camps'], ['academics', 'Academics'], ['links', 'Links']];
 
+/** Everyone sees whether a record has been checked: "Verified", or a plain "Unverified" until an admin signs it off. */
+function Trust({ status, admin }) {
+  if (status === 'verified') return <VerificationBadge status="verified" />;
+  if (admin) return <VerificationBadge status={status} />;
+  return <Chip tone="amber" className="!py-0 text-[10px]">Unverified</Chip>;
+}
+
 function ncaaLine(s) {
   if (s.ncaa_tournament_appearance === true) return `NCAA Tournament: ${s.ncaa_tournament_round || 'Qualified'}`;
   if (s.ncaa_tournament_appearance === false) return 'No NCAA Tournament appearance';
@@ -96,7 +103,7 @@ export default function SchoolPage() {
                   <span className="font-semibold text-white">{h.conference}</span>
                   <span className="text-slate-400">{h.start_season || 'earlier'}–{h.end_season || 'present'}</span>
                   {!h.end_season && h.conference === p.conference && <Chip tone="lime">Current</Chip>}
-                  {(viewer.is_admin || h.verification_status === 'verified') && <VerificationBadge status={h.verification_status} compact={h.verification_status !== 'verified'} />}
+                  <Trust status={h.verification_status} admin={viewer.is_admin} />
                 </li>
               ))}
             </ol>
@@ -114,7 +121,7 @@ export default function SchoolPage() {
                 <div key={c.id} className={`${C.card} p-4 space-y-1.5`}>
                   <div className="flex items-start justify-between gap-2">
                     <div><div className="font-black text-white text-lg leading-tight">{c.first_name} {c.last_name}</div><div className="text-sm text-lime-200">{c.title || c.role_label}</div></div>
-                    {(viewer.is_admin || c.verification_status === 'verified') && <VerificationBadge status={c.verification_status} compact={c.verification_status !== 'verified'} />}
+                    <Trust status={c.verification_status} admin={viewer.is_admin} />
                   </div>
                   <CoachEmail email={c.email} />
                   {c.phone && <div className="text-sm text-slate-300"><a href={`tel:${c.phone}`} className="hover:underline">{c.phone}</a></div>}
@@ -143,7 +150,7 @@ export default function SchoolPage() {
               {recent.map((s) => (
                 <div key={s.id} className={`${C.card} p-4 flex items-start justify-between gap-4`}>
                   <div>
-                    <div className="text-sm font-bold text-lime-300 flex items-center gap-2">{s.season}{(viewer.is_admin || s.verification_status === 'verified') && <VerificationBadge status={s.verification_status} compact={s.verification_status !== 'verified'} />}</div>
+                    <div className="text-sm font-bold text-lime-300 flex items-center gap-2">{s.season}<Trust status={s.verification_status} admin={viewer.is_admin} /></div>
                     <div className="text-3xl font-black">{s.record || '—'}</div>
                   </div>
                   <div className="text-sm text-slate-300 space-y-1 text-right">

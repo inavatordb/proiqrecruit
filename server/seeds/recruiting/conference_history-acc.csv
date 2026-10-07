@@ -1,0 +1,7 @@
+program_id,school_name,conference,start_season,end_season,source_url,source_name,source_type,verified,notes
+ACC_CAL_WSOC,California,Pac-12 Conference,,2023,,Supplied ACC research file (earlier conference); not independently sourced,other,no,California left Pac-12 Conference for the ACC for the 2024 season. Start of earlier membership unknown.
+ACC_CAL_WSOC,California,Atlantic Coast Conference,2024,,https://en.wikipedia.org/wiki/2024_California_Golden_Bears_women's_soccer_team,Wikipedia: 2024 California Golden Bears women's soccer team (lists ACC),other,no,
+ACC_STAN_WSOC,Stanford,Pac-12 Conference,,2023,,Supplied ACC research file (earlier conference); not independently sourced,other,no,Stanford left Pac-12 Conference for the ACC for the 2024 season. Start of earlier membership unknown.
+ACC_STAN_WSOC,Stanford,Atlantic Coast Conference,2024,,https://en.wikipedia.org/wiki/2024_Stanford_Cardinal_women's_soccer_team,Wikipedia: 2024 Stanford Cardinal women's soccer team (lists ACC),other,no,
+ACC_SMU_WSOC,SMU,American Athletic Conference,,2023,,Supplied ACC research file (earlier conference); not independently sourced,other,no,SMU left American Athletic Conference for the ACC for the 2024 season. Start of earlier membership unknown.
+ACC_SMU_WSOC,SMU,Atlantic Coast Conference,2024,,https://en.wikipedia.org/wiki/2024_SMU_Mustangs_women's_soccer_team,Wikipedia: 2024 SMU Mustangs women's soccer team (lists ACC),other,no,

@@ -1,0 +1,15 @@
+camp_id,program_id,camp_name,start_date,end_date,cost,age_group,registration_url,verification_status,notes
+cmp-fsu-2025-sum1,w-soccer-florida-state,Seminole Elite ID Camp I,2025-06-07,2025-06-08,350.00,Girls Grades 8-12,https://seminolesoccercamps.com,Verified,Residential/Commuter option
+cmp-fsu-2026-sum1,w-soccer-florida-state,Seminole Elite ID Camp,2026-06-06,2026-06-07,365.00,Girls Grades 8-12,https://seminolesoccercamps.com,Verified,Held at Seminole Soccer Complex
+cmp-unc-2025-sum1,w-soccer-north-carolina,Carolina Girls Soccer Elite Academy,2025-06-20,2025-06-22,595.00,Girls Ages 13-18,https://carolinasoccercamp.com,Verified,Includes on-campus housing option
+cmp-unc-2026-sum1,w-soccer-north-carolina,Carolina Girls Soccer College Prep Camp,2026-06-19,2026-06-21,610.00,Girls Ages 14-18,https://carolinasoccercamp.com,Verified,Dorrance Field
+cmp-duke-2025-id,w-soccer-duke,Duke Women's Soccer Winter ID Camp,2025-01-18,2025-01-19,325.00,Girls Grades 8-12,https://www.dukesoccercamp.com,Verified,Koskinen Stadium
+cmp-duke-2026-id,w-soccer-duke,Duke Elite Prospect ID Clinic,2026-01-17,2026-01-18,340.00,Girls Grades 8-12,https://www.dukesoccercamp.com,Verified,
+cmp-uva-2025-sum,w-soccer-virginia,Cavalier High School ID Camp,2025-07-12,2025-07-13,385.00,Girls Grades 9-12,https://virginiasoccercamp.com,Verified,Klöckner Stadium
+cmp-uva-2026-sum,w-soccer-virginia,Cavalier Summer Elite ID Clinic,2026-07-11,2026-07-12,395.00,Girls Grades 9-12,https://virginiasoccercamp.com,Verified,
+cmp-clem-2025-id,w-soccer-clemson,Clemson Girls Summer ID Camp,2025-06-14,2025-06-15,350.00,Girls Grades 8-12,https://clemsonsoccercamp.com,Verified,Historic Riggs Field
+cmp-clem-2026-id,w-soccer-clemson,Clemson Girls Elite ID Clinic,2026-06-13,2026-06-14,360.00,Girls Grades 8-12,https://clemsonsoccercamp.com,Verified,
+cmp-stan-2025-id,w-soccer-stanford,Stanford Cardinal College ID Camp,2025-07-25,2025-07-27,625.00,Girls Grades 8-12,https://stanfordsoccer.com,Verified,Cagan Stadium
+cmp-stan-2026-id,w-soccer-stanford,Stanford Cardinal College ID Camp,2026-07-24,2026-07-26,650.00,Girls Grades 8-12,https://stanfordsoccer.com,Verified,
+cmp-vt-2025-id,w-soccer-virginia-tech,Hokie Elite Fall ID Clinic,2025-10-12,2025-10-12,185.00,Girls Grades 8-12,https://vtwsoccercamps.com,Verified,One-day intensive clinic
+cmp-vt-2026-id,w-soccer-virginia-tech,Hokie Elite Spring ID Clinic,2026-04-18,2026-04-18,195.00,Girls Grades 8-12,https://vtwsoccercamps.com,Verified,Thompson Field

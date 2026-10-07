@@ -201,11 +201,14 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     const order = ['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps'];
     const files = fs.readdirSync(seedDir).filter((f) => f.endsWith('.csv'))
       .map((f) => ({ f, kind: f.split('-')[0] })).filter((x) => order.includes(x.kind))
-      .sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind) || a.f.localeCompare(b.f));
+      // Base lists (programs-d1, programs-d2) first so later files only ever add to existing programs.
+      .sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind) || Number(/^[a-z_]+-d\d/.test(b.f)) - Number(/^[a-z_]+-d\d/.test(a.f)) || a.f.localeCompare(b.f));
     const loaded = [];
     for (const { f, kind } of files) {
       const csv = fs.readFileSync(path.join(seedDir, f), 'utf8');
-      const plan = previewImport(kind, csv);
+      if (!csv.trim()) continue;
+      let plan;
+      try { plan = previewImport(kind, csv, { ignoreProvenance: true }); } catch (e) { console.error(`[recruiting] seed ${f} skipped: ${e.message}`); continue; }
       let n = 0;
       for (const item of plan.items) {
         if (!item.record) continue;
@@ -255,7 +258,7 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
       coach_count: coaches.length,
       head_coach: head ? { name: `${head.first_name} ${head.last_name}`, email: head.email || '' } : null,
       has_coach_email: coaches.some((c) => !!c.email),
-      has_recruiting_coordinator: coaches.some((c) => c.role === 'recruiting_coordinator'),
+      has_recruiting_coordinator: coaches.some((c) => c.role === 'recruiting_coordinator' || /recruit/i.test(c.title || '')),
       camps_current_count: camps.filter((c) => c.year === year).length,
       has_id_camps: camps.some((c) => /\bID\b|prospect/i.test(`${c.camp_type} ${c.camp_name}`) && c.year >= year - 1),
       upcoming_camp_count: upcoming.length,

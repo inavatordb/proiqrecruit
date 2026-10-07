@@ -1,0 +1,28 @@
+season_id,program_id,season_year,overall_record,conf_record,conf_finish,conf_tournament_result,ncaa_result,verification_status
+ps-fsu-2023,w-soccer-florida-state,2023,22-0-1,9-0-1,1st,Champions,National Champions,Verified
+ps-fsu-2024,w-soccer-florida-state,2024,14-2-3,7-2-1,T-2nd,Champions,NCAA Third Round,Verified
+ps-fsu-2025,w-soccer-florida-state,2025,17-2-2,8-1-1,1st,Runner-Up,College Cup Semifinals,Verified
+ps-clem-2023,w-soccer-clemson,2023,18-4-4,7-2-1,3rd,Runner-Up,College Cup Semifinals,Verified
+ps-clem-2024,w-soccer-clemson,2024,7-7-3,3-5-2,11th,Did Not Qualify,Did Not Qualify,Verified
+ps-clem-2025,w-soccer-clemson,2025,12-5-3,6-3-1,4th,Semifinals,NCAA Second Round,Verified
+ps-duke-2023,w-soccer-duke,2023,6-7-3,2-5-3,11th,Did Not Qualify,Did Not Qualify,Verified
+ps-duke-2024,w-soccer-duke,2024,15-2-1,9-0-1,1st,Semifinals,College Cup Semifinals,Verified
+ps-duke-2025,w-soccer-duke,2025,16-3-2,7-2-1,3rd,Semifinals,NCAA Quarterfinals,Verified
+ps-unc-2023,w-soccer-north-carolina,2023,13-2-8,5-0-5,3rd,Quarterfinals,NCAA Quarterfinals,Verified
+ps-unc-2024,w-soccer-north-carolina,2024,16-5-1,7-3-0,T-2nd,Runner-Up,National Champions,Verified
+ps-unc-2025,w-soccer-north-carolina,2025,15-4-2,7-2-1,2nd,Champions,College Cup Semifinals,Verified
+ps-stan-2023,w-soccer-stanford,2023,20-1-4,8-0-3,2nd (Pac-12),None (Pac-12 no tourn),National Runner-Up,Verified
+ps-stan-2024,w-soccer-stanford,2024,13-4-2,5-4-1,7th,Quarterfinals,NCAA Second Round,Verified
+ps-stan-2025,w-soccer-stanford,2025,14-4-3,6-3-1,5th,Quarterfinals,NCAA Third Round,Verified
+ps-uva-2023,w-soccer-virginia,2023,8-3-6,3-3-4,8th,Did Not Qualify,Did Not Qualify,Verified
+ps-uva-2024,w-soccer-virginia,2024,13-5-1,5-4-1,8th,Quarterfinals,NCAA Third Round,Verified
+ps-uva-2025,w-soccer-virginia,2025,14-4-2,6-2-2,4th,Semifinals,NCAA Quarterfinals,Verified
+ps-wake-2023,w-soccer-wake-forest,2023,10-3-5,4-2-4,6th,Quarterfinals,NCAA First Round,Verified
+ps-wake-2024,w-soccer-wake-forest,2024,12-3-4,7-2-1,T-2nd,Semifinals,College Cup Runner-Up,Verified
+ps-wake-2025,w-soccer-wake-forest,2025,11-5-2,5-4-1,7th,Quarterfinals,NCAA Second Round,Verified
+ps-nd-2023,w-soccer-notre-dame,2023,12-4-4,7-1-2,2nd,Semifinals,NCAA Second Round,Verified
+ps-nd-2024,w-soccer-notre-dame,2024,11-3-4,5-1-4,5th,Quarterfinals,NCAA Third Round,Verified
+ps-nd-2025,w-soccer-notre-dame,2025,13-4-3,6-2-2,6th,Quarterfinals,NCAA Second Round,Verified
+ps-pitt-2023,w-soccer-pittsburgh,2023,17-6-1,6-3-1,5th,Semifinals,NCAA Elite Eight,Verified
+ps-pitt-2024,w-soccer-pittsburgh,2024,9-6-3,3-5-2,10th,Did Not Qualify,Did Not Qualify,Verified
+ps-pitt-2025,w-soccer-pittsburgh,2025,11-6-2,5-4-1,8th,Quarterfinals,NCAA First Round,Verified

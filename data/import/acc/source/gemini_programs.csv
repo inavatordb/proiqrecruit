@@ -1,0 +1,18 @@
+program_id,school_name,division,conference,conference_history,official_athletics_url,official_soccer_url,camps_url,verification_status,notes
+w-soccer-boston-college,Boston College,D1,ACC,ACC,https://bceagles.com,https://bceagles.com/sports/womens-soccer,https://bceagles.com/sports/2021/6/17/boston-college-athletics-camps-clinics.aspx,Verified,
+w-soccer-california,California,D1,ACC,"Pac-12 (thru 2023-24), ACC (2024-present)",https://calbears.com,https://calbears.com/sports/womens-soccer,https://calbears.com/sports/2013/4/17/208182741.aspx,Verified,Joined ACC fall 2024
+w-soccer-clemson,Clemson,D1,ACC,ACC,https://clemsontigers.com,https://clemsontigers.com/sports/womens-soccer,https://clemsonsoccercamp.com,Verified,
+w-soccer-duke,Duke,D1,ACC,ACC,https://goduke.com,https://goduke.com/sports/womens-soccer,https://www.dukesoccercamp.com,Verified,
+w-soccer-florida-state,Florida State,D1,ACC,ACC,https://seminoles.com,https://seminoles.com/sports/womens-soccer,https://seminolesoccercamps.com,Verified,
+w-soccer-louisville,Louisville,D1,ACC,ACC,https://gocards.com,https://gocards.com/sports/womens-soccer,https://louisvillesoccercamps.com,Verified,
+w-soccer-miami,Miami (FL),D1,ACC,ACC,https://miamihurricanes.com,https://miamihurricanes.com/sports/womens-soccer,https://miamihurricanes.com/camps,Verified,
+w-soccer-nc-state,NC State,D1,ACC,ACC,https://gopack.com,https://gopack.com/sports/womens-soccer,https://packsoccercamps.com,Verified,
+w-soccer-north-carolina,North Carolina,D1,ACC,ACC,https://goheels.com,https://goheels.com/sports/womens-soccer,https://carolinasoccercamp.com,Verified,
+w-soccer-notre-dame,Notre Dame,D1,ACC,ACC,https://und.com,https://und.com/sports/wsoc,https://camps.und.com/womens-soccer,Verified,
+w-soccer-pittsburgh,Pittsburgh,D1,ACC,ACC,https://pittsburghpanthers.com,https://pittsburghpanthers.com/sports/womens-soccer,https://pittsoccercamp.com,Verified,
+w-soccer-smu,SMU,D1,ACC,"American Athletic (thru 2023-24), ACC (2024-present)",https://smumustangs.com,https://smumustangs.com/sports/womens-soccer,https://smusoccercamp.com,Verified,Joined ACC fall 2024
+w-soccer-stanford,Stanford,D1,ACC,"Pac-12 (thru 2023-24), ACC (2024-present)",https://gostanford.com,https://gostanford.com/sports/womens-soccer,https://stanfordsoccer.com,Verified,Joined ACC fall 2024
+w-soccer-syracuse,Syracuse,D1,ACC,ACC,https://cuse.com,https://cuse.com/sports/womens-soccer,https://cuse.com/sports/2016/4/4/camps.aspx,Verified,
+w-soccer-virginia,Virginia,D1,ACC,ACC,https://virginiasports.com,https://virginiasports.com/sports/womens-soccer,https://virginiasoccercamp.com,Verified,
+w-soccer-virginia-tech,Virginia Tech,D1,ACC,ACC,https://hokiesports.com,https://hokiesports.com/sports/womens-soccer,https://vtwsoccercamps.com,Verified,
+w-soccer-wake-forest,Wake Forest,D1,ACC,ACC,https://godeacs.com,https://godeacs.com/sports/womens-soccer,https://wakeforestsoccercamp.com,Verified,

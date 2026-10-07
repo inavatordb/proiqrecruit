@@ -1,0 +1,27 @@
+coach_id,program_id,first_name,last_name,role,email,phone,verification_status,source_url
+c-bc-1,w-soccer-boston-college,Chris,Chestnut,Head Coach,,617-552-3027,Needs Review,https://bceagles.com/sports/womens-soccer/roster#staff
+c-cal-1,w-soccer-california,Neil,McGuire,Head Coach,,510-643-8180,Needs Review,https://calbears.com/sports/womens-soccer/roster#staff
+c-cal-2,w-soccer-california,Cori,Callahan,Associate Head Coach / Recruiting Coordinator,,510-643-8180,Needs Review,https://calbears.com/sports/womens-soccer/roster#staff
+c-clem-1,w-soccer-clemson,Eddie,Radwanski,Head Coach,eradwan@clemson.edu,,Verified,https://clemsontigers.com/staff-directory/
+c-clem-2,w-soccer-clemson,Jeff,Robbins,Associate Head Coach / Recruiting Coordinator,jrobb22@clemson.edu,,Verified,https://clemsontigers.com/staff-directory/
+c-duke-1,w-soccer-duke,Robbie,Church,Head Coach,,919-684-2668,Needs Review,https://goduke.com/sports/womens-soccer/roster#staff
+c-duke-2,w-soccer-duke,Kieran,Hall,Associate Head Coach / Recruiting Coordinator,,919-684-2668,Needs Review,https://goduke.com/sports/womens-soccer/roster#staff
+c-fsu-1,w-soccer-florida-state,Brian,Pensky,Head Coach,,850-644-2459,Needs Review,https://seminoles.com/sports/womens-soccer/roster#staff
+c-fsu-2,w-soccer-florida-state,Bobby,Shuttleworth,Associate Head Coach / Recruiting Coordinator,,850-644-2459,Needs Review,https://seminoles.com/sports/womens-soccer/roster#staff
+c-lou-1,w-soccer-louisville,Karen,Ferguson-Dayes,Head Coach,karen.dayes@louisville.edu,502-852-0100,Verified,https://gocards.com/staff-directory
+c-lou-2,w-soccer-louisville,Hunter,Norton,Associate Head Coach / Recruiting Coordinator,hunter.norton@louisville.edu,502-852-0100,Verified,https://gocards.com/staff-directory
+c-mia-1,w-soccer-miami,Ken,Maspell,Head Coach,,305-284-4822,Needs Review,https://miamihurricanes.com/sports/womens-soccer/roster#staff
+c-ncst-1,w-soccer-nc-state,Tim,Santoro,Head Coach,tasantor@ncsu.edu,919-513-4127,Verified,https://gopack.com/staff-directory
+c-ncst-2,w-soccer-nc-state,Glen,Tourville,Associate Head Coach / Recruiting Coordinator,gmtourvi@ncsu.edu,919-513-4127,Verified,https://gopack.com/staff-directory
+c-unc-1,w-soccer-north-carolina,Damon,Nahsa,Head Coach,,919-962-4100,Needs Review,https://goheels.com/sports/womens-soccer/roster#staff
+c-und-1,w-soccer-notre-dame,Nate,Norman,Head Coach,,574-631-8462,Needs Review,https://und.com/sports/wsoc/roster#staff
+c-und-2,w-soccer-notre-dame,Dawn,Siergiej,Associate Head Coach / Recruiting Coordinator,,574-631-8462,Needs Review,https://und.com/sports/wsoc/roster#staff
+c-pitt-1,w-soccer-pittsburgh,Randy,Waldrum,Head Coach,,412-648-8200,Needs Review,https://pittsburghpanthers.com/sports/womens-soccer/roster#staff
+c-pitt-2,w-soccer-pittsburgh,Ben,Waldrum,Associate Head Coach / Recruiting Coordinator,,412-648-8200,Needs Review,https://pittsburghpanthers.com/sports/womens-soccer/roster#staff
+c-smu-1,w-soccer-smu,Nicole,Nelson,Head Coach,nnelson@smu.edu,214-768-4094,Verified,https://smumustangs.com/staff-directory
+c-stan-1,w-soccer-stanford,Paul,Ratcliffe,Head Coach,,650-725-5348,Needs Review,https://gostanford.com/sports/womens-soccer/roster#staff
+c-stan-2,w-soccer-stanford,Manya,Janowski,Associate Head Coach / Recruiting Coordinator,,650-725-5348,Needs Review,https://gostanford.com/sports/womens-soccer/roster#staff
+c-syr-1,w-soccer-syracuse,Nicky,Adams,Head Coach,nadams01@syr.edu,315-443-4810,Verified,https://cuse.com/staff-directory
+c-uva-1,w-soccer-virginia,Steve,Swanson,Head Coach,,434-982-5700,Needs Review,https://virginiasports.com/sports/womens-soccer/roster#staff
+c-vt-1,w-soccer-virginia-tech,Chugger,Adair,Head Coach,adairc@vt.edu,540-231-6660,Verified,https://hokiesports.com/staff-directory
+c-wake-1,w-soccer-wake-forest,Tony,da Luz,Head Coach,,336-758-5516,Needs Review,https://godeacs.com/sports/womens-soccer/roster#staff

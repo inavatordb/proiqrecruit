@@ -1,0 +1,11 @@
+program_id,school_name,first_name,last_name,title,email,phone,profile_url,source_url,source_name,source_type,verified,last_verified_at,notes
+ACC_CLEM_WSOC,Clemson,Eddie,Radwanski,Head Coach,eradwan@clemson.edu,,,https://clemsontigers.com/staff-directory/,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_CLEM_WSOC,Clemson,Jeff,Robbins,Associate Head Coach,jeferyr@clemson.edu,,,https://clemsontigers.com/staff-directory/,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_CLEM_WSOC,Clemson,Siri,Mullinix,Assistant Coach,sirim@clemson.edu,,,https://clemsontigers.com/staff-directory/,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_CLEM_WSOC,Clemson,Maryanne,Kilgore,Assistant Coach,kilgor4@clemson.edu,,,https://clemsontigers.com/staff-directory/,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_VT_WSOC,Virginia Tech,Chugger,Adair,Head Coach,,,,https://hokiesports.com/staff-directory,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,Email not printed on the official directory.
+ACC_VT_WSOC,Virginia Tech,Drew,Kopp,Associate Head Coach,drewk@vt.edu,,,https://hokiesports.com/staff-directory,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_VT_WSOC,Virginia Tech,Matt,Gwilliam,Assistant Coach,mattg08@vt.edu,,,https://hokiesports.com/staff-directory,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_VT_WSOC,Virginia Tech,Preston,Burpo,Assistant Coach,,,,https://hokiesports.com/staff-directory,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,Email not printed on the official directory.
+ACC_VT_WSOC,Virginia Tech,Hailey,Williams,Assistant Coach,haileywilliams@vt.edu,,,https://hokiesports.com/staff-directory,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
+ACC_VT_WSOC,Virginia Tech,Katie,Flores,Director of Operations,kflores1@vt.edu,,,https://hokiesports.com/staff-directory,"Official athletics staff directory, read 2026-10-07",official_university,yes,2026-10-07,
