@@ -14,12 +14,12 @@ const STATUSES = ['verified', 'needs_review', 'historical', 'unverified', 'archi
 export default function AdminPage() {
   const { user, isLoadingAuth } = useAuth();
   if (isLoadingAuth) return <Loading />;
-  if (user?.role !== 'admin') return <Empty title="Admins only">Sign in with an admin account to manage the recruiting database. <Link className="text-lime-300" to="/auth?next=/admin">Sign in</Link></Empty>;
+  if (user?.role !== 'admin') return <Empty title="Admins only">Sign in with an admin account to manage the recruiting database. <Link className="text-red-400" to="/auth?next=/admin">Sign in</Link></Empty>;
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between"><h1 className="text-3xl font-black tracking-tight">Recruiting admin</h1><Chip tone="amber">Admin</Chip></div>
       <div className="flex gap-1 overflow-x-auto border-b border-white/10 -mx-4 px-4">
-        {TABS.map(([k, l]) => <NavLink key={k} to={`/admin/${k}`} className={({ isActive }) => `px-3.5 py-2.5 text-sm font-bold border-b-2 -mb-px whitespace-nowrap ${isActive ? 'border-lime-300 text-lime-300' : 'border-transparent text-slate-400 hover:text-white'}`}>{l}</NavLink>)}
+        {TABS.map(([k, l]) => <NavLink key={k} to={`/admin/${k}`} className={({ isActive }) => `px-3.5 py-2.5 text-sm font-bold border-b-2 -mb-px whitespace-nowrap ${isActive ? 'border-red-500 text-red-400' : 'border-transparent text-slate-400 hover:text-white'}`}>{l}</NavLink>)}
       </div>
       <Routes>
         <Route index element={<Navigate to="dashboard" replace />} />
@@ -105,7 +105,7 @@ function Editor({ kind, record, onClose }) {
                   {fd.type === 'select' ? <Select value={f[fd.k] ?? ''} onChange={set(fd.k)}><option value="">—</option>{fd.options.map((o) => <option key={o}>{o}</option>)}</Select>
                     : fd.type === 'tri' ? <Select value={f[fd.k] ?? ''} onChange={set(fd.k)}><option value="">Unknown</option><option value="yes">Yes</option><option value="no">No</option></Select>
                       : fd.type === 'textarea' ? <Textarea rows={3} value={f[fd.k] ?? ''} onChange={set(fd.k)} />
-                        : fd.type === 'check' ? <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" className="accent-lime-300 w-4 h-4" checked={f[fd.k] !== false} onChange={set(fd.k)} />Yes</label>
+                        : fd.type === 'check' ? <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" className="accent-red-500 w-4 h-4" checked={f[fd.k] !== false} onChange={set(fd.k)} />Yes</label>
                           : <Input type={fd.type || 'text'} value={f[fd.k] ?? ''} onChange={set(fd.k)} />}
                 </Field>
               </div>
@@ -165,7 +165,7 @@ function CollectionTab({ fixedKind, defaultStatus }) {
                     </select>
                   </td>
                   <td className="p-3 whitespace-nowrap text-right">
-                    {kind !== 'sources' && <button type="button" onClick={() => setEditing(r)} className="text-lime-300 font-semibold mr-3">Edit</button>}
+                    {kind !== 'sources' && <button type="button" onClick={() => setEditing(r)} className="text-red-400 font-semibold mr-3">Edit</button>}
                     {kind === 'programs' && <Link to={`/schools/${r.slug}`} className="text-slate-300 mr-3">View</Link>}
                     <button type="button" onClick={() => { if (window.confirm('Delete this record permanently?')) del.mutate(r.id, { onError: (er) => toast.error(er.message) }); }} className="text-red-300">Delete</button>
                   </td>
@@ -189,7 +189,7 @@ function VerificationTab() {
   return (
     <div className="space-y-3">
       <div className="text-sm text-slate-400">Work through records that haven't been verified. Mark a record <b>Verified</b> only after checking it against its source link.</div>
-      <div className="flex gap-1.5 flex-wrap">{['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps', 'sources'].map((k) => <button key={k} type="button" onClick={() => setKind(k)} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
+      <div className="flex gap-1.5 flex-wrap">{['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps', 'sources'].map((k) => <button key={k} type="button" onClick={() => setKind(k)} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-red-600 text-white border-red-500' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
       <CollectionTab key={kind} fixedKind={kind} defaultStatus="unverified" />
     </div>
   );
@@ -204,7 +204,7 @@ function PlayersTab() {
     <div className="space-y-2">
       <div className="text-xs text-slate-500">Admins see account summaries only — never a player's private notes, contact history or pipeline.</div>
       <div className={`${C.card} overflow-x-auto`}><table className="w-full text-sm"><thead><tr className="text-left text-xs uppercase tracking-wider text-slate-400 border-b border-white/10"><th className="p-3">Player</th><th className="p-3">Class</th><th className="p-3">State</th><th className="p-3">Schools</th><th className="p-3">Privacy</th><th className="p-3">Joined</th><th className="p-3" /></tr></thead>
-        <tbody>{data.players.map((p) => <tr key={p.id} className="border-b border-white/5"><td className="p-3 font-semibold text-white">{p.name}</td><td className="p-3">{p.grad_year || '—'}</td><td className="p-3">{p.state || '—'}</td><td className="p-3">{p.targets}</td><td className="p-3"><Chip>{p.privacy}</Chip></td><td className="p-3">{fmtDate(p.created_date, { month: 'short', day: 'numeric', year: 'numeric' })}</td><td className="p-3 text-right"><button type="button" className={p.disabled ? 'text-lime-300' : 'text-red-300'} onClick={() => toggle.mutate({ id: p.id, disabled: !p.disabled })}>{p.disabled ? 'Enable' : 'Disable'}</button></td></tr>)}
+        <tbody>{data.players.map((p) => <tr key={p.id} className="border-b border-white/5"><td className="p-3 font-semibold text-white">{p.name}</td><td className="p-3">{p.grad_year || '—'}</td><td className="p-3">{p.state || '—'}</td><td className="p-3">{p.targets}</td><td className="p-3"><Chip>{p.privacy}</Chip></td><td className="p-3">{fmtDate(p.created_date, { month: 'short', day: 'numeric', year: 'numeric' })}</td><td className="p-3 text-right"><button type="button" className={p.disabled ? 'text-red-400' : 'text-red-300'} onClick={() => toggle.mutate({ id: p.id, disabled: !p.disabled })}>{p.disabled ? 'Enable' : 'Disable'}</button></td></tr>)}
           {!data.players.length && <tr><td colSpan={7} className="p-8 text-center text-slate-500">No player accounts yet.</td></tr>}</tbody></table></div>
     </div>
   );
@@ -248,15 +248,15 @@ function ImportsTab() {
   return (
     <div className="space-y-6">
       <div className={`${C.card} p-4 space-y-4`}>
-        <div className="flex flex-wrap gap-1.5">{IMPORT_KINDS.map((k) => <button key={k} type="button" onClick={() => { setKind(k); setPlan(null); }} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
-        <div className="text-sm text-slate-400">Import <b>programs first</b> (each with a stable <code className="text-lime-200">program_id</code> like ACC_DUKE_WSOC), then everything else; the other files point at a program by that <code className="text-lime-200">program_id</code>. Every file is checked first (preview) and nothing is written until you commit. Blank cells never erase existing data; verified records are never overwritten unless you tick the box below. The template's example row is ignored automatically.</div>
+        <div className="flex flex-wrap gap-1.5">{IMPORT_KINDS.map((k) => <button key={k} type="button" onClick={() => { setKind(k); setPlan(null); }} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-red-600 text-white border-red-500' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
+        <div className="text-sm text-slate-400">Import <b>programs first</b> (each with a stable <code className="text-red-300">program_id</code> like ACC_DUKE_WSOC), then everything else; the other files point at a program by that <code className="text-red-300">program_id</code>. Every file is checked first (preview) and nothing is written until you commit. Blank cells never erase existing data; verified records are never overwritten unless you tick the box below. The template's example row is ignored automatically.</div>
         <div className="flex flex-wrap gap-2 items-center">
           <label className="inline-flex"><input type="file" accept=".csv,text/csv" onChange={onFile} className="hidden" /><span className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 text-white px-4 py-2.5 text-[15px] font-semibold cursor-pointer hover:bg-white/15"><Upload className="w-4 h-4" />Choose CSV</span></label>
-          {template && <a download={`${hist?.template_files?.[kind] || kind}.csv`} href={`data:text/csv;charset=utf-8,${encodeURIComponent(template)}`} className="inline-flex items-center gap-2 text-sm text-lime-300 font-semibold"><Download className="w-4 h-4" />Template</a>}
+          {template && <a download={`${hist?.template_files?.[kind] || kind}.csv`} href={`data:text/csv;charset=utf-8,${encodeURIComponent(template)}`} className="inline-flex items-center gap-2 text-sm text-red-400 font-semibold"><Download className="w-4 h-4" />Template</a>}
           {filename && <Chip>{filename}</Chip>}
         </div>
         <Textarea rows={5} value={csv} onChange={(e) => { setCsv(e.target.value); setPlan(null); }} placeholder="…or paste CSV here (first row = column names)" className="font-mono text-xs" />
-        <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" className="accent-lime-300 w-4 h-4" checked={overwrite} onChange={(e) => { setOverwrite(e.target.checked); setPlan(null); }} />Allow overwriting <b>verified</b> records</label>
+        <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" className="accent-red-500 w-4 h-4" checked={overwrite} onChange={(e) => { setOverwrite(e.target.checked); setPlan(null); }} />Allow overwriting <b>verified</b> records</label>
         <div className="flex gap-2"><Btn variant="secondary" disabled={!csv.trim() || run.isPending} onClick={() => doRun(false)}>{run.isPending && <Spinner className="w-4 h-4" />}Preview</Btn>
           <Btn disabled={!plan || plan.blocked || run.isPending || (plan.summary.new + plan.summary.updated + (overwrite ? plan.summary.review : 0)) === 0} onClick={() => { if (window.confirm('Apply this import to the live database?')) doRun(true); }}>Commit import</Btn></div>
       </div>
@@ -272,7 +272,7 @@ function ImportsTab() {
           )}
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
             {[['found', 'Records found', ''], ['new', 'New', 'new'], ['updated', 'Updated', 'update'], ['skipped', 'Skipped', 'skipped'], ['review', 'Need review', 'review'], ['errors', 'Errors', 'error'], ['warnings', 'Warnings', ''], ...(kind === 'coaches' ? [['missing_email', 'Missing email', '']] : [])].map(([k, l, a]) => (
-              <button key={k} type="button" onClick={() => setFilter(filter === a ? '' : a)} className={`rounded-xl border px-3 py-2.5 text-left ${filter === a && a ? 'border-lime-300 bg-lime-300/10' : 'border-white/10 bg-white/5'}`}><div className="text-[11px] uppercase tracking-wider text-slate-400">{l}</div><div className="text-xl font-black text-white">{plan.summary[k]}</div></button>
+              <button key={k} type="button" onClick={() => setFilter(filter === a ? '' : a)} className={`rounded-xl border px-3 py-2.5 text-left ${filter === a && a ? 'border-red-500 bg-red-500/10' : 'border-white/10 bg-white/5'}`}><div className="text-[11px] uppercase tracking-wider text-slate-400">{l}</div><div className="text-xl font-black text-white">{plan.summary[k]}</div></button>
             ))}
           </div>
           <div className={`${C.card} max-h-[420px] overflow-auto`}>

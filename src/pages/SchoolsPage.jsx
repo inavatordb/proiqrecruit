@@ -33,18 +33,11 @@ export default function SchoolsPage() {
   const page = Number(params.page || 1);
 
   const Chipbtn = ({ on, onClick, children }) => (
-    <button type="button" onClick={onClick} aria-pressed={on} className={`rounded-full px-3.5 py-1.5 text-sm font-semibold border transition-colors ${on ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15 hover:bg-white/10'}`}>{children}</button>
+    <button type="button" onClick={onClick} aria-pressed={on} className={`rounded-full px-3.5 py-1.5 text-sm font-semibold border transition-colors ${on ? 'bg-red-600 text-white border-red-500' : 'bg-white/5 text-slate-200 border-white/15 hover:bg-white/10'}`}>{children}</button>
   );
 
   const filters = (
     <div className="space-y-5">
-      <Field label="Level">
-        <div className="flex flex-wrap gap-2">
-          {(meta?.divisions || []).map((d) => (d.count > 0
-            ? <Chipbtn key={d.id} on={csv('division').includes(d.id)} onClick={() => toggleCsv('division', d.id)}>{d.id}</Chipbtn>
-            : <span key={d.id} className="rounded-full px-3.5 py-1.5 text-sm font-semibold bg-white/[0.03] text-slate-600 border border-white/5" title="Coming soon">{d.id} · soon</span>))}
-        </div>
-      </Field>
       <Field label="Region">
         <div className="flex flex-wrap gap-2">{(meta?.regions || []).map((r) => <Chipbtn key={r} on={csv('region').includes(r)} onClick={() => toggleCsv('region', r)}>{r}</Chipbtn>)}</div>
       </Field>
@@ -54,7 +47,7 @@ export default function SchoolsPage() {
       </div>
       {fromState
         ? <Field label={`Within … miles of ${fromState}`} hint="Approximate, measured from the center of your state."><Select value={params.max_distance || ''} onChange={(e) => set({ max_distance: e.target.value })}><option value="">Any distance</option>{[150, 300, 500, 800, 1200].map((m) => <option key={m} value={m}>{m} miles</option>)}</Select></Field>
-        : <div className="text-xs text-slate-500">Add your state in <Link className="underline text-lime-300" to="/profile">your profile</Link> to filter by distance.</div>}
+        : <div className="text-xs text-slate-500">Add your state in <Link className="underline text-red-400" to="/profile">your profile</Link> to filter by distance.</div>}
       {TOGGLES.map(([title, items]) => (
         <Field key={title} label={title}>
           <div className="flex flex-wrap gap-2">{items.map(([k, l]) => <Chipbtn key={k} on={!!params[k]} onClick={() => set({ [k]: params[k] ? '' : '1' })}>{l}</Chipbtn>)}</div>
@@ -73,8 +66,17 @@ export default function SchoolsPage() {
     <div className="space-y-5">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-black tracking-tight">Find a program</h1>
-          <div className="text-slate-400 text-sm">{data ? `${data.total.toLocaleString()} women's soccer programs` : "Women's soccer programs"}</div>
+          <h1 className="text-white">Find a program</h1>
+          <div className="text-slate-300 text-sm font-semibold"><span className="text-red-500 font-black">{data ? data.total.toLocaleString() : '…'}</span> women's <span className="text-red-500">soccer</span> programs</div>
+        </div>
+        <div className="flex items-center gap-3 self-start sm:self-end">
+          <span className="text-sm font-bold text-slate-200">Level</span>
+          <div className="flex rounded-full p-1 bg-black/50 border border-white/15 shadow-[inset_0_2px_6px_rgba(0,0,0,.6)]" role="group" aria-label="Level">
+            {(meta?.divisions || []).filter((d) => d.count > 0).map((d) => {
+              const on = csv('division').includes(d.id);
+              return <button key={d.id} type="button" aria-pressed={on} onClick={() => toggleCsv('division', d.id)} className={`rounded-full px-5 py-1.5 text-sm font-black italic ${on ? 'bg-gradient-to-b from-red-500 to-red-700 text-white shadow-[0_1px_0_rgba(255,255,255,.3)_inset]' : 'text-slate-300 hover:text-white'}`}>{d.id}</button>;
+            })}
+          </div>
         </div>
         <div className="flex gap-2">
           <div className="relative flex-1 sm:w-72"><Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" /><input value={params.q || ''} onChange={(e) => set({ q: e.target.value })} placeholder="School, city, nickname…" className={`${C.input} pl-9`} /></div>
@@ -84,7 +86,7 @@ export default function SchoolsPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 items-start">
-        <aside className={`${C.card} p-4 hidden lg:block sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto`}>{filters}</aside>
+        <aside className={`${C.card} !border-red-600/70 relative p-4 pt-6 hidden lg:block sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto`}><span className="absolute -top-px left-1/2 -translate-x-1/2 px-5 py-0.5 text-[11px] font-black italic tracking-[.2em] text-slate-200 bg-gradient-to-b from-[#34363d] to-[#1a1c21] border border-white/15 border-t-0 rounded-b-md">FILTERS</span>{filters}</aside>
         {open && (
           <div className="fixed inset-0 z-50 lg:hidden bg-black/70" onClick={() => setOpen(false)}>
             <div className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto rounded-t-3xl bg-[#0b1426] border-t border-white/15 p-5 pb-8" onClick={(e) => e.stopPropagation()}>

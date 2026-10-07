@@ -11,10 +11,10 @@ const cost = (c) => (c ? (/^\d+(\.\d+)?$/.test(c) ? `$${c}` : c) : '');
 export function CampMeta({ camp }) {
   return (
     <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-300">
-      <span className="inline-flex items-center gap-1.5"><CalendarDays className="w-4 h-4 text-lime-300" />{fmtDateLong(camp.camp_date)}{camp.end_date && camp.end_date !== camp.camp_date ? ` – ${fmtDateLong(camp.end_date)}` : ''}</span>
-      {camp.location && <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4 text-lime-300" />{camp.location}</span>}
-      {camp.cost && <span className="inline-flex items-center gap-1.5"><DollarSign className="w-4 h-4 text-lime-300" />{cost(camp.cost)}</span>}
-      {(camp.age_range || camp.graduation_years?.length > 0) && <span className="inline-flex items-center gap-1.5"><Users className="w-4 h-4 text-lime-300" />{[camp.age_range, camp.graduation_years?.length ? `Class of ${camp.graduation_years.join(', ')}` : ''].filter(Boolean).join(' · ')}</span>}
+      <span className="inline-flex items-center gap-1.5"><CalendarDays className="w-4 h-4 text-red-400" />{fmtDateLong(camp.camp_date)}{camp.end_date && camp.end_date !== camp.camp_date ? ` – ${fmtDateLong(camp.end_date)}` : ''}</span>
+      {camp.location && <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4 text-red-400" />{camp.location}</span>}
+      {camp.cost && <span className="inline-flex items-center gap-1.5"><DollarSign className="w-4 h-4 text-red-400" />{cost(camp.cost)}</span>}
+      {(camp.age_range || camp.graduation_years?.length > 0) && <span className="inline-flex items-center gap-1.5"><Users className="w-4 h-4 text-red-400" />{[camp.age_range, camp.graduation_years?.length ? `Class of ${camp.graduation_years.join(', ')}` : ''].filter(Boolean).join(' · ')}</span>}
     </div>
   );
 }
@@ -29,7 +29,7 @@ export function CampRow({ camp, program, workspace, signedIn, showSchool = true 
     <div className={`${C.card} p-4 space-y-2.5`}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <Link to={`/camps/${camp.id}`} className="font-black text-white text-lg leading-tight hover:text-lime-300">{camp.camp_name}</Link>
+          <Link to={`/camps/${camp.id}`} className="font-black text-white text-lg leading-tight hover:text-red-400">{camp.camp_name}</Link>
           <div className="flex flex-wrap gap-1.5 mt-1.5">
             <Chip tone="lime">Official University Camp</Chip><Chip>{camp.camp_type}</Chip>
             {showSchool && school && <Link to={`/schools/${school.slug}`}><Chip tone="sky">{school.school_name}</Chip></Link>}
@@ -44,7 +44,7 @@ export function CampRow({ camp, program, workspace, signedIn, showSchool = true 
       <div className="flex flex-wrap items-center gap-2 pt-1">
         {camp.registration_url && <a href={camp.registration_url} target="_blank" rel="noopener noreferrer nofollow"><Btn size="sm">Register <ExtIcon className="w-3.5 h-3.5" /></Btn></a>}
         {camp.official_camp_url && <a href={camp.official_camp_url} target="_blank" rel="noopener noreferrer nofollow"><Btn variant="secondary" size="sm">School camp page</Btn></a>}
-        {camp.contact_email && <a href={`mailto:${camp.contact_email}`} className="text-sm text-lime-300 font-semibold">{camp.contact_email}</a>}
+        {camp.contact_email && <a href={`mailto:${camp.contact_email}`} className="text-sm text-red-400 font-semibold">{camp.contact_email}</a>}
         {camp.upcoming && (
           <Select value={mine?.status || ''} onChange={(e) => { if (!need()) return; if (e.target.value) track.mutate(e.target.value); }} className="!w-auto !py-1.5 !text-sm ml-auto" aria-label="Track this camp">
             <option value="">Track camp…</option><option value="interested">Interested</option><option value="registered">Registered</option><option value="attended">Attended</option>
@@ -116,15 +116,15 @@ export function CampPage() {
   const { id } = useParams();
   const { data: camp, isLoading, error } = useQuery({ queryKey: ['rc', 'camp', id], queryFn: () => rc.get(`/camps/${id}`) });
   if (isLoading) return <Loading />;
-  if (error) return <div className="space-y-3"><ErrorBox error={error} /><Link to="/camps" className="text-lime-300 font-semibold">← All camps</Link></div>;
+  if (error) return <div className="space-y-3"><ErrorBox error={error} /><Link to="/camps" className="text-red-400 font-semibold">← All camps</Link></div>;
   return (
     <div className="max-w-2xl mx-auto space-y-4">
-      <Link to="/camps" className="text-sm text-lime-300 font-semibold">← All camps</Link>
+      <Link to="/camps" className="text-sm text-red-400 font-semibold">← All camps</Link>
       <div className={`${C.card} p-5 space-y-4`}>
         <div className="flex flex-wrap gap-1.5"><Chip tone="lime">Official University Camp</Chip><Chip>{camp.camp_type}</Chip>{camp.program && <DivisionChip division={camp.program.division} />}
           {camp.verification_status === 'verified' ? <VerificationBadge status="verified" /> : <Chip tone="amber"><ShieldAlert className="w-3 h-3" />Camp information not verified</Chip>}</div>
         <h1 className="text-3xl font-black tracking-tight">{camp.camp_name}</h1>
-        {camp.program && <Link to={`/schools/${camp.program.slug}`} className="text-lg text-lime-300 font-semibold block">{camp.program.school_name} Women's Soccer →</Link>}
+        {camp.program && <Link to={`/schools/${camp.program.slug}`} className="text-lg text-red-400 font-semibold block">{camp.program.school_name} Women's Soccer →</Link>}
         <CampMeta camp={camp} />
         {camp.registration_deadline && <div className="text-sm text-amber-200">Registration deadline: {fmtDateLong(camp.registration_deadline)}</div>}
         {camp.description && <p className="text-slate-300 leading-relaxed whitespace-pre-line">{camp.description}</p>}
@@ -133,7 +133,7 @@ export function CampPage() {
           {camp.official_camp_url && <a href={camp.official_camp_url} target="_blank" rel="noopener noreferrer nofollow"><Btn variant="secondary">Official camp page</Btn></a>}
           <ShareButton url={`/camps/${camp.id}`} title={camp.camp_name} />
         </div>
-        {camp.contact_email && <div className="text-sm">Contact: <a className="text-lime-300 font-semibold" href={`mailto:${camp.contact_email}`}>{camp.contact_email}</a>{camp.contact_phone ? ` · ${camp.contact_phone}` : ''}</div>}
+        {camp.contact_email && <div className="text-sm">Contact: <a className="text-red-400 font-semibold" href={`mailto:${camp.contact_email}`}>{camp.contact_email}</a>{camp.contact_phone ? ` · ${camp.contact_phone}` : ''}</div>}
         {camp.source_url && <div className="text-xs text-slate-500">Source: <ExtLink href={camp.source_url}>{camp.source_url.replace(/^https?:\/\//, '').slice(0, 70)}</ExtLink>{camp.last_verified_at ? ` · verified ${fmtDate(camp.last_verified_at, { month: 'short', day: 'numeric', year: 'numeric' })}` : ''}</div>}
       </div>
     </div>

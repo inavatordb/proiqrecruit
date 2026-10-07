@@ -51,7 +51,7 @@ export default function AuthPage() {
         <Btn type="submit" size="lg" className="w-full" disabled={busy}>{busy && <Spinner className="w-4 h-4" />}{mode === 'signup' ? 'Create account' : 'Sign in'}</Btn>
         {mode === 'signup' && <p className="text-xs text-slate-500 text-center">Your list, notes and contact history are private to your account.</p>}
       </form>
-      <button type="button" className="block mx-auto text-sm text-lime-300 font-semibold" onClick={() => { setMode(mode === 'signup' ? 'login' : 'signup'); setError(null); }}>
+      <button type="button" className="block mx-auto text-sm text-red-400 font-semibold" onClick={() => { setMode(mode === 'signup' ? 'login' : 'signup'); setError(null); }}>
         {mode === 'signup' ? 'Already have an account? Sign in' : 'New here? Create an account'}
       </button>
     </div>

@@ -70,12 +70,12 @@ export default function MyListPage() {
 
       <div className="flex gap-1 border-b border-white/10 overflow-x-auto">
         {TABS.map(([k, l]) => (
-          <button key={k} type="button" onClick={() => setTab(k)} className={`px-4 py-2.5 text-sm font-bold border-b-2 -mb-px whitespace-nowrap ${tab === k ? 'border-lime-300 text-lime-300' : 'border-transparent text-slate-400 hover:text-white'}`}>{l}</button>
+          <button key={k} type="button" onClick={() => setTab(k)} className={`px-4 py-2.5 text-sm font-bold border-b-2 -mb-px whitespace-nowrap ${tab === k ? 'border-red-500 text-red-400' : 'border-transparent text-slate-400 hover:text-white'}`}>{l}</button>
         ))}
       </div>
 
       {cards.length === 0 && tab !== 'activity' ? (
-        <Empty title="Your list is empty">Find a program and tap “Add to My List”. <Link to="/schools" className="text-lime-300 font-semibold">Browse schools →</Link></Empty>
+        <Empty title="Your list is empty">Find a program and tap “Add to My List”. <Link to="/schools" className="text-red-400 font-semibold">Browse schools →</Link></Empty>
       ) : (
         <>
           {tab === 'schools' && (
@@ -103,13 +103,13 @@ export default function MyListPage() {
                   {STAGES.map((s) => (
                     <Droppable droppableId={s} key={s}>
                       {(prov, snap) => (
-                        <div ref={prov.innerRef} {...prov.droppableProps} className={`snap-start shrink-0 w-64 rounded-2xl border p-2.5 min-h-[160px] ${snap.isDraggingOver ? 'border-lime-300/60 bg-lime-300/5' : 'border-white/10 bg-[#0a1222]'}`}>
+                        <div ref={prov.innerRef} {...prov.droppableProps} className={`snap-start shrink-0 w-64 rounded-2xl border p-2.5 min-h-[160px] ${snap.isDraggingOver ? 'border-red-500/60 bg-red-500/5' : 'border-white/10 bg-[#0a1222]'}`}>
                           <div className="flex items-center justify-between px-1.5 pb-2"><div className="text-xs font-black uppercase tracking-wider text-slate-300">{STAGE_LABEL[s]}</div><span className="text-xs text-slate-500">{byStage(s).length}</span></div>
                           <div className="space-y-2">
                             {byStage(s).map((c, i) => (
                               <Draggable draggableId={c.target_id} index={i} key={c.target_id}>
                                 {(p2, sn2) => (
-                                  <div ref={p2.innerRef} {...p2.draggableProps} {...p2.dragHandleProps} style={p2.draggableProps.style} className={`rounded-xl border p-3 bg-[#10192d] ${sn2.isDragging ? 'border-lime-300 shadow-xl' : 'border-white/10'}`}>
+                                  <div ref={p2.innerRef} {...p2.draggableProps} {...p2.dragHandleProps} style={p2.draggableProps.style} className={`rounded-xl border p-3 bg-[#10192d] ${sn2.isDragging ? 'border-red-500 shadow-xl' : 'border-white/10'}`}>
                                     <Link to={`/schools/${c.school.slug}`} className="font-bold text-white text-sm leading-tight block">{c.school.school_name}</Link>
                                     <div className="flex flex-wrap gap-1 mt-1.5"><DivisionChip division={c.school.division} />{c.school.best_ranking && <Chip>#{c.school.best_ranking.rank}</Chip>}</div>
                                     {c.last_contact && <div className="text-[11px] text-slate-400 mt-1.5">Last: {fmtDate(c.last_contact.contacted_at)}</div>}

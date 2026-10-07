@@ -16,11 +16,11 @@ export default function SharedPages({ kind }) {
     retry: false,
   });
   if (isLoading) return <Loading />;
-  if (error) return <div className="max-w-md mx-auto text-center space-y-3 py-12"><ErrorBox error={error} /><Link to="/"><Btn variant="secondary">Back to Recruit</Btn></Link></div>;
+  if (error) return <div className="max-w-md mx-auto text-center space-y-3 py-12"><ErrorBox error={error} /><Link to="/"><Btn variant="secondary">Back to Pro IQ Recruits</Btn></Link></div>;
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div className={`${C.card} p-6 space-y-4`}>
-        <div className="text-xs font-bold uppercase tracking-widest text-lime-300">{kind === 'list' ? 'Recruiting target list' : "Women's soccer recruiting profile"}</div>
+        <div className="text-xs font-bold uppercase tracking-widest text-red-400">{kind === 'list' ? 'Recruiting target list' : "Women's soccer recruiting profile"}</div>
         <h1 className="text-4xl font-black tracking-tight">{p.name}</h1>
         <div className="flex flex-wrap gap-2">
           {p.grad_year && <Chip tone="lime"><GraduationCap className="w-3 h-3" />Class of {p.grad_year}</Chip>}
@@ -45,7 +45,7 @@ export default function SharedPages({ kind }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {p.target_schools.map((s) => (
               <Link key={s.slug} to={`/schools/${s.slug}`} className={`${C.card} ${C.cardHover} p-3 flex items-center gap-3`}>
-                <School className="w-5 h-5 text-lime-300 shrink-0" />
+                <School className="w-5 h-5 text-red-400 shrink-0" />
                 <div className="min-w-0"><div className="font-bold text-white truncate">{s.school_name}</div><div className="text-xs text-slate-400 truncate">{s.conference} · {s.state}</div></div>
                 <DivisionChip division={s.division} />
               </Link>

@@ -16,7 +16,7 @@ const ROWS = [
   ['Best ranking', (s) => (s.best_ranking ? `#${s.best_ranking.rank} (${s.best_ranking.season})` : 'Not ranked')],
   ['NCAA tournament', (s) => (s.ncaa_recent ? 'Yes, recently' : s.recent_seasons.length ? 'Not recently' : '—')],
   ['Head coach', (s) => s.head_coach?.name || '—'],
-  ['Coach email', (s) => (s.head_coach?.email ? <a className="text-lime-300 font-semibold break-all" href={`mailto:${s.head_coach.email}`}>{s.head_coach.email}</a> : <span className="text-slate-500 italic">Not publicly listed</span>)],
+  ['Coach email', (s) => (s.head_coach?.email ? <a className="text-red-400 font-semibold break-all" href={`mailto:${s.head_coach.email}`}>{s.head_coach.email}</a> : <span className="text-slate-500 italic">Not publicly listed</span>)],
   ['Recruiting coordinator', (s) => (s.has_recruiting_coordinator ? 'Listed' : '—')],
   ['Runs ID camps', (s) => (s.has_id_camps ? 'Yes' : '—')],
   ['Next camp', (s) => (s.next_camp ? `${s.next_camp.camp_name} · ${s.next_camp.camp_date}` : '—')],
@@ -27,7 +27,7 @@ export default function ComparePage() {
   const [sp] = useSearchParams();
   const ids = sp.get('ids') || '';
   const { data, isLoading, error } = useQuery({ queryKey: ['rc', 'compare', ids], queryFn: () => rc.get('/programs/compare', { ids }), enabled: !!ids });
-  if (!ids) return <Empty title="Nothing to compare yet">Pick two to four schools with “Compare” on the schools page. <Link to="/schools" className="text-lime-300 font-semibold">Browse schools →</Link></Empty>;
+  if (!ids) return <Empty title="Nothing to compare yet">Pick two to four schools with “Compare” on the schools page. <Link to="/schools" className="text-red-400 font-semibold">Browse schools →</Link></Empty>;
   if (isLoading) return <Loading />;
   if (error) return <ErrorBox error={error} />;
   const list = data.programs;
@@ -38,7 +38,7 @@ export default function ComparePage() {
         <table className="w-full text-sm min-w-[560px]">
           <thead>
             <tr className="border-b border-white/10"><th className="p-3 w-36" />{list.map((s) => (
-              <th key={s.id} className="p-3 text-left align-top"><Link to={`/schools/${s.slug}`} className="font-black text-white text-base hover:text-lime-300">{s.school_name}</Link><div className="mt-2"><SaveButton program={s} /></div></th>
+              <th key={s.id} className="p-3 text-left align-top"><Link to={`/schools/${s.slug}`} className="font-black text-white text-base hover:text-red-400">{s.school_name}</Link><div className="mt-2"><SaveButton program={s} /></div></th>
             ))}</tr>
           </thead>
           <tbody>

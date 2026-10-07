@@ -56,7 +56,7 @@ export default function ProfilePage() {
   const p = data.profile;
   const sharePage = p.slug && p.privacy !== 'private' ? `/player/${p.slug}${p.privacy === 'unlisted' ? `?t=${p.share_token}` : ''}` : null;
   const Chipbtn = ({ on, onClick, children }) => (
-    <button type="button" onClick={onClick} aria-pressed={on} className={`rounded-lg px-3 py-1.5 text-sm font-bold border ${on ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15'}`}>{children}</button>
+    <button type="button" onClick={onClick} aria-pressed={on} className={`rounded-lg px-3 py-1.5 text-sm font-bold border ${on ? 'bg-red-600 text-white border-red-500' : 'bg-white/5 text-slate-200 border-white/15'}`}>{children}</button>
   );
 
   return (
@@ -107,21 +107,21 @@ export default function ProfilePage() {
         <div className={`${C.card} p-4 space-y-4`}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {PRIVACY.map(([v, Icon, label, desc]) => (
-              <button key={v} type="button" onClick={() => setF((x) => ({ ...x, privacy: v }))} aria-pressed={f.privacy === v} className={`text-left rounded-xl border p-3 ${f.privacy === v ? 'border-lime-300 bg-lime-300/10' : 'border-white/15 bg-white/5'}`}>
-                <div className="flex items-center gap-2 font-bold text-white"><Icon className="w-4 h-4 text-lime-300" />{label}</div><div className="text-xs text-slate-400 mt-1">{desc}</div>
+              <button key={v} type="button" onClick={() => setF((x) => ({ ...x, privacy: v }))} aria-pressed={f.privacy === v} className={`text-left rounded-xl border p-3 ${f.privacy === v ? 'border-red-500 bg-red-500/10' : 'border-white/15 bg-white/5'}`}>
+                <div className="flex items-center gap-2 font-bold text-white"><Icon className="w-4 h-4 text-red-400" />{label}</div><div className="text-xs text-slate-400 mt-1">{desc}</div>
               </button>
             ))}
           </div>
           <Field label="Display name on your shared page" hint="Leave blank to show first name + last initial, e.g. “Ava S.”"><Input value={f.display_name || ''} onChange={set('display_name')} /></Field>
-          <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" checked={!!f.share_list} onChange={(e) => setF((x) => ({ ...x, share_list: e.target.checked }))} className="accent-lime-300 w-4 h-4" />Include my target school names (no notes, stages or contact history)</label>
-          <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" checked={!!f.public_show_gpa} onChange={(e) => setF((x) => ({ ...x, public_show_gpa: e.target.checked }))} className="accent-lime-300 w-4 h-4" />Show my GPA on my shared page</label>
+          <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" checked={!!f.share_list} onChange={(e) => setF((x) => ({ ...x, share_list: e.target.checked }))} className="accent-red-500 w-4 h-4" />Include my target school names (no notes, stages or contact history)</label>
+          <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" checked={!!f.public_show_gpa} onChange={(e) => setF((x) => ({ ...x, public_show_gpa: e.target.checked }))} className="accent-red-500 w-4 h-4" />Show my GPA on my shared page</label>
           {f.privacy !== 'private' && !p.onboarded && <div className="text-xs text-amber-200">Save your profile first to get your share links.</div>}
           {sharePage && (
             <div className="rounded-xl bg-white/5 p-3 space-y-2">
               <div className="text-xs text-slate-400">Your player page</div>
-              <div className="text-sm text-lime-300 break-all">{window.location.origin}{sharePage}</div>
+              <div className="text-sm text-red-400 break-all">{window.location.origin}{sharePage}</div>
               <div className="flex gap-2 flex-wrap"><ShareButton url={sharePage} title="My soccer recruiting profile" label="Share profile" /><Btn variant="ghost" size="sm" onClick={() => { if (window.confirm('Create a new link? The old one will stop working.')) rotate.mutate(); }}>Reset link</Btn></div>
-              {p.share_list && <div className="text-xs text-slate-400 pt-1">List link: <span className="text-lime-300 break-all">{window.location.origin}/list/{p.share_token}</span></div>}
+              {p.share_list && <div className="text-xs text-slate-400 pt-1">List link: <span className="text-red-400 break-all">{window.location.origin}/list/{p.share_token}</span></div>}
             </div>
           )}
         </div>

@@ -27,7 +27,7 @@ export default function SchoolPage() {
   const { slug } = useParams();
   const { data, isLoading, error } = useProgram(slug);
   if (isLoading) return <Loading />;
-  if (error) return <div className="space-y-4"><ErrorBox error={error} /><Link to="/schools" className="text-lime-300 font-semibold">← Back to schools</Link></div>;
+  if (error) return <div className="space-y-4"><ErrorBox error={error} /><Link to="/schools" className="text-red-400 font-semibold">← Back to schools</Link></div>;
   const { program: p, summary, coaches, seasons, rankings, camps, id_appearances: ids, sources, workspace, viewer } = data;
   const recent = seasons.filter((s) => s.completed).slice(0, 3);
   const years = data.recent_season_years;
@@ -48,7 +48,7 @@ export default function SchoolPage() {
         <div className="flex items-start gap-4">
           <SchoolAvatar school={p} size="w-16 h-16 sm:w-20 sm:h-20" />
           <div className="min-w-0 flex-1">
-            <div className="text-xs font-bold uppercase tracking-widest text-lime-300">{p.sport_label}</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-red-400">{p.sport_label}</div>
             <h1 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">{p.school_name}</h1>
             <div className="text-slate-300 mt-0.5">{p.official_school_name !== p.school_name ? `${p.official_school_name} · ` : ''}{p.nickname}</div>
             <div className="flex flex-wrap items-center gap-2 mt-2">
@@ -120,7 +120,7 @@ export default function SchoolPage() {
               {list.map((c) => (
                 <div key={c.id} className={`${C.card} p-4 space-y-1.5`}>
                   <div className="flex items-start justify-between gap-2">
-                    <div><div className="font-black text-white text-lg leading-tight">{c.first_name} {c.last_name}</div><div className="text-sm text-lime-200">{c.title || c.role_label}</div></div>
+                    <div><div className="font-black text-white text-lg leading-tight">{c.first_name} {c.last_name}</div><div className="text-sm text-red-300">{c.title || c.role_label}</div></div>
                     <Trust status={c.verification_status} admin={viewer.is_admin} />
                   </div>
                   <CoachEmail email={c.email} />
@@ -150,16 +150,16 @@ export default function SchoolPage() {
               {recent.map((s) => (
                 <div key={s.id} className={`${C.card} p-4 flex items-start justify-between gap-4`}>
                   <div>
-                    <div className="text-sm font-bold text-lime-300 flex items-center gap-2">{s.season}<Trust status={s.verification_status} admin={viewer.is_admin} /></div>
+                    <div className="text-sm font-bold text-red-400 flex items-center gap-2">{s.season}<Trust status={s.verification_status} admin={viewer.is_admin} /></div>
                     <div className="text-3xl font-black">{s.record || '—'}</div>
                   </div>
                   <div className="text-sm text-slate-300 space-y-1 text-right">
                     {s.conference_that_season && s.conference_that_season !== p.conference && <div className="text-slate-400">Then in the {s.conference_that_season}</div>}
                     {s.conference_record && <div>Conference: {s.conference_record}</div>}
-                    {s.conference_champion && <div className="text-lime-300 font-semibold">Conference Champion</div>}
+                    {s.conference_champion && <div className="text-red-400 font-semibold">Conference Champion</div>}
                     {!s.conference_champion && s.conference_finish && <div>Conference finish: {s.conference_finish}</div>}
                     {s.conference_tournament_result && <div>Conf. tournament: {s.conference_tournament_result}</div>}
-                    {ncaaLine(s) && <div className={s.ncaa_tournament_appearance ? 'text-lime-200 font-semibold' : 'text-slate-500'}>{ncaaLine(s)}</div>}
+                    {ncaaLine(s) && <div className={s.ncaa_tournament_appearance ? 'text-red-300 font-semibold' : 'text-slate-500'}>{ncaaLine(s)}</div>}
                     {s.goals_for != null && <div className="text-slate-400">GF {s.goals_for} · GA {s.goals_against ?? '—'}</div>}
                     {s.source_url && <ExtLink href={s.source_url} className="text-xs inline-flex items-center gap-1">Source <ExternalLink className="w-3 h-3" /></ExtLink>}
                   </div>
@@ -188,7 +188,7 @@ export default function SchoolPage() {
             const row = rankings.find((r) => r.season === yr);
             return (
               <div key={yr} className={`${C.card} p-4 space-y-2`}>
-                <div className="text-sm font-bold text-lime-300">{yr}</div>
+                <div className="text-sm font-bold text-red-400">{yr}</div>
                 {row ? row.organizations.map((o) => (
                   <div key={o.organization} className="text-sm">
                     <div className="text-xs text-slate-400">{o.organization}</div>
@@ -230,7 +230,7 @@ export default function SchoolPage() {
       <Section title="Academics & location" id="academics">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className={`${C.card} p-4 space-y-2`}>
-            <div className="flex items-center gap-2 font-black"><GraduationCap className="w-5 h-5 text-lime-300" />Academics</div>
+            <div className="flex items-center gap-2 font-black"><GraduationCap className="w-5 h-5 text-red-400" />Academics</div>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div className="text-slate-400">Type</div><div>{[p.public_private, p.school_type].filter(Boolean).join(' · ') || '—'}</div>
               <div className="text-slate-400">Enrollment</div><div>{p.enrollment ? p.enrollment.toLocaleString() : '—'}</div>
@@ -242,10 +242,10 @@ export default function SchoolPage() {
             {p.admissions_url && <ExtLink href={p.admissions_url} className="text-sm">Admissions information →</ExtLink>}
           </div>
           <div className={`${C.card} p-4 space-y-2`}>
-            <div className="flex items-center gap-2 font-black"><MapPin className="w-5 h-5 text-lime-300" />Location</div>
+            <div className="flex items-center gap-2 font-black"><MapPin className="w-5 h-5 text-red-400" />Location</div>
             <div className="text-lg font-bold">{places || '—'}</div>
             <div className="text-sm text-slate-400">{p.region}</div>
-            <a className="text-sm text-lime-300 font-semibold" target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/search/${encodeURIComponent(`${p.official_school_name} ${places}`)}`}>Open in Maps →</a>
+            <a className="text-sm text-red-400 font-semibold" target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/search/${encodeURIComponent(`${p.official_school_name} ${places}`)}`}>Open in Maps →</a>
           </div>
         </div>
       </Section>
@@ -253,7 +253,7 @@ export default function SchoolPage() {
       <Section title="Official links" id="links">
         <div className="flex flex-wrap gap-2">
           {[['School website', p.school_website], ['Athletics', p.athletics_website], ["Women's soccer", p.team_website], ['Roster', p.roster_url], ['Schedule', p.schedule_url], ['Camps', p.camps_url], ['Admissions', p.admissions_url]]
-            .filter(([, u]) => u).map(([l, u]) => <a key={l} href={u} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1.5 rounded-xl bg-white/10 border border-white/15 text-white px-3.5 py-2 text-sm font-semibold hover:bg-white/15"><Link2 className="w-4 h-4 text-lime-300" />{l}</a>)}
+            .filter(([, u]) => u).map(([l, u]) => <a key={l} href={u} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1.5 rounded-xl bg-white/10 border border-white/15 text-white px-3.5 py-2 text-sm font-semibold hover:bg-white/15"><Link2 className="w-4 h-4 text-red-400" />{l}</a>)}
           {![p.school_website, p.athletics_website, p.team_website, p.roster_url, p.schedule_url, p.camps_url].some(Boolean) && <div className="text-sm text-slate-400">Official links haven't been added yet — search "{p.official_school_name} women's soccer" to find the program page.</div>}
         </div>
       </Section>

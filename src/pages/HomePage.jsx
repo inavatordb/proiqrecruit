@@ -26,7 +26,7 @@ export default function HomePage() {
   return (
     <div className="space-y-10">
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0f2a1d] via-[#0b1830] to-[#060b16] p-6 sm:p-10">
-        <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-lime-300/10 blur-3xl" />
+        <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-red-500/10 blur-3xl" />
         <div className="relative max-w-2xl space-y-5">
           <Chip tone="lime">Women's Soccer · NCAA D1 & D2</Chip>
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-[1.05]">Find the program.<br />Run your own recruiting.</h1>
@@ -47,7 +47,7 @@ export default function HomePage() {
       </div>
 
       {isAuthenticated && dash && (
-        <Section title={`Your recruiting${user?.full_name ? ` · ${user.full_name.split(' ')[0]}` : ''}`} action={<Link to="/my-list" className="text-sm font-semibold text-lime-300 inline-flex items-center gap-1">Open My List <ArrowRight className="w-4 h-4" /></Link>}>
+        <Section title={`Your recruiting${user?.full_name ? ` · ${user.full_name.split(' ')[0]}` : ''}`} action={<Link to="/my-list" className="text-sm font-semibold text-red-400 inline-flex items-center gap-1">Open My List <ArrowRight className="w-4 h-4" /></Link>}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Stat label="Schools saved" value={dash.cards.length} />
             <Stat label="In contact" value={(pipeline.contacted || 0) + (pipeline.coach_responded || 0)} sub={`${pipeline.coach_responded || 0} responded`} />
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {STEPS.map(([Icon, t, d], i) => (
             <div key={t} className={`${C.card} p-4 space-y-2`}>
-              <div className="flex items-center gap-2"><span className="w-8 h-8 rounded-lg bg-lime-300/15 text-lime-300 flex items-center justify-center"><Icon className="w-4 h-4" /></span><span className="text-xs font-bold text-slate-500">0{i + 1}</span></div>
+              <div className="flex items-center gap-2"><span className="w-8 h-8 rounded-lg bg-red-500/15 text-red-400 flex items-center justify-center"><Icon className="w-4 h-4" /></span><span className="text-xs font-bold text-slate-500">0{i + 1}</span></div>
               <div className="font-black text-white">{t}</div>
               <div className="text-sm text-slate-400">{d}</div>
             </div>
@@ -87,11 +87,11 @@ export default function HomePage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className={`${C.card} p-5 space-y-2`}>
-          <div className="flex items-center gap-2 font-black"><BookOpenCheck className="w-5 h-5 text-lime-300" />Sourced, never guessed</div>
+          <div className="flex items-center gap-2 font-black"><BookOpenCheck className="w-5 h-5 text-red-400" />Sourced, never guessed</div>
           <p className="text-sm text-slate-400">Every record links back to where it came from. If a coach's email isn't publicly listed, we say so instead of guessing — and official university camps are always kept separate from third-party ID events.</p>
         </div>
         <div className={`${C.card} p-5 space-y-2`}>
-          <div className="flex items-center gap-2 font-black"><Users className="w-5 h-5 text-lime-300" />Built to grow</div>
+          <div className="flex items-center gap-2 font-black"><Users className="w-5 h-5 text-red-400" />Built to grow</div>
           <p className="text-sm text-slate-400">D1 and D2 women's soccer first. D3, NAIA and junior college programs — and more sports — are on the way.</p>
         </div>
       </div>

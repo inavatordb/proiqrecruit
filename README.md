@@ -147,3 +147,10 @@ Pages: `/` · `/schools` · `/schools/:slug` · `/camps` · `/camps/:id` · `/my
 A supplied ACC research file was checked before import and mostly rejected — see `data/import/acc/REVIEW.md` for what failed and what was loaded instead
 (sourced final polls for every D1 program, ACC season records/staff from Wikipedia season pages, official-directory staff for Clemson and Virginia Tech).
 Everything loaded this way is **Needs Review** (shown as "Unverified" on the site) until an admin checks it against the official page.
+
+## Logos
+
+`programs.logo_url` shows on school cards and pages (initials tile if missing or broken). `npm run` is not needed: `server/seeds/recruiting/programs-logos.csv`
+was built by `node server/scripts/build-recruiting-logos.mjs` from each program's Wikipedia athletics page (D1: 337/349, D2: 40/259), skipping conference logos and photos.
+**Licensing:** school logos are the institutions' trademarks and mostly non-free images. Hot-linking them is for development/beta — before a commercial launch,
+replace `logo_url` with assets you have permission to use (athletics media kits) via the programs CSV import (`logo_url` column).

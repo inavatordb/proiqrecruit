@@ -35,7 +35,7 @@ export default function Workspace({ program, coaches, workspace }) {
 
   return (
     <Section title={`My recruiting · ${program.school_name}`} id="mine">
-      <div className={`${C.card} p-4 space-y-5 border-lime-300/20`}>
+      <div className={`${C.card} p-4 space-y-5 border-red-500/20`}>
         <div className="flex flex-wrap items-center gap-3 justify-between">
           <div className="flex items-center gap-2 text-sm text-slate-300">Stage
             <Select value={target.stage} onChange={(e) => stage.mutate(e.target.value, { onError: fail })} className="!w-auto !py-1.5 !text-sm">
@@ -56,7 +56,7 @@ export default function Workspace({ program, coaches, workspace }) {
               {notes.map((n) => (
                 <li key={n.id} className="rounded-xl bg-white/5 px-3.5 py-2.5 flex items-start gap-3">
                   <div className="flex-1 min-w-0"><div className="text-sm text-slate-100 whitespace-pre-line break-words">{n.body}</div><div className="text-[11px] text-slate-500 mt-0.5">{fmtDate(n.created_date, { month: 'short', day: 'numeric', year: 'numeric' })}</div></div>
-                  <button type="button" aria-label="Pin note" onClick={() => pinNote.mutate(n)} className={`p-1.5 ${n.pinned ? 'text-lime-300' : 'text-slate-500'}`}><Pin className="w-4 h-4" /></button>
+                  <button type="button" aria-label="Pin note" onClick={() => pinNote.mutate(n)} className={`p-1.5 ${n.pinned ? 'text-red-400' : 'text-slate-500'}`}><Pin className="w-4 h-4" /></button>
                   <button type="button" aria-label="Delete note" onClick={() => delNote.mutate(n.id)} className="p-1.5 text-slate-500 hover:text-red-300"><Trash2 className="w-4 h-4" /></button>
                 </li>
               ))}
@@ -89,10 +89,10 @@ export default function Workspace({ program, coaches, workspace }) {
                 const [label, Icon] = KIND[c.kind] || KIND.other;
                 return (
                   <li key={c.id} className="pl-5 relative">
-                    <span className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#0e1729] border-2 border-lime-300 flex items-center justify-center"><Icon className="w-2 h-2 text-lime-300" /></span>
+                    <span className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#0e1729] border-2 border-red-500 flex items-center justify-center"><Icon className="w-2 h-2 text-red-400" /></span>
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
-                        <div className="text-xs font-bold text-lime-300">{fmtDate(c.contacted_at, { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                        <div className="text-xs font-bold text-red-400">{fmtDate(c.contacted_at, { month: 'short', day: 'numeric', year: 'numeric' })}</div>
                         <div className="text-sm font-semibold text-white">{label}{c.coach_name ? ` · ${c.coach_name}` : ''} <span className="font-normal text-slate-400">via {c.method.replace('_', ' ')}</span></div>
                         {c.summary && <div className="text-sm text-slate-300">{c.summary}</div>}
                         {c.response && <div className="text-sm text-slate-400 whitespace-pre-line">{c.response}</div>}
