@@ -81,9 +81,4 @@ for (const p of programs) {
   if (!t) continue;
   hit++;
   const { logo, page } = found.get(t);
-  rows.push({ sport: 'soccer', gender: 'women', division: p.division, school_name: p.school_name, state: p.state, logo_url: logo, source_url: page, source_name: 'Wikipedia athletics page lead image (logo)', source_type: 'other', verified: 'no', notes: 'Logo is the institution\'s trademark; replace with licensed asset before commercial launch.' });
-}
-fs.writeFileSync(path.join(SEEDS, 'programs-logos.csv'), toCsv(rows));
-console.log(`logos found for ${hit} of ${programs.length} programs (${Math.round((hit / programs.length) * 100)}%)`);
-console.log('D1:', rows.filter((r) => r.division === 'D1').length, 'of', programs.filter((p) => p.division === 'D1').length, '| D2:', rows.filter((r) => r.division === 'D2').length, 'of', programs.filter((p) => p.division === 'D2').length);
-console.log('ACC missing:', programs.filter((p) => p.conference === 'Atlantic Coast Conference' && !rows.some((r) => r.school_name === p.school_name)).map((p) => p.school_name).join(', ') || 'none');
+  rows.push({ sport: 'soccer', gender: 'women', division: p.division, school_name: p.school_name, state: p.state, logo_url: logo, source_url: page, source_name: 'Wikipedia athletics page lead image (logo)', source_type: 'other', verified: 'no', notes: '', ') || 'none');
