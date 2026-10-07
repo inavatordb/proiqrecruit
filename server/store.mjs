@@ -114,9 +114,25 @@ export async function createStore({ databaseUrl, dataDir, db, log = console } = 
   }
   function retryLater() { if (!timer && dirty.size) timer = setTimeout(() => { timer = null; flush().catch(retryLater); }, 2000); }
 
+  /**
+   * Re-read everything from the database in place (same Map objects, so holders of loadEntity() results stay valid).
+   * Used after something else wrote to the database -- e.g. the import CLI run against production.
+   */
+  async function reload() {
+    await flush();
+    const loaded = await adapter.load();
+    for (const [name, rows] of loaded) {
+      const m = mapFor(name); m.clear();
+      const snap = new Map();
+      for (const r of rows) { m.set(r.id, r); snap.set(r.id, JSON.stringify(r)); }
+      saved.set(name, snap);
+    }
+    failures.clear();
+  }
+
   await init();
   return {
-    mode: adapter.kind, loadEntity, persistEntity, flush, ping: () => adapter.ping(),
+    mode: adapter.kind, loadEntity, persistEntity, flush, reload, ping: () => adapter.ping(),
     async close() { await flush().catch(() => {}); await closeDb(); },
     adapter,
   };

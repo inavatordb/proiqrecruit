@@ -44,6 +44,7 @@ function linkParts(cell) {
 
 function plain(cell) {
   return stripBraces(cell)
+    .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<ref[^>]*>.*?<\/ref>/gs, '').replace(/<ref[^>]*\/>/g, '')
     .replace(/<br\s*\/?>/g, ' ')
     .replace(/\[\[(?:[^\]|]+\|)?([^\]]+)\]\]/g, '$1')

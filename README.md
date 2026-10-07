@@ -55,9 +55,47 @@ Preserves ids, never deletes the JSON files, and reports inserted / updated / sk
 
 ## Importing recruiting data
 
-Admin → Imports (CSV, preview then commit) for programs, coaches, seasons, rankings, camps, ID appearances. Templates are downloadable.
+Templates (headers + one ignored example row) are in `data/import/templates/` and downloadable from Admin → Imports:
+`programs`, `coaches`, `program_seasons`, `rankings`, `camps`, `id_camp_appearances`, `conference_history`.
+Put your researched files in `data/import/` (tracked in git).
+
+**Order:** programs → conference_history → coaches → seasons → rankings → camps → id_camp_appearances.
+
+### Admin UI — `/admin/imports`
+
+Pick a type, upload a CSV, **Preview** (dry run), review, then **Commit**. The preview checks columns, duplicate program ids, unknown program references,
+malformed emails, invalid dates, and shows new vs existing records. Nothing is written until you commit, and every row is accounted for:
+`new / updated / skipped / needs review / errors` (+ warnings, and missing emails for coaches). Past imports are listed with who/when/counts.
+
+### CLI
+
+```bash
+npm run import:programs -- --file data/import/programs.csv --dry-run
+npm run import:programs -- --file data/import/programs.csv
+# also: import:coaches  import:seasons  import:rankings  import:camps  import:id-camps  import:conference-history
+# flags: --dry-run  --overwrite-verified  --verbose  --actor <name>
+```
+Uses `DATABASE_URL` (PostgreSQL) or the local JSON store. If you run it against a database a live server is using, press **Reload** in Admin → Imports
+(or restart) so the site picks up the new rows. For production data, the Admin UI is the simplest path (it writes through the live server).
+
+### How rows are matched and protected
+
+* **`program_id` is a stable code** like `ACC_DUKE_WSOC` (never a row number). The programs file defines it; every other file points at it.
+  Importing a program that already exists (matched by code, else by name + state) updates it and attaches the code — it never creates a duplicate.
+  A code already used by a different program is an error.
+* **Conference history** (`conference_history.csv`) is separate from today's conference, so moves like ASUN → UAC keep the old membership. Re-importing a program with a
+  new conference warns you to add history rows; it never rewrites them. Season cards show the conference as of that season when history exists.
+* **Seasons:** 2023–2025 are the completed seasons; 2026 is the *current* season (flagged, can be partial) and never touches earlier ones.
+* **Rankings:** one record per organization/season/type/date — preseason, "Week 4", "Week 8", final… are each their own row.
+* **Camps vs ID events:** `camps.csv` is official university camps only; third-party events go in `id_camp_appearances.csv`.
+* **Never invented:** blank email stays blank ("Email not publicly listed"); personal webmail is dropped; blank cells never erase stored values.
+* **Source tracking:** `source_url` + `source_type` (`official_university`, `conference`, `external_event`, `ncaa`, `united_soccer_coaches`, `official_camp`, `other`).
+  A row is only **Verified** if `verified=yes` *and* it has a `source_url`; everything else is **Needs Review**. Verified records are never overwritten without `--overwrite-verified`.
+  Statuses (editable by admins): Verified, Needs Review, Historical, Unverified, Archived.
+* Dates: `YYYY-MM-DD` (also `M/D/YYYY`, `Jul 15, 2026`). Invalid dates are reported, never silently dropped.
+
 Files in `server/seeds/recruiting/` named `<kind>-*.csv` load at boot (adds missing rows; updates only rows it created that nobody edited or verified).
-Refresh seeds: `npm run seed:programs`, `npm run seed:ncaa`.
+Refresh seeds: `npm run seed:programs`, `npm run seed:ncaa`. Rebuild templates: `npm run templates:build`.
 
 ## Deploying on Render (free web service + free Postgres, no disk)
 

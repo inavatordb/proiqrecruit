@@ -1,0 +1,2 @@
+program_id,camp_name,camp_type,start_date,end_date,registration_deadline,location,age_range,grad_years,cost,registration_url,official_url,season,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,Summer ID Camp,ID Camp,2026-07-15,2026-07-16,2026-07-01,Example City NC,Rising 9-12,2027;2028,$250,https://example.com/register,https://example-athletics.com/camps,2026,https://example-athletics.com/camps,official_university,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

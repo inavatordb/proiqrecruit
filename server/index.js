@@ -108,7 +108,7 @@ app.post('/api/auth/logout', (req, res) => {
 
 /* ------------------------------- recruiting ------------------------------- */
 const recruiting = mountRecruiting(app, {
-  userForRequest, isAdminUser, isImpersonating: () => false, loadEntity, persistEntity,
+  userForRequest, isAdminUser, isImpersonating: () => false, loadEntity, persistEntity, reload: store.reload,
   seedDir: path.join(here, 'seeds', 'recruiting'),
 });
 

@@ -1,0 +1,2 @@
+program_id,school_name,sport,gender,division,conference,city,state,school_website,athletics_website,soccer_website,camps_url,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,Example University,soccer,women,D1,Atlantic Coast Conference,Example City,NC,https://example.edu,https://example-athletics.com,https://example-athletics.com/womens-soccer,https://example-athletics.com/camps,https://example-athletics.com/womens-soccer,official_university,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

@@ -87,6 +87,21 @@ export default function SchoolPage() {
             <div className="flex flex-wrap gap-2">{ncaaSeasons.map((s) => <Chip key={s.id} tone="lime"><Trophy className="w-3 h-3" />{s.season} · {s.ncaa_tournament_round || 'Qualified'}</Chip>)}</div>
           ) : <div className="text-sm text-slate-400">{seasons.length ? 'No NCAA tournament appearances on file for the seasons we track.' : 'NCAA tournament results not on file yet.'}</div>}
         </div>
+        {data.conference_history?.length > 0 && (
+          <div className={`${C.card} p-4`}>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Conference history</div>
+            <ol className="space-y-1.5">
+              {data.conference_history.map((h) => (
+                <li key={h.id} className="flex flex-wrap items-center gap-2 text-sm">
+                  <span className="font-semibold text-white">{h.conference}</span>
+                  <span className="text-slate-400">{h.start_season || 'earlier'}–{h.end_season || 'present'}</span>
+                  {!h.end_season && h.conference === p.conference && <Chip tone="lime">Current</Chip>}
+                  {(viewer.is_admin || h.verification_status === 'verified') && <VerificationBadge status={h.verification_status} compact={h.verification_status !== 'verified'} />}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
         {p.description && <p className="text-slate-300 leading-relaxed">{p.description}</p>}
       </Section>
 
@@ -99,7 +114,7 @@ export default function SchoolPage() {
                 <div key={c.id} className={`${C.card} p-4 space-y-1.5`}>
                   <div className="flex items-start justify-between gap-2">
                     <div><div className="font-black text-white text-lg leading-tight">{c.first_name} {c.last_name}</div><div className="text-sm text-lime-200">{c.title || c.role_label}</div></div>
-                    {viewer.is_admin && <VerificationBadge status={c.verification_status} compact />}
+                    {(viewer.is_admin || c.verification_status === 'verified') && <VerificationBadge status={c.verification_status} compact={c.verification_status !== 'verified'} />}
                   </div>
                   <CoachEmail email={c.email} />
                   {c.phone && <div className="text-sm text-slate-300"><a href={`tel:${c.phone}`} className="hover:underline">{c.phone}</a></div>}
@@ -116,16 +131,23 @@ export default function SchoolPage() {
       </Section>
 
       <Section title="Recent performance" id="performance">
+        {data.current_season && (
+          <div className={`${C.card} p-4 border-sky-300/30 flex items-center justify-between gap-4`}>
+            <div><div className="text-sm font-bold text-sky-200 flex items-center gap-2">{data.current_season.season}<Chip tone="sky">Current season · in progress</Chip></div><div className="text-2xl font-black">{data.current_season.record || '—'}</div></div>
+            <div className="text-sm text-slate-300 text-right">{data.current_season.conference_that_season && <div>{data.current_season.conference_that_season}</div>}{data.current_season.conference_record && <div>Conference: {data.current_season.conference_record}</div>}</div>
+          </div>
+        )}
         {recent.length ? (
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-3">
             <div className="grid gap-3">
               {recent.map((s) => (
                 <div key={s.id} className={`${C.card} p-4 flex items-start justify-between gap-4`}>
                   <div>
-                    <div className="text-sm font-bold text-lime-300">{s.season}</div>
+                    <div className="text-sm font-bold text-lime-300 flex items-center gap-2">{s.season}{(viewer.is_admin || s.verification_status === 'verified') && <VerificationBadge status={s.verification_status} compact={s.verification_status !== 'verified'} />}</div>
                     <div className="text-3xl font-black">{s.record || '—'}</div>
                   </div>
                   <div className="text-sm text-slate-300 space-y-1 text-right">
+                    {s.conference_that_season && s.conference_that_season !== p.conference && <div className="text-slate-400">Then in the {s.conference_that_season}</div>}
                     {s.conference_record && <div>Conference: {s.conference_record}</div>}
                     {s.conference_champion && <div className="text-lime-300 font-semibold">Conference Champion</div>}
                     {!s.conference_champion && s.conference_finish && <div>Conference finish: {s.conference_finish}</div>}

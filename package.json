@@ -10,7 +10,15 @@
     "test": "vitest run",
     "seed:programs": "node server/scripts/build-recruiting-programs.mjs",
     "seed:ncaa": "node server/scripts/build-recruiting-ncaa-tournaments.mjs",
-    "db:migrate-json": "node server/scripts/migrate-json-to-postgres.mjs"
+    "db:migrate-json": "node server/scripts/migrate-json-to-postgres.mjs",
+    "import:programs": "node server/scripts/import-csv.mjs programs",
+    "import:coaches": "node server/scripts/import-csv.mjs coaches",
+    "import:seasons": "node server/scripts/import-csv.mjs seasons",
+    "import:rankings": "node server/scripts/import-csv.mjs rankings",
+    "import:camps": "node server/scripts/import-csv.mjs camps",
+    "import:id-camps": "node server/scripts/import-csv.mjs id-camps",
+    "import:conference-history": "node server/scripts/import-csv.mjs conference-history",
+    "templates:build": "node server/scripts/build-import-templates.mjs"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",

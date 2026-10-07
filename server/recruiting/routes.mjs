@@ -10,7 +10,7 @@
  */
 import express from 'express';
 import { createRecruitingService, httpErr } from './service.mjs';
-import { KINDS, CSV_TEMPLATES, str } from './core.mjs';
+import { KINDS, CSV_TEMPLATES_WITH_EXAMPLE, TEMPLATE_FILE, str } from './core.mjs';
 
 export function mountRecruiting(app, deps) {
   const { userForRequest, isAdminUser, isImpersonating, loadEntity, persistEntity, seedDir } = deps;
@@ -29,9 +29,9 @@ export function mountRecruiting(app, deps) {
     return next();
   };
 
-  const wrap = (fn) => (req, res) => {
+  const wrap = (fn) => async (req, res) => {
     try {
-      const out = fn(req, res);
+      const out = await fn(req, res);
       if (out !== undefined && !res.headersSent) res.json(out);
     } catch (e) {
       const status = e.status || 500;
@@ -114,7 +114,7 @@ export function mountRecruiting(app, deps) {
     }));
     return { users: users.sort((a, b) => (b.created_date || '').localeCompare(a.created_date || '')).slice(0, 500) };
   }));
-  admin.get('/imports', wrap((req) => { needAdmin(req); return { imports: svc.rows('RecruitImport').sort((a, b) => b.created_date.localeCompare(a.created_date)).slice(0, 50), templates: CSV_TEMPLATES }; }));
+  admin.get('/imports', wrap((req) => { needAdmin(req); return { imports: svc.rows('RecruitImport').sort((a, b) => b.created_date.localeCompare(a.created_date)).slice(0, 50), templates: CSV_TEMPLATES_WITH_EXAMPLE, template_files: TEMPLATE_FILE }; }));
   admin.post('/import/:kind', limit(30), wrap((req) => {
     const u = needAdmin(req);
     const { csv, commit, overwrite_verified: ow, filename } = req.body || {};
@@ -125,6 +125,8 @@ export function mountRecruiting(app, deps) {
       : { plan: svc.previewImport(req.params.kind, csv, { overwriteVerified: !!ow }) };
   }));
   admin.post('/bootstrap', limit(5), wrap((req) => { needAdmin(req); return svc.bootstrap(); }));
+  // Re-read the database (e.g. after the import CLI wrote to it) so this running server sees the new rows.
+  admin.post('/reload', limit(5), wrap(async (req) => { needAdmin(req); await deps.reload?.(); svc.refresh(); return { ok: true }; }));
   admin.get('/:kind', wrap((req) => { needAdmin(req); return svc.adminList(req.params.kind, req.query); }));
   admin.get('/:kind/:id', wrap((req) => {
     needAdmin(req);

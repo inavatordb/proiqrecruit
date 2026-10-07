@@ -2,7 +2,7 @@ import React from 'react';
 import { ExtLink } from '../ui';
 
 export const KIND_LABEL = {
-  programs: 'Programs', coaches: 'Coaches', seasons: 'Seasons', rankings: 'Rankings', camps: 'Camps', idcamps: 'ID Camp Appearances', sources: 'Sources',
+  programs: 'Programs', coaches: 'Coaches', seasons: 'Seasons', rankings: 'Rankings', camps: 'Camps', idcamps: 'ID Camp Appearances', conference_history: 'Conference History', sources: 'Sources',
 };
 
 const f = (k, label, extra = {}) => ({ k, label, ...extra });
@@ -11,7 +11,7 @@ const SRC = [url('source_url', 'Source URL'), f('source_name', 'Source name'), f
 
 export const FIELDS = {
   programs: [
-    f('school_name', 'School name'), f('official_school_name', 'Official name'), f('nickname', 'Nickname'),
+    f('program_code', 'Program ID (stable code)', { hint: 'e.g. ACC_DUKE_WSOC. Never reused.' }), f('school_name', 'School name'), f('official_school_name', 'Official name'), f('nickname', 'Nickname'),
     f('division', 'Level', { type: 'select', options: ['D1', 'D2', 'D3', 'NAIA', 'JUCO'] }), f('conference', 'Conference'),
     f('city', 'City'), f('state', 'State (abbr or name)'), url('school_website', 'School website'), url('athletics_website', 'Athletics website'),
     url('team_website', "Women's soccer website"), url('schedule_url', 'Schedule URL'), url('roster_url', 'Roster URL'), url('camps_url', 'Official camps URL'),
@@ -44,6 +44,9 @@ export const FIELDS = {
     f('location', 'Location'), f('age_range', 'Age range'), f('graduation_years', 'Graduation years', { hint: 'Separate with ;' }), f('gender', 'Gender'), f('cost', 'Cost'),
     url('registration_url', 'Registration URL'), url('official_camp_url', 'Official camp page URL'), f('contact_email', 'Contact email', { type: 'email' }), f('contact_phone', 'Contact phone'),
     f('description', 'Description', { type: 'textarea' }), ...SRC,
+  ],
+  conference_history: [
+    f('conference', 'Conference'), f('start_season', 'First season', { type: 'number', hint: 'Blank if unknown' }), f('end_season', 'Last season', { type: 'number', hint: 'Blank if still a member' }), ...SRC,
   ],
   idcamps: [
     f('event_name', 'Event name'), f('event_organization', 'Organizer', { hint: 'Exact Soccer, Girls College Showcase, ECNL…' }), f('event_date', 'Date', { type: 'date' }),
@@ -80,6 +83,10 @@ export const COLUMNS = {
   idcamps: [
     { h: 'Program', cell: prog }, { h: 'Event', cell: (r) => <span className="font-semibold text-white">{r.event_name}</span> }, { h: 'Date', cell: (r) => r.event_date },
     { h: 'Organizer', cell: (r) => r.event_organization || '—' }, { h: 'Source', cell: (r) => link(r.source_url, 'source') },
+  ],
+  conference_history: [
+    { h: 'Program', cell: prog }, { h: 'Conference', cell: (r) => <span className="font-semibold text-white">{r.conference}</span> },
+    { h: 'From', cell: (r) => r.start_season || 'unknown' }, { h: 'To', cell: (r) => r.end_season || 'present' }, { h: 'Source', cell: (r) => link(r.source_url, 'source') },
   ],
   sources: [
     { h: 'Program', cell: prog }, { h: 'Source', cell: (r) => link(r.source_url, r.source_name || r.source_url?.replace(/^https?:\/\//, '').slice(0, 40)) },

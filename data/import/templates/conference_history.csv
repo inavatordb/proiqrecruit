@@ -1,0 +1,2 @@
+program_id,conference,start_season,end_season,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,Atlantic Sun Conference,2015,2025,https://example.com/conference,conference,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

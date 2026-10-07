@@ -1,0 +1,2 @@
+program_id,season,wins,losses,ties,conference_wins,conference_losses,conference_ties,conference_finish,conference_tournament_result,ncaa_appearance,ncaa_round,goals_for,goals_against,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,2025,14,4,2,7,1,1,2nd,Semifinal,yes,Round of 16,38,15,https://example-athletics.com/womens-soccer/2025,official_university,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

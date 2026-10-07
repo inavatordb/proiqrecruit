@@ -1,0 +1,2 @@
+program_id,season,ranking_organization,ranking_type,ranking,ranking_date,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,2025,United Soccer Coaches,Week 4,12,2025-09-23,https://example.com/poll,united_soccer_coaches,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

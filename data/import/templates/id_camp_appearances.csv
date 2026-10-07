@@ -1,0 +1,2 @@
+program_id,coach_id,event_name,organization,event_date,location,event_type,registration_url,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,,Example Showcase,Example Events,2026-12-05,Phoenix AZ,Showcase,https://example.com/showcase,https://example.com/showcase/coaches,external_event,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

@@ -8,7 +8,7 @@ import { rc, useRcMutation, fmtDate, fmtDateLong } from '../api';
 import { C, Btn, Chip, Field, Input, Textarea, Select, Loading, ErrorBox, Empty, Stat, VerificationBadge, ExtLink, Spinner } from '../ui';
 import { FIELDS, COLUMNS, KIND_LABEL } from './adminConfig';
 
-const TABS = [['dashboard', 'Dashboard'], ['programs', 'Programs'], ['coaches', 'Coaches'], ['seasons', 'Seasons'], ['rankings', 'Rankings'], ['camps', 'Camps'], ['idcamps', 'ID Camp Appearances'], ['players', 'Players'], ['users', 'Users'], ['imports', 'Imports'], ['verification', 'Data Verification'], ['sources', 'Sources']];
+const TABS = [['dashboard', 'Dashboard'], ['programs', 'Programs'], ['coaches', 'Coaches'], ['seasons', 'Seasons'], ['rankings', 'Rankings'], ['camps', 'Camps'], ['idcamps', 'ID Camp Appearances'], ['conference_history', 'Conference History'], ['players', 'Players'], ['users', 'Users'], ['imports', 'Imports'], ['verification', 'Data Verification'], ['sources', 'Sources']];
 const STATUSES = ['verified', 'needs_review', 'historical', 'unverified', 'archived'];
 
 export default function AdminPage() {
@@ -189,7 +189,7 @@ function VerificationTab() {
   return (
     <div className="space-y-3">
       <div className="text-sm text-slate-400">Work through records that haven't been verified. Mark a record <b>Verified</b> only after checking it against its source link.</div>
-      <div className="flex gap-1.5 flex-wrap">{['programs', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps', 'sources'].map((k) => <button key={k} type="button" onClick={() => setKind(k)} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
+      <div className="flex gap-1.5 flex-wrap">{['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps', 'sources'].map((k) => <button key={k} type="button" onClick={() => setKind(k)} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
       <CollectionTab key={kind} fixedKind={kind} defaultStatus="unverified" />
     </div>
   );
@@ -222,8 +222,9 @@ function UsersTab() {
 }
 
 /* --------------------------------- imports ---------------------------------- */
-const IMPORT_KINDS = ['programs', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps'];
-const ACTION_TONE = { new: 'lime', update: 'sky', duplicate: 'slate', review: 'amber', error: 'red' };
+const IMPORT_KINDS = ['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps'];
+const ACTION_TONE = { new: 'lime', update: 'sky', duplicate: 'slate', skipped: 'slate', review: 'amber', error: 'red' };
+const inFilter = (i, f) => !f || (f === 'skipped' ? i.action === 'skipped' || i.action === 'duplicate' : i.action === f);
 
 function ImportsTab() {
   const [kind, setKind] = useState('programs');
@@ -236,33 +237,41 @@ function ImportsTab() {
   const run = useRcMutation((commit) => rc.post(`/admin/import/${kind}`, { csv, commit, overwrite_verified: overwrite, filename }));
   const boot = useRcMutation(() => rc.post('/admin/bootstrap'), { onSuccess: (r) => toast.success(r.loaded.length ? `Loaded ${r.loaded.map((x) => `${x.file} (${x.written})`).join(', ')}` : 'Bundled seed is already loaded') });
   const template = hist?.templates?.[kind];
+  const reload = useRcMutation(() => rc.post('/admin/reload'), { onSuccess: () => toast.success('Reloaded from the database') });
   const onFile = (e) => {
     const file = e.target.files?.[0]; if (!file) return;
     setFilename(file.name); setPlan(null);
     const r = new FileReader(); r.onload = () => setCsv(String(r.result)); r.readAsText(file);
   };
   const doRun = (commit) => run.mutate(commit, { onSuccess: (r) => { setPlan(r.plan); if (commit) toast.success(`Imported: ${r.applied.new} new, ${r.applied.updated} updated`); }, onError: (e) => toast.error(e.message) });
-  const items = plan?.items?.filter((i) => !filter || i.action === filter) || [];
+  const items = plan?.items?.filter((i) => inFilter(i, filter)) || [];
   return (
     <div className="space-y-6">
       <div className={`${C.card} p-4 space-y-4`}>
         <div className="flex flex-wrap gap-1.5">{IMPORT_KINDS.map((k) => <button key={k} type="button" onClick={() => { setKind(k); setPlan(null); }} className={`rounded-full px-3 py-1.5 text-sm font-semibold border ${kind === k ? 'bg-lime-300 text-slate-950 border-lime-300' : 'bg-white/5 text-slate-200 border-white/15'}`}>{KIND_LABEL[k]}</button>)}</div>
-        <div className="text-sm text-slate-400">Child records (coaches, seasons, rankings, camps, ID events) match a program by <code className="text-lime-200">program_id</code> or by <code className="text-lime-200">school_name</code>. Blank cells never erase existing data. Verified records are never overwritten unless you tick the box below.</div>
+        <div className="text-sm text-slate-400">Import <b>programs first</b> (each with a stable <code className="text-lime-200">program_id</code> like ACC_DUKE_WSOC), then everything else; the other files point at a program by that <code className="text-lime-200">program_id</code>. Every file is checked first (preview) and nothing is written until you commit. Blank cells never erase existing data; verified records are never overwritten unless you tick the box below. The template's example row is ignored automatically.</div>
         <div className="flex flex-wrap gap-2 items-center">
           <label className="inline-flex"><input type="file" accept=".csv,text/csv" onChange={onFile} className="hidden" /><span className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 text-white px-4 py-2.5 text-[15px] font-semibold cursor-pointer hover:bg-white/15"><Upload className="w-4 h-4" />Choose CSV</span></label>
-          {template && <a download={`${kind}-template.csv`} href={`data:text/csv;charset=utf-8,${encodeURIComponent(`${template}\n`)}`} className="inline-flex items-center gap-2 text-sm text-lime-300 font-semibold"><Download className="w-4 h-4" />Template</a>}
+          {template && <a download={`${hist?.template_files?.[kind] || kind}.csv`} href={`data:text/csv;charset=utf-8,${encodeURIComponent(template)}`} className="inline-flex items-center gap-2 text-sm text-lime-300 font-semibold"><Download className="w-4 h-4" />Template</a>}
           {filename && <Chip>{filename}</Chip>}
         </div>
         <Textarea rows={5} value={csv} onChange={(e) => { setCsv(e.target.value); setPlan(null); }} placeholder="…or paste CSV here (first row = column names)" className="font-mono text-xs" />
         <label className="flex items-center gap-2 text-sm text-slate-200"><input type="checkbox" className="accent-lime-300 w-4 h-4" checked={overwrite} onChange={(e) => { setOverwrite(e.target.checked); setPlan(null); }} />Allow overwriting <b>verified</b> records</label>
         <div className="flex gap-2"><Btn variant="secondary" disabled={!csv.trim() || run.isPending} onClick={() => doRun(false)}>{run.isPending && <Spinner className="w-4 h-4" />}Preview</Btn>
-          <Btn disabled={!plan || run.isPending || (plan.summary.new + plan.summary.updated + (overwrite ? plan.summary.review : 0)) === 0} onClick={() => { if (window.confirm('Apply this import to the live database?')) doRun(true); }}>Commit import</Btn></div>
+          <Btn disabled={!plan || plan.blocked || run.isPending || (plan.summary.new + plan.summary.updated + (overwrite ? plan.summary.review : 0)) === 0} onClick={() => { if (window.confirm('Apply this import to the live database?')) doRun(true); }}>Commit import</Btn></div>
       </div>
 
       {plan && (
         <div className="space-y-3">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-            {[['found', 'Records found', ''], ['new', 'New', 'new'], ['updated', 'Updated', 'update'], ['duplicate', 'Duplicates', 'duplicate'], ['review', 'Need review', 'review'], ['errors', 'Errors', 'error']].map(([k, l, a]) => (
+          {plan.blocked && <div className="rounded-xl border border-red-400/30 bg-red-500/10 text-red-200 px-4 py-3 text-sm"><b>Column check failed — nothing can be imported from this file.</b> Missing required column(s): {plan.columns.missing.join('; ')}. Download the template for the exact headers.</div>}
+          {(plan.columns?.unknown?.length > 0 || plan.columns?.notes?.length > 0) && (
+            <div className="rounded-xl border border-amber-300/25 bg-amber-300/5 text-amber-100 px-4 py-3 text-xs space-y-1">
+              {plan.columns.unknown.length > 0 && <div>Unrecognised column(s) will be ignored: {plan.columns.unknown.join(', ')}</div>}
+              {plan.columns.notes.map((n) => <div key={n}>{n}</div>)}
+            </div>
+          )}
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
+            {[['found', 'Records found', ''], ['new', 'New', 'new'], ['updated', 'Updated', 'update'], ['skipped', 'Skipped', 'skipped'], ['review', 'Need review', 'review'], ['errors', 'Errors', 'error'], ['warnings', 'Warnings', ''], ...(kind === 'coaches' ? [['missing_email', 'Missing email', '']] : [])].map(([k, l, a]) => (
               <button key={k} type="button" onClick={() => setFilter(filter === a ? '' : a)} className={`rounded-xl border px-3 py-2.5 text-left ${filter === a && a ? 'border-lime-300 bg-lime-300/10' : 'border-white/10 bg-white/5'}`}><div className="text-[11px] uppercase tracking-wider text-slate-400">{l}</div><div className="text-xl font-black text-white">{plan.summary[k]}</div></button>
             ))}
           </div>
@@ -278,11 +287,12 @@ function ImportsTab() {
 
       <div className={`${C.card} p-4 space-y-3`}>
         <div className="flex items-center justify-between gap-3"><div><div className="font-black">Bundled seed data</div><div className="text-xs text-slate-400">Re-runs the program seed that ships with the app (adds missing programs; never touches edited or verified records).</div></div><Btn variant="secondary" size="sm" onClick={() => boot.mutate()} disabled={boot.isPending}>Load seed</Btn></div>
+        <div className="flex items-center justify-between gap-3 border-t border-white/10 pt-3"><div><div className="font-black">Reload from database</div><div className="text-xs text-slate-400">After running the import CLI against this database, reload so the live site shows the new records.</div></div><Btn variant="secondary" size="sm" onClick={() => reload.mutate()} disabled={reload.isPending}>Reload</Btn></div>
       </div>
 
       <div className="space-y-2">
         <div className="font-black">Import history</div>
-        {hist?.imports?.length ? <div className={`${C.card} divide-y divide-white/10`}>{hist.imports.map((h) => <div key={h.id} className="p-3 text-sm flex flex-wrap items-center gap-x-4 gap-y-1"><b className="text-white">{KIND_LABEL[h.kind]}</b><span className="text-slate-400">{h.filename || 'pasted CSV'}</span><span>{h.applied.new} new · {h.applied.updated} updated · {h.summary.errors} errors · {h.summary.review} review</span><span className="text-xs text-slate-500 ml-auto">{h.actor} · {fmtDateLong(h.created_date)}</span></div>)}</div> : <div className="text-sm text-slate-500">No imports yet.</div>}
+        {hist?.imports?.length ? <div className={`${C.card} divide-y divide-white/10`}>{hist.imports.map((h) => <div key={h.id} className="p-3 text-sm flex flex-wrap items-center gap-x-4 gap-y-1"><b className="text-white">{KIND_LABEL[h.kind]}</b><span className="text-slate-400">{h.filename || 'pasted CSV'}</span><Chip tone={h.status === 'completed' ? 'lime' : 'amber'}>{(h.status || 'completed').replace(/_/g, ' ')}</Chip><span>{h.inserted ?? h.applied.new} inserted · {h.updated ?? h.applied.updated} updated · {h.skipped ?? h.summary.skipped ?? h.summary.duplicate} skipped · {h.errors ?? h.summary.errors} errors</span><span className="text-xs text-slate-500 ml-auto">{h.user || h.actor} · {fmtDateLong(h.started_at || h.created_date)}{h.completed_at ? ` → ${new Date(h.completed_at).toLocaleTimeString()}` : ''}</span></div>)}</div> : <div className="text-sm text-slate-500">No imports yet.</div>}
       </div>
     </div>
   );

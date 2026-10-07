@@ -1,0 +1,2 @@
+program_id,first_name,last_name,title,email,phone,profile_url,source_url,source_type,verified,last_verified_at,notes
+ACC_EXAMPLE_WSOC,Jane,Coach,Head Coach,,,https://example-athletics.com/coach/jane,https://example-athletics.com/womens-soccer/coaches,official_university,no,,EXAMPLE ROW - delete before importing (ignored by the importer)

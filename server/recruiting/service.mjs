@@ -10,7 +10,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {
   KINDS, SPORTS, DIVISIONS, DEFAULT_SPORT, PIPELINE_KEYS, PROFILE_PRIVACY, CONTACT_METHODS, COACH_ROLE_ORDER, COACH_ROLE_LABEL, STATE_LIST, REGIONS,
-  NORMALIZERS, planImport, parseCsv, slugify, shortHash, str, text, safeUrl, toBool, toInt, toList, toDate, stateAbbr, regionForState,
+  NORMALIZERS, planImport, parseCsvWithHeader, checkColumns, resolveSport, slugify, shortHash, str, text, safeUrl, toBool, toInt, toList, toDate, stateAbbr, regionForState,
   stateDistanceMiles, programIdFor, roundRank, currentYear, isCompletedSeason, normVerification, winPct, SOURCE_TYPES, CAMP_TYPES,
 } from './core.mjs';
 
@@ -54,7 +54,8 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
       v: catalogVersion, programs, bySlug, byName,
       byId: new Map(programs.map((p) => [p.id, p])),
       coaches: group('ProgramCoach'), seasons: group('ProgramSeason'), rankings: group('ProgramRanking'),
-      camps: group('ProgramCamp'), idcamps: group('IDCampAppearance'),
+      camps: group('ProgramCamp'), idcamps: group('IDCampAppearance'), confhist: group('ProgramConferenceHistory'),
+      byCode: new Map(programs.filter((p) => p.program_code).map((p) => [String(p.program_code).toUpperCase(), p])),
     };
     return cached;
   }
@@ -81,7 +82,9 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     const out = {
       ...(prev || {}), ...rec,
       verification_status: status, data_verified: status === 'verified',
-      last_verified_at: status === 'verified' ? (prev?.verification_status === 'verified' && prev.last_verified_at ? prev.last_verified_at : now()) : (rec.last_verified_at ?? prev?.last_verified_at ?? ''),
+      last_verified_at: status === 'verified'
+        ? (rec.last_verified_at || (prev?.verification_status === 'verified' && prev.last_verified_at ? prev.last_verified_at : now()))
+        : (rec.last_verified_at || prev?.last_verified_at || ''),
       created_date: prev?.created_date || now(), updated_date: now(), origin: origin || prev?.origin || 'import',
     };
     // Layered imports: a blank incoming value never erases a stored one.
@@ -94,14 +97,37 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     const idx = index();
     const claimed = new Map();
     const entity = KINDS[kind].entity;
+    const claimedCodes = new Map(); // program_code -> { id, name } claimed earlier in this same file
     return {
       existing: (id) => getRow(entity, id),
+      /** Child rows: program_id is our program code (ACC_DUKE_WSOC) or internal id. school_name is used only when program_id is absent. */
       resolveProgram(row) {
-        if (row.program_id) return idx.byId.get(String(row.program_id).trim()) || null;
-        const sport = str(row.sport || DEFAULT_SPORT, 40).toLowerCase();
+        const pid = String(row.program_id || '').trim();
+        if (pid) return idx.byId.get(pid) || idx.byCode.get(pid.toUpperCase()) || null;
+        const sport = resolveSport(row.sport, row.gender) || DEFAULT_SPORT;
         const key = slugify(row.school_name || row.school || row.institution);
-        const hit = idx.bySlug.get(`${sport}:${key}`) || idx.byName.get(`${sport}:${key}`);
-        return hit || null;
+        return (key && (idx.bySlug.get(`${sport}:${key}`) || idx.byName.get(`${sport}:${key}`))) || null;
+      },
+      /** Program rows: internal id, then program code, then school name (same state) -- so a re-import updates, never duplicates. */
+      findProgram(row) {
+        if (row.internal_id && idx.byId.get(row.internal_id)) return idx.byId.get(row.internal_id);
+        if (row.program_code && idx.byCode.get(row.program_code)) return idx.byCode.get(row.program_code);
+        const key = slugify(row.school_name || row.school || row.institution);
+        const hit = key && (idx.bySlug.get(`${row.sport}:${key}`) || idx.byName.get(`${row.sport}:${key}`));
+        const st = stateAbbr(row.state);
+        return hit && (!st || !hit.state || st === hit.state) ? hit : null;
+      },
+      /** Is this program code already taken by a DIFFERENT program (stored, or earlier in this file)? */
+      codeOwner(code, id) {
+        const owner = idx.byCode.get(code);
+        if (owner && owner.id !== id) return owner.school_name;
+        const by = claimedCodes.get(code);
+        return by && by.id !== id ? by.name : null;
+      },
+      claimCode(code, id, name) { if (code) claimedCodes.set(code, { id, name }); },
+      resolveCoach(programId, ref) {
+        const want = slugify(ref);
+        return (idx.coaches.get(programId) || []).find((c) => c.id === ref || slugify(`${c.first_name}-${c.last_name}`) === want) || null;
       },
       programSlug(row, name, sport) {
         if (row.slug) return slugify(row.slug);
@@ -122,15 +148,21 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
 
   function previewImport(kind, csv, opts = {}) {
     if (!ALLOWED_KIND(kind)) throw httpErr(400, 'Unknown import kind.');
-    const parsed = parseCsv(csv);
+    const { header, rows: parsed } = parseCsvWithHeader(csv);
     if (!parsed.length) throw httpErr(400, 'The CSV is empty or has no data rows.');
     if (parsed.length > 20000) throw httpErr(400, 'Too many rows (limit 20,000 per file).');
-    return planImport(kind, parsed, importCtx(kind), opts);
+    const columns = checkColumns(kind, header);
+    if (columns.blocked) {
+      return { kind, columns, blocked: true, items: [], summary: { found: parsed.length, new: 0, updated: 0, skipped: 0, duplicate: 0, errors: 0, review: 0, warnings: 0, missing_email: 0, example: 0 } };
+    }
+    return { ...planImport(kind, parsed, importCtx(kind), opts), columns, blocked: false };
   }
 
-  /** Applies a plan. `only` limits which actions are written. */
+  /** Applies a plan and writes an import_runs record. */
   function commitImport(kind, csv, { overwriteVerified = false, actor = 'admin', filename = '', origin = 'import', applyActions = ['new', 'update'] } = {}) {
+    const startedAt = now();
     const plan = previewImport(kind, csv, { overwriteVerified });
+    if (plan.blocked) throw httpErr(400, `Column check failed: missing ${plan.columns.missing.join('; ')}. Nothing was imported.`);
     const entity = KINDS[kind].entity;
     const applied = { new: 0, updated: 0 };
     for (const item of plan.items) {
@@ -143,8 +175,12 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
       recordSource(entity, rec, { extracted: `${KINDS[kind].label} import${filename ? ` (${filename})` : ''}` });
       if (prev) applied.updated++; else applied.new++;
     }
+    const s = plan.summary;
     const log = putRow('RecruitImport', {
-      id: newId('imp'), created_date: now(), updated_date: now(), kind, entity, filename: str(filename, 160), actor: str(actor, 160),
+      id: newId('imp'), created_date: startedAt, updated_date: now(), kind, import_type: kind, entity, filename: str(filename, 160), actor: str(actor, 160), user: str(actor, 160),
+      started_at: startedAt, completed_at: now(),
+      inserted: applied.new, updated: applied.updated, skipped: s.skipped, errors: s.errors, review: s.review, warnings: s.warnings, missing_email: s.missing_email,
+      status: s.errors || s.review ? 'completed_with_issues' : 'completed',
       summary: plan.summary, applied, committed: true,
       problems: plan.items.filter((i) => i.action === 'error' || i.action === 'review' || i.flagged).slice(0, 200).map((i) => ({ line: i.line, action: i.action, label: i.label, messages: i.messages })),
     });
@@ -152,7 +188,7 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
   }
 
   const slimPlan = (plan) => ({
-    kind: plan.kind, summary: plan.summary,
+    kind: plan.kind, summary: plan.summary, columns: plan.columns, blocked: !!plan.blocked,
     items: plan.items.slice(0, 1500).map(({ record, proposed, ...rest }) => rest),
     truncated: plan.items.length > 1500,
   });
@@ -162,7 +198,7 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
   /** Loads bundled seed CSVs. Only touches records it created itself and nobody has edited. */
   function bootstrap() {
     if (!seedDir || !fs.existsSync(seedDir)) return { loaded: [] };
-    const order = ['programs', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps'];
+    const order = ['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps'];
     const files = fs.readdirSync(seedDir).filter((f) => f.endsWith('.csv'))
       .map((f) => ({ f, kind: f.split('-')[0] })).filter((x) => order.includes(x.kind))
       .sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind) || a.f.localeCompare(b.f));
@@ -322,8 +358,15 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     const coaches = (idx.coaches.get(p.id) || []).filter((c) => hide(c) && (admin || c.active !== false))
       .sort((a, b) => COACH_ROLE_ORDER.indexOf(a.role) - COACH_ROLE_ORDER.indexOf(b.role) || a.last_name.localeCompare(b.last_name))
       .map((c) => ({ ...c, role_label: COACH_ROLE_LABEL[c.role] || 'Staff', email_listed: !!c.email }));
+    const history = (idx.confhist.get(p.id) || []).filter(hide)
+      .sort((a, b) => (b.start_season ?? 0) - (a.start_season ?? 0) || (b.end_season ?? 9999) - (a.end_season ?? 9999));
+    // Conference in a given season comes from history (never assumed from today's conference) -- except the current season.
+    const confIn = (season) => {
+      const h = history.find((r) => (r.start_season == null || r.start_season <= season) && (r.end_season == null || season <= r.end_season));
+      return h ? h.conference : '';
+    };
     const seasons = (idx.seasons.get(p.id) || []).filter(hide).sort((a, b) => b.season - a.season)
-      .map((s) => ({ ...s, record: fmtRecord(s), completed: isCompletedSeason(s.season) }));
+      .map((s) => ({ ...s, record: fmtRecord(s), completed: isCompletedSeason(s.season), is_current_season: s.season >= currentYear(), conference_that_season: s.conference || confIn(s.season) || (s.season >= currentYear() ? p.conference : '') }));
     const recentCompleted = seasons.filter((s) => s.completed).slice(0, 3).map((s) => s.season);
     const year = currentYear();
     const camps = (idx.camps.get(p.id) || []).filter(hide).sort((a, b) => a.camp_date.localeCompare(b.camp_date)).map((c) => ({ ...c, upcoming: (c.end_date || c.camp_date) >= today() }));
@@ -335,6 +378,8 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
       summary: summarize(p, idx),
       coaches,
       seasons,
+      conference_history: history,
+      current_season: seasons.find((s) => s.is_current_season) || null,
       recent_season_years: recentCompleted,
       rankings: rankingHistory(idx.rankings.get(p.id) || []),
       camps: { current_year: year, previous_year: year - 1, current: camps.filter((c) => c.year === year), previous: camps.filter((c) => c.year === year - 1) },
@@ -438,12 +483,13 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     const input = { ...(prev || {}), ...body };
     for (const k of ['array_placeholder']) delete input[k];
     if (prev && kind === 'programs') input.slug = prev.slug;
+    if (kind === 'programs') input.program_id = body.program_code ?? prev?.program_code ?? prev?.id ?? '';
     const res = NORMALIZERS[kind](input, ctx);
     if (res.errors?.length) throw httpErr(400, res.errors.join('; '));
     // Admin edits must be able to blank a field, which finalize() would otherwise refuse.
     const rec = { ...res.record, id: prev ? prev.id : res.record.id };
     if (!prev && getRow(entity, rec.id)) throw httpErr(409, 'A record with the same key already exists.');
-    const saved = finalize(entity, { ...rec, verification_status: body.verification_status ?? prev?.verification_status ?? 'unverified' }, null, 'admin');
+    const saved = finalize(entity, { ...rec, verification_status: body.verification_status ?? prev?.verification_status ?? 'needs_review' }, null, 'admin');
     const out = { ...saved, created_date: prev?.created_date || saved.created_date, last_verified_at: saved.verification_status === 'verified' ? (prev?.verification_status === 'verified' && prev.last_verified_at ? prev.last_verified_at : now()) : (prev?.last_verified_at || ''), edited_by: str(actor, 160) };
     putRow(entity, out);
     recordSource(entity, out, { extracted: 'Admin edit' });
@@ -469,7 +515,7 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     if (kind === 'programs') {
       const used = rows('RecruitTarget').filter((t) => t.program_id === id).length;
       if (used) throw httpErr(409, `${used} player list(s) include this program. Archive it instead of deleting.`);
-      for (const k of ['coaches', 'seasons', 'rankings', 'camps', 'idcamps']) for (const r of rows(KINDS[k].entity).filter((x) => x.program_id === id)) delRow(KINDS[k].entity, r.id);
+      for (const k of ['coaches', 'seasons', 'rankings', 'camps', 'idcamps', 'conference_history']) for (const r of rows(KINDS[k].entity).filter((x) => x.program_id === id)) delRow(KINDS[k].entity, r.id);
       // Players' leftover notes / contacts / camp plans for this school (their target was already removed).
       for (const name of ['RecruitNote', 'RecruitContact', 'RecruitCampTrack', 'RecruitActivity']) for (const r of rows(name).filter((x) => x.program_id === id)) delRow(name, r.id);
     }
@@ -770,6 +816,8 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
 
   return {
     rows, getRow, search, detail, summarize, meta, compare, listCamps, campDetail,
+    /** Drop cached indexes after the store was reloaded from the database. */
+    refresh() { catalogVersion++; },
     previewImport: previewImportSlim, commitImport, bootstrap, stats,
     adminList, adminSave, adminSetStatus, adminDelete, adminSourceNote, adminPlayers, adminSetPlayerDisabled,
     profileFor, canAct, saveProfile, rotateShareToken, sharedProfile, sharedList,

@@ -1,5 +1,6 @@
 node_modules
 dist
-data
+# Local JSON dev store (data/*.json) -- never commit. data/import/ (templates + research CSVs) IS tracked.
+/data/*.json
 .env
 *.log

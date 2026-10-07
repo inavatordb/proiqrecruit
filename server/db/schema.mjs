@@ -13,7 +13,8 @@
  */
 export const ENTITIES = [
   { entity: 'User', table: 'users', cols: [['email', 'email']] },
-  { entity: 'CollegeProgram', table: 'college_programs', cols: [['slug', 'slug'], ['sport', 'sport'], ['division', 'division'], ['conference', 'conference'], ['state', 'state'], ['verification_status', 'verification_status']] },
+  { entity: 'CollegeProgram', table: 'college_programs', cols: [['slug', 'slug'], ['sport', 'sport'], ['division', 'division'], ['conference', 'conference'], ['state', 'state'], ['verification_status', 'verification_status'], ['program_code', 'program_code']] },
+  { entity: 'ProgramConferenceHistory', table: 'program_conference_history', cols: [['program_id', 'program_id'], ['conference', 'conference'], ['start_season', 'start_season'], ['end_season', 'end_season'], ['verification_status', 'verification_status']] },
   { entity: 'RecruitPlayerProfile', table: 'player_profiles', cols: [['user_id', 'owner_user_id'], ['slug', 'slug'], ['share_token', 'share_token'], ['privacy', 'privacy']] },
   { entity: '_AuthToken', table: 'auth_tokens', cols: [['user_id', 'user_id']] },
   { entity: 'ProgramCoach', table: 'coaches', cols: [['program_id', 'program_id'], ['role', 'role'], ['verification_status', 'verification_status']] },
@@ -27,7 +28,7 @@ export const ENTITIES = [
   { entity: 'RecruitContact', table: 'coach_communications', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['contacted_at', 'contacted_at'], ['follow_up_date', 'follow_up_date']] },
   { entity: 'RecruitActivity', table: 'recruiting_activity', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['type', 'type']] },
   { entity: 'RecruitCampTrack', table: 'camp_tracking', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['camp_id', 'camp_id'], ['status', 'status']] },
-  { entity: 'RecruitImport', table: 'import_runs', cols: [['kind', 'kind'], ['actor', 'actor']] },
+  { entity: 'RecruitImport', table: 'import_runs', cols: [['kind', 'kind'], ['actor', 'actor'], ['filename', 'filename'], ['status', 'status'], ['started_at', 'started_at'], ['completed_at', 'completed_at']] },
 ];
 
 export const BY_ENTITY = new Map(ENTITIES.map((e) => [e.entity, e]));
