@@ -470,6 +470,8 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
       const used = rows('RecruitTarget').filter((t) => t.program_id === id).length;
       if (used) throw httpErr(409, `${used} player list(s) include this program. Archive it instead of deleting.`);
       for (const k of ['coaches', 'seasons', 'rankings', 'camps', 'idcamps']) for (const r of rows(KINDS[k].entity).filter((x) => x.program_id === id)) delRow(KINDS[k].entity, r.id);
+      // Players' leftover notes / contacts / camp plans for this school (their target was already removed).
+      for (const name of ['RecruitNote', 'RecruitContact', 'RecruitCampTrack', 'RecruitActivity']) for (const r of rows(name).filter((x) => x.program_id === id)) delRow(name, r.id);
     }
     for (const s of rows('DataSource').filter((x) => x.entity_id === id)) delRow('DataSource', s.id);
     return delRow(entity, id);

@@ -7,6 +7,6 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   resolve: { alias: { '@': path.resolve(root, 'src') } },
   plugins: [react()],
-  server: { host: true, proxy: { '/api': 'http://localhost:8787' } },
+  server: { host: true, proxy: { '/api': 'http://localhost:3000' } },
   build: { chunkSizeWarningLimit: 1500 },
 });

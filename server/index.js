@@ -11,7 +11,7 @@ import { mountRecruiting } from './recruiting/routes.mjs';
 const here = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(here, '..', '.env') });
 
-const PORT = process.env.PORT || 8787;
+const PORT = process.env.PORT || 3000;
 const DATA_DIR = process.env.DATA_DIR || path.join(here, '..', 'data');
 const DIST = path.join(here, '..', 'dist');
 const SITE_ORIGIN = (process.env.PUBLIC_APP_URL || `http://localhost:${PORT}`).replace(/\/$/, '');
@@ -19,7 +19,13 @@ const SITE_ORIGIN = (process.env.PUBLIC_APP_URL || `http://localhost:${PORT}`).r
 const ADMIN_EMAILS = String(process.env.ADMIN_EMAILS || '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
 if (!ADMIN_EMAILS.length) console.warn('[admin] ADMIN_EMAILS is not set -- nobody has admin rights.');
 
-const { loadEntity, persistEntity, flush } = createStore(DATA_DIR);
+const store = await createStore({ databaseUrl: process.env.DATABASE_URL, dataDir: DATA_DIR });
+const { loadEntity, persistEntity, flush } = store;
+if (store.mode === 'postgres') console.log('[store] PostgreSQL');
+else {
+  console.warn('[store] DATABASE_URL not set -- using local JSON files in ' + DATA_DIR + ' (development only).');
+  if (process.env.RENDER) console.error('[store] RUNNING ON RENDER WITHOUT DATABASE_URL: all data is lost on every deploy. Set DATABASE_URL.');
+}
 const now = () => new Date().toISOString();
 const newId = (p) => `${p}_${crypto.randomBytes(9).toString('hex')}`;
 
@@ -55,7 +61,17 @@ app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json({ limit: '5mb' }));
 
-app.get('/api/health', (_req, res) => res.json({ ok: true, time: now() }));
+// A write is acknowledged only after it is durable: wait for the store to flush before replying.
+app.use('/api', (req, res, next) => {
+  if (req.method === 'GET' || req.method === 'HEAD') return next();
+  const json = res.json.bind(res);
+  res.json = (body) => { flush().then(() => json(body), (e) => { console.error('[store] flush failed:', e.message); res.status(503); json({ error: 'Could not save. Please try again.' }); }); return res; };
+  next();
+});
+
+app.get('/api/health', async (_req, res) => {
+  try { await store.ping(); res.json({ ok: true, storage: store.mode, time: now() }); } catch (e) { res.status(503).json({ ok: false, storage: store.mode, error: 'database unreachable' }); }
+});
 
 app.post('/api/auth/register', (req, res) => {
   const { email, password, full_name } = req.body || {};
@@ -147,6 +163,7 @@ try {
   const seeded = recruiting.bootstrap();
   if (seeded.loaded.length) console.log('[recruiting] seeded', JSON.stringify(seeded.loaded));
 } catch (e) { console.error('[recruiting] seed failed:', e?.message || e); }
+await flush();
 
 const server = app.listen(PORT, '0.0.0.0', () => console.log(`Recruit on :${PORT} (data: ${DATA_DIR})`));
-for (const sig of ['SIGTERM', 'SIGINT']) process.on(sig, () => { flush(); server.close(() => process.exit(0)); });
+for (const sig of ['SIGTERM', 'SIGINT']) process.on(sig, async () => { await store.close().catch(() => {}); server.close(() => process.exit(0)); setTimeout(() => process.exit(0), 3000).unref(); });

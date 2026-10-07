@@ -1,19 +1,26 @@
+# Render Blueprint: one FREE web service + one FREE Postgres database. No persistent disk.
+databases:
+  - name: recruit-db
+    plan: free
+    databaseName: recruit
+    user: recruit
+
 services:
   - type: web
     name: recruit
     runtime: node
-    plan: starter            # a persistent disk requires a paid plan
+    plan: free
     buildCommand: npm install && npm run build
     startCommand: node server/index.js
     healthCheckPath: /api/health
-    disk:
-      name: recruit-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
-      - key: DATA_DIR
-        value: /var/data
-      - key: ADMIN_EMAILS
-        sync: false          # set in the Render dashboard
-      - key: PUBLIC_APP_URL
+      - key: NODE_VERSION
+        value: 22
+      - key: DATABASE_URL            # wired automatically to recruit-db
+        fromDatabase:
+          name: recruit-db
+          property: connectionString
+      - key: ADMIN_EMAILS            # set in the dashboard (comma-separated)
+        sync: false
+      - key: PUBLIC_APP_URL          # set in the dashboard, e.g. https://recruit.onrender.com
         sync: false
