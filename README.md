@@ -165,3 +165,8 @@ Helper scripts take a conference folder: `node server/scripts/probe-urls.mjs sec
 
 Same process again — see `data/import/REVIEW-ivy-big12-bigten.md`. Loaded: program codes + working links, parsed conference history (Big 12 and Big Ten realignment),
 and Cornell/Penn staff from official directories. Helper: `node server/scripts/build-conference-seeds.mjs <ivy|big12|bigten>`.
+
+## Remaining D1 programs (2026-10-09)
+
+A programs-only file for the rest of D1 was checked the same way — see `data/import/d1-other/REVIEW.md`. Loaded: stable program codes for 346 of 349 D1 programs,
+links that resolve, and conference history that agrees with today's conference. `node server/scripts/check-seed-codes.mjs` reports code coverage.

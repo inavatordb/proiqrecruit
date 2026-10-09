@@ -7,8 +7,9 @@ const dir = `data/import/${conf}/source`;
 const urls = new Map();
 const add = (u, where) => { if (/^https?:/.test(u || '')) { if (!urls.has(u)) urls.set(u, new Set()); urls.get(u).add(where); } };
 for (const r of parseCsv(fs.readFileSync(`${dir}/gemini_programs.csv`, 'utf8'))) for (const k of ['official_athletics_url', 'official_soccer_url', 'camps_url']) add(r[k], `programs.${k}`);
-for (const r of parseCsv(fs.readFileSync(`${dir}/gemini_camps.csv`, 'utf8'))) add(r.registration_url, 'camps');
-for (const r of parseCsv(fs.readFileSync(`${dir}/gemini_id_camp_appearances.csv`, 'utf8'))) add(r.event_url, 'id_events');
+const readOpt = (f) => (fs.existsSync(`${dir}/${f}`) ? parseCsv(fs.readFileSync(`${dir}/${f}`, 'utf8')) : []);
+for (const r of readOpt('gemini_camps.csv')) add(r.registration_url, 'camps');
+for (const r of readOpt('gemini_id_camp_appearances.csv')) add(r.event_url, 'id_events');
 
 const results = [];
 async function probe(u) {
