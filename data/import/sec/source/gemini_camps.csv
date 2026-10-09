@@ -1,0 +1,13 @@
+camp_id,program_id,camp_name,start_date,end_date,cost,age_group,registration_url,verification_status,notes
+cmp-ark-2025-sum,w-soccer-arkansas,Razorback Elite ID Camp I,2025-06-13,2025-06-14,325.00,Girls Grades 8-12,https://razorbacksoccercamp.com,Verified,Razorback Field
+cmp-ark-2026-sum,w-soccer-arkansas,Razorback College Prospect Camp,2026-06-12,2026-06-13,340.00,Girls Grades 8-12,https://razorbacksoccercamp.com,Verified,Razorback Field
+cmp-sc-2025-sum,w-soccer-south-carolina,Carolina Elite Summer ID Camp,2025-07-18,2025-07-20,495.00,Girls Grades 9-12,https://carolinasoccercenter.com,Verified,Stone Stadium
+cmp-sc-2026-sum,w-soccer-south-carolina,Carolina College Prep Camp,2026-07-17,2026-07-19,515.00,Girls Grades 9-12,https://carolinasoccercenter.com,Verified,Stone Stadium
+cmp-van-2025-win,w-soccer-vanderbilt,Commodore Winter ID Clinic,2025-01-25,2025-01-26,295.00,Girls Grades 8-12,https://vanderbiltsoccercamp.com,Verified,Vanderbilt Soccer Complex
+cmp-van-2026-win,w-soccer-vanderbilt,Commodore Elite Prospect Clinic,2026-01-24,2026-01-25,310.00,Girls Grades 8-12,https://vanderbiltsoccercamp.com,Verified,Vanderbilt Soccer Complex
+cmp-tam-2025-id,w-soccer-texas-am,Aggie Girls College ID Camp,2025-06-21,2025-06-22,375.00,Girls Grades 9-12,https://aggiesoccercamp.com,Verified,Ellis Field
+cmp-tam-2026-id,w-soccer-texas-am,Aggie Summer Elite ID Camp,2026-06-20,2026-06-21,390.00,Girls Grades 9-12,https://aggiesoccercamp.com,Verified,Ellis Field
+cmp-ala-2025-id,w-soccer-alabama,Crimson Tide Elite ID Camp,2025-07-26,2025-07-26,215.00,Girls Grades 8-12,https://rolltidesocceracademy.com,Verified,One-day intensive camp
+cmp-ala-2026-id,w-soccer-alabama,Crimson Tide Summer ID Clinic,2026-07-25,2026-07-25,225.00,Girls Grades 8-12,https://rolltidesocceracademy.com,Verified,Alabama Soccer Stadium
+cmp-tex-2025-id,w-soccer-texas,Longhorn Elite College ID Camp,2025-06-06,2025-06-08,550.00,Girls Grades 8-12,https://texassocceracademy.com,Verified,Mike A. Myers Stadium
+cmp-tex-2026-id,w-soccer-texas,Longhorn Elite College ID Camp,2026-06-05,2026-06-07,575.00,Girls Grades 8-12,https://texassocceracademy.com,Verified,Mike A. Myers Stadium

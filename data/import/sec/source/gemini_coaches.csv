@@ -1,0 +1,32 @@
+coach_id,program_id,first_name,last_name,role,email,phone,verification_status,source_url
+c-ala-1,w-soccer-alabama,Wes,Hart,Head Coach,,205-348-0143,Needs Review,https://rolltide.com/sports/womens-soccer/roster#staff
+c-ala-2,w-soccer-alabama,Mike,Brunner,Associate Head Coach / Recruiting Coordinator,,205-348-0143,Needs Review,https://rolltide.com/sports/womens-soccer/roster#staff
+c-ark-1,w-soccer-arkansas,Colby,Hale,Head Coach,,479-575-4993,Needs Review,https://arkansasrazorbacks.com/sport/w-soccer/roster#staff
+c-ark-2,w-soccer-arkansas,Rob,Donnenwirth,Assistant Coach / Recruiting Coordinator,,479-575-4993,Needs Review,https://arkansasrazorbacks.com/sport/w-soccer/roster#staff
+c-aub-1,w-soccer-auburn,Karen,Hoppa,Head Coach,hoppaka@auburn.edu,334-844-9637,Verified,https://auburntigers.com/staff-directory
+c-aub-2,w-soccer-auburn,Nick,Floyd,Associate Head Coach / Recruiting Coordinator,floydnw@auburn.edu,334-844-9637,Verified,https://auburntigers.com/staff-directory
+c-fla-1,w-soccer-florida,Samantha,Bohrnstedt,Head Coach,,352-375-4683,Needs Review,https://floridagators.com/sports/womens-soccer/roster#staff
+c-fla-2,w-soccer-florida,Adam,Moffatt,Associate Head Coach / Recruiting Coordinator,,352-375-4683,Needs Review,https://floridagators.com/sports/womens-soccer/roster#staff
+c-uga-1,w-soccer-georgia,Keidane,McAlpine,Head Coach,,706-542-1170,Needs Review,https://georgiadogs.com/sports/womens-soccer/coaches
+c-uga-2,w-soccer-georgia,Jason,Lockhart,Associate Head Coach,,706-542-1170,Needs Review,https://georgiadogs.com/sports/womens-soccer/coaches
+c-uga-3,w-soccer-georgia,Sammy,Towne,Director of Recruiting & Player Development,,706-542-1170,Needs Review,https://georgiadogs.com/sports/womens-soccer/coaches
+c-uk-1,w-soccer-kentucky,Troy,Fabiano,Head Coach,,859-257-8600,Needs Review,https://ukathletics.com/sports/wsoc/roster#staff
+c-uk-2,w-soccer-kentucky,Michele,Kriss,Associate Head Coach / Recruiting Coordinator,,859-257-8600,Needs Review,https://ukathletics.com/sports/wsoc/roster#staff
+c-lsu-1,w-soccer-lsu,Sian,Hudson,Head Coach,shudson@lsu.edu,225-578-8256,Verified,https://lsusports.net/staff-directory/
+c-lsu-2,w-soccer-lsu,Seb,Furness,Associate Head Coach / Recruiting Coordinator,sfurness@lsu.edu,225-578-8256,Verified,https://lsusports.net/staff-directory/
+c-msu-1,w-soccer-mississippi-state,James,Armstrong,Head Coach,,662-325-0270,Needs Review,https://hailstate.com/sports/womens-soccer/roster#staff
+c-msu-2,w-soccer-mississippi-state,Nick,Zimmerman,Associate Head Coach / Recruiting Coordinator,,662-325-0270,Needs Review,https://hailstate.com/sports/womens-soccer/roster#staff
+c-miz-1,w-soccer-missouri,Stefanie,Golan,Head Coach,,573-884-2500,Needs Review,https://mutigers.com/sports/womens-soccer/roster#staff
+c-ou-1,w-soccer-oklahoma,Matt,Mott,Head Coach,,405-325-8360,Needs Review,https://soonersports.com/sports/womens-soccer/roster#staff
+c-ou-2,w-soccer-oklahoma,Jessica,Hiskey,Associate Head Coach / Recruiting Coordinator,,405-325-8360,Needs Review,https://soonersports.com/sports/womens-soccer/roster#staff
+c-ole-1,w-soccer-ole-miss,Molly,Rouse,Head Coach,,662-915-7241,Needs Review,https://olemisssports.com/sports/womens-soccer/roster#staff
+c-sc-1,w-soccer-south-carolina,Shelley,Smith,Head Coach,smithsa@mailbox.sc.edu,803-777-0700,Verified,https://gamecocksonline.com/staff-directory/
+c-sc-2,w-soccer-south-carolina,Jamie,Smith,Associate Head Coach / Recruiting Coordinator,smithjb@mailbox.sc.edu,803-777-0700,Verified,https://gamecocksonline.com/staff-directory/
+c-tenn-1,w-soccer-tennessee,Joe,Kirt,Head Coach,,865-974-4275,Needs Review,https://utsports.com/sports/womens-soccer/roster#staff
+c-tenn-2,w-soccer-tennessee,Jonathan,Morgan,Associate Head Coach / Recruiting Coordinator,,865-974-4275,Needs Review,https://utsports.com/sports/womens-soccer/roster#staff
+c-ut-1,w-soccer-texas,Angela,Kelly,Head Coach,,512-471-3647,Needs Review,https://texassports.com/sports/womens-soccer/roster#staff
+c-ut-2,w-soccer-texas,Lee,Hughes,Associate Head Coach / Recruiting Coordinator,,512-471-3647,Needs Review,https://texassports.com/sports/womens-soccer/roster#staff
+c-tam-1,w-soccer-texas-am,G,Guerrieri,Head Coach,gguerrieri@athletics.tamu.edu,979-845-1977,Verified,https://12thman.com/staff-directory
+c-tam-2,w-soccer-texas-am,Phil,Stephenson,Associate Head Coach / Recruiting Coordinator,pstephenson@athletics.tamu.edu,979-845-1977,Verified,https://12thman.com/staff-directory
+c-van-1,w-soccer-vanderbilt,Darren,Ambrose,Head Coach,,615-343-8095,Needs Review,https://vucommodores.com/sports/wsoc/roster#staff
+c-van-2,w-soccer-vanderbilt,Ken,Masuhr,Associate Head Coach / Recruiting Coordinator,,615-343-8095,Needs Review,https://vucommodores.com/sports/wsoc/roster#staff

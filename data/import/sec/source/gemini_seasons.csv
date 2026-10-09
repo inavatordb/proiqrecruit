@@ -1,0 +1,28 @@
+season_id,program_id,season_year,overall_record,conf_record,conf_finish,conf_tournament_result,ncaa_result,verification_status
+ps-sc-2023,w-soccer-south-carolina,2023,12-3-6,5-0-5,3rd,Quarterfinals,NCAA Second Round,Verified
+ps-sc-2024,w-soccer-south-carolina,2024,11-4-7,5-2-3,4th,Runner-Up,NCAA Second Round,Verified
+ps-sc-2025,w-soccer-south-carolina,2025,14-3-4,7-1-2,2nd,Semifinals,NCAA Round of 16,Verified
+ps-ark-2023,w-soccer-arkansas,2023,15-5-2,8-1-1,1st,Runner-Up,NCAA Second Round,Verified
+ps-ark-2024,w-soccer-arkansas,2024,14-2-2,8-1-1,1st,Semifinals,NCAA Second Round,Verified
+ps-ark-2025,w-soccer-arkansas,2025,16-2-2,9-1-0,1st,Champions,NCAA Quarterfinals,Verified
+ps-msu-2023,w-soccer-mississippi-state,2023,12-6-4,5-3-2,6th,Quarterfinals,NCAA Round of 16,Verified
+ps-msu-2024,w-soccer-mississippi-state,2024,17-2-1,10-0-0,1st,Champions,NCAA Round of 16,Verified
+ps-msu-2025,w-soccer-mississippi-state,2025,13-4-3,6-2-2,4th,Semifinals,NCAA Second Round,Verified
+ps-uga-2023,w-soccer-georgia,2023,13-4-6,4-3-3,5th,Champions,NCAA Round of 16,Verified
+ps-uga-2024,w-soccer-georgia,2024,8-6-4,3-4-3,9th,First Round,Did Not Qualify,Verified
+ps-uga-2025,w-soccer-georgia,2025,11-5-3,5-3-2,6th,Quarterfinals,NCAA First Round,Verified
+ps-van-2023,w-soccer-vanderbilt,2023,8-5-5,3-5-2,10th,Did Not Qualify,Did Not Qualify,Verified
+ps-van-2024,w-soccer-vanderbilt,2024,9-4-5,4-3-3,6th,First Round,NCAA Round of 16,Verified
+ps-van-2025,w-soccer-vanderbilt,2025,15-3-3,7-2-1,3rd,Runner-Up,College Cup Semifinals,Verified
+ps-tex-2023,w-soccer-texas,2023,17-5-2,6-3-1 (Big 12),3rd (Big 12),Big 12 Champions,NCAA Round of 16,Verified
+ps-tex-2024,w-soccer-texas,2024,13-4-2,6-3-1,5th,Quarterfinals,NCAA Second Round,Verified
+ps-tex-2025,w-soccer-texas,2025,13-5-2,6-3-1,5th,Quarterfinals,NCAA Second Round,Verified
+ps-tam-2023,w-soccer-texas-am,2023,10-8-4,5-3-2,7th,Quarterfinals,NCAA Second Round,Verified
+ps-tam-2024,w-soccer-texas-am,2024,8-8-2,3-5-2,11th,First Round,Did Not Qualify,Verified
+ps-tam-2025,w-soccer-texas-am,2025,11-6-2,5-4-1,7th,Quarterfinals,NCAA First Round,Verified
+ps-tenn-2023,w-soccer-tennessee,2023,9-7-4,3-4-3,8th,First Round,NCAA Second Round,Verified
+ps-tenn-2024,w-soccer-tennessee,2024,9-5-4,3-4-3,8th,First Round,NCAA First Round,Verified
+ps-tenn-2025,w-soccer-tennessee,2025,10-6-3,4-4-2,8th,Quarterfinals,NCAA First Round,Verified
+ps-ala-2023,w-soccer-alabama,2023,12-5-5,5-4-1,4th,First Round,NCAA Second Round,Verified
+ps-ala-2024,w-soccer-alabama,2024,9-6-3,2-4-4,10th,First Round,Did Not Qualify,Verified
+ps-ala-2025,w-soccer-alabama,2025,11-6-2,5-4-1,7th,Quarterfinals,NCAA First Round,Verified

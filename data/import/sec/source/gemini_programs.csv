@@ -1,0 +1,17 @@
+program_id,school_name,division,conference,conference_history,official_athletics_url,official_soccer_url,camps_url,verification_status,notes
+w-soccer-alabama,Alabama,D1,SEC,SEC,https://rolltide.com,https://rolltide.com/sports/womens-soccer,https://rolltidesocceracademy.com,Verified,
+w-soccer-arkansas,Arkansas,D1,SEC,SEC,https://arkansasrazorbacks.com,https://arkansasrazorbacks.com/sport/w-soccer/,https://razorbacksoccercamp.com,Verified,
+w-soccer-auburn,Auburn,D1,SEC,SEC,https://auburntigers.com,https://auburntigers.com/sports/womens-soccer,https://auburnsoccercamp.com,Verified,
+w-soccer-florida,Florida,D1,SEC,SEC,https://floridagators.com,https://floridagators.com/sports/womens-soccer,https://floridasoccercamps.com,Verified,
+w-soccer-georgia,Georgia,D1,SEC,SEC,https://georgiadogs.com,https://georgiadogs.com/sports/womens-soccer,https://georgiasoccercamp.com,Verified,
+w-soccer-kentucky,Kentucky,D1,SEC,SEC,https://ukathletics.com,https://ukathletics.com/sports/wsoc,https://kentuckysoccercamp.com,Verified,
+w-soccer-lsu,LSU,D1,SEC,SEC,https://lsusports.net,https://lsusports.net/sports/wsoc/,https://lsusoccercamp.com,Verified,
+w-soccer-mississippi-state,Mississippi State,D1,SEC,SEC,https://hailstate.com,https://hailstate.com/sports/womens-soccer,https://bulldogsoccercamp.com,Verified,
+w-soccer-missouri,Missouri,D1,SEC,"Big 12 (thru 2011-12), SEC (2012-present)",https://mutigers.com,https://mutigers.com/sports/womens-soccer,https://mizzousoccercamp.com,Verified,
+w-soccer-oklahoma,Oklahoma,D1,SEC,"Big 12 (thru 2023-24), SEC (2024-present)",https://soonersports.com,https://soonersports.com/sports/womens-soccer,https://soonersoccercamps.com,Verified,Joined SEC fall 2024
+w-soccer-ole-miss,Ole Miss,D1,SEC,SEC,https://olemisssports.com,https://olemisssports.com/sports/womens-soccer,https://olemisssoccercamps.com,Verified,
+w-soccer-south-carolina,South Carolina,D1,SEC,SEC,https://gamecocksonline.com,https://gamecocksonline.com/sports/wsoc/,https://carolinasoccercenter.com,Verified,
+w-soccer-tennessee,Tennessee,D1,SEC,SEC,https://utsports.com,https://utsports.com/sports/womens-soccer,https://tennesseesoccercamp.com,Verified,
+w-soccer-texas,Texas,D1,SEC,"Big 12 (thru 2023-24), SEC (2024-present)",https://texassports.com,https://texassports.com/sports/womens-soccer,https://texassocceracademy.com,Verified,Joined SEC fall 2024
+w-soccer-texas-am,Texas A&M,D1,SEC,"Big 12 (thru 2011-12), SEC (2012-present)",https://12thman.com,https://12thman.com/sports/womens-soccer,https://aggiesoccercamp.com,Verified,
+w-soccer-vanderbilt,Vanderbilt,D1,SEC,SEC,https://vucommodores.com,https://vucommodores.com/sports/wsoc/,https://vanderbiltsoccercamp.com,Verified,

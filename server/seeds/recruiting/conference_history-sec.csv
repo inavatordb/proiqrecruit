@@ -1,0 +1,9 @@
+program_id,school_name,conference,start_season,end_season,source_url,source_name,source_type,verified,notes
+SEC_TEX_WSOC,Texas,Big 12 Conference,,2023,https://en.wikipedia.org/wiki/2023_NCAA_Division_I_women's_soccer_tournament,Wikipedia: 2023 NCAA tournament field (lists Big 12 Conference),other,no,Start of earlier membership unknown.
+SEC_TEX_WSOC,Texas,Southeastern Conference,2024,,https://en.wikipedia.org/wiki/2024_NCAA_Division_I_women's_soccer_tournament,Wikipedia: 2024 NCAA tournament field (lists SEC),other,no,
+SEC_OU_WSOC,Oklahoma,Big 12 Conference,,2023,,Supplied SEC research file; not independently sourced,other,no,Joined the SEC for 2024 per the research file; confirm against the SEC announcement.
+SEC_OU_WSOC,Oklahoma,Southeastern Conference,2024,,,Supplied SEC research file; not independently sourced,other,no,
+SEC_MIZ_WSOC,Missouri,Big 12 Conference,,2011,,Supplied SEC research file; not independently sourced,other,no,Joined the SEC for 2012 per the research file; confirm.
+SEC_MIZ_WSOC,Missouri,Southeastern Conference,2012,,,Supplied SEC research file; not independently sourced,other,no,
+SEC_TAMU_WSOC,Texas A&M,Big 12 Conference,,2011,,Supplied SEC research file; not independently sourced,other,no,Joined the SEC for 2012 per the research file; confirm.
+SEC_TAMU_WSOC,Texas A&M,Southeastern Conference,2012,,,Supplied SEC research file; not independently sourced,other,no,

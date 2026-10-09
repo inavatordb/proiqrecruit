@@ -1,0 +1,252 @@
+[
+ {
+  "u": "https://rolltide.com",
+  "status": 200,
+  "final": "https://rolltide.com/"
+ },
+ {
+  "u": "https://rolltide.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://rolltide.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://rolltidesocceracademy.com",
+  "status": 200,
+  "final": "https://www.rolltidesocceracademy.com/"
+ },
+ {
+  "u": "https://arkansasrazorbacks.com",
+  "status": 200,
+  "final": "https://arkansasrazorbacks.com/"
+ },
+ {
+  "u": "https://arkansasrazorbacks.com/sport/w-soccer/",
+  "status": 200,
+  "final": "https://arkansasrazorbacks.com/sport/w-soccer/"
+ },
+ {
+  "u": "https://razorbacksoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://auburntigers.com",
+  "status": 200,
+  "final": "https://auburntigers.com/"
+ },
+ {
+  "u": "https://auburntigers.com/sports/womens-soccer",
+  "status": 404,
+  "final": "https://auburntigers.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://auburnsoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://floridagators.com",
+  "status": 200,
+  "final": "https://floridagators.com/"
+ },
+ {
+  "u": "https://floridagators.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://floridagators.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://floridasoccercamps.com",
+  "status": "FAIL",
+  "err": "UND_ERR_CONNECT_TIMEOUT"
+ },
+ {
+  "u": "https://georgiadogs.com",
+  "status": 200,
+  "final": "https://georgiadogs.com/"
+ },
+ {
+  "u": "https://georgiadogs.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://georgiadogs.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://georgiasoccercamp.com",
+  "status": 200,
+  "final": "https://georgiasoccercamp.com/"
+ },
+ {
+  "u": "https://ukathletics.com",
+  "status": 200,
+  "final": "https://ukathletics.com/"
+ },
+ {
+  "u": "https://ukathletics.com/sports/wsoc",
+  "status": 200,
+  "final": "https://ukathletics.com/sports/wsoc/"
+ },
+ {
+  "u": "https://kentuckysoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://lsusports.net",
+  "status": 200,
+  "final": "https://lsusports.net/"
+ },
+ {
+  "u": "https://lsusports.net/sports/wsoc/",
+  "status": 404,
+  "final": "https://lsusports.net/sports/wsoc"
+ },
+ {
+  "u": "https://lsusoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://hailstate.com",
+  "status": 200,
+  "final": "https://hailstate.com/"
+ },
+ {
+  "u": "https://hailstate.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://hailstate.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://bulldogsoccercamp.com",
+  "status": 200,
+  "final": "https://www.bulldogsoccercamp.com/"
+ },
+ {
+  "u": "https://mutigers.com",
+  "status": 200,
+  "final": "https://mutigers.com/"
+ },
+ {
+  "u": "https://mutigers.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://mutigers.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://mizzousoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://soonersports.com",
+  "status": 200,
+  "final": "https://soonersports.com/"
+ },
+ {
+  "u": "https://soonersports.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://soonersports.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://soonersoccercamps.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://olemisssports.com",
+  "status": 200,
+  "final": "https://olemisssports.com/"
+ },
+ {
+  "u": "https://olemisssports.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://olemisssports.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://olemisssoccercamps.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://gamecocksonline.com",
+  "status": 200,
+  "final": "https://gamecocksonline.com/"
+ },
+ {
+  "u": "https://gamecocksonline.com/sports/wsoc/",
+  "status": 200,
+  "final": "https://gamecocksonline.com/sports/wsoc/"
+ },
+ {
+  "u": "https://carolinasoccercenter.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://utsports.com",
+  "status": 200,
+  "final": "https://utsports.com/"
+ },
+ {
+  "u": "https://utsports.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://utsports.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://tennesseesoccercamp.com",
+  "status": 200,
+  "final": "https://www.tennesseesoccercamp.com/"
+ },
+ {
+  "u": "https://texassports.com",
+  "status": 200,
+  "final": "https://texaslonghorns.com/"
+ },
+ {
+  "u": "https://texassports.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://texaslonghorns.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://texassocceracademy.com",
+  "status": "FAIL",
+  "err": "UND_ERR_CONNECT_TIMEOUT"
+ },
+ {
+  "u": "https://12thman.com",
+  "status": 200,
+  "final": "https://12thman.com/"
+ },
+ {
+  "u": "https://12thman.com/sports/womens-soccer",
+  "status": 404,
+  "final": "https://12thman.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://aggiesoccercamp.com",
+  "status": 200,
+  "final": "https://aggiesoccercamp.com/"
+ },
+ {
+  "u": "https://vucommodores.com",
+  "status": 200,
+  "final": "https://vucommodores.com/"
+ },
+ {
+  "u": "https://vucommodores.com/sports/wsoc/",
+  "status": 200,
+  "final": "https://vucommodores.com/sports/wsoc"
+ },
+ {
+  "u": "https://vanderbiltsoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://exactsports.com/soccer",
+  "status": 200,
+  "final": "https://exactsports.com/soccer"
+ },
+ {
+  "u": "https://future500soccer.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ }
+]

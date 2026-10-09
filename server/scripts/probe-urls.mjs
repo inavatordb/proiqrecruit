@@ -2,7 +2,8 @@
 import fs from 'node:fs';
 import { parseCsv } from '../recruiting/core.mjs';
 
-const dir = 'data/import/acc/source';
+const conf = process.argv[2] || 'acc';
+const dir = `data/import/${conf}/source`;
 const urls = new Map();
 const add = (u, where) => { if (/^https?:/.test(u || '')) { if (!urls.has(u)) urls.set(u, new Set()); urls.get(u).add(where); } };
 for (const r of parseCsv(fs.readFileSync(`${dir}/gemini_programs.csv`, 'utf8'))) for (const k of ['official_athletics_url', 'official_soccer_url', 'camps_url']) add(r[k], `programs.${k}`);
@@ -24,4 +25,4 @@ const bucket = (s) => (s === 'FAIL' ? 'dead (DNS/connect)' : s < 400 ? 'ok' : [4
 const tally = {};
 for (const r of results) { const b = bucket(r.status); tally[b] = (tally[b] || 0) + 1; if (b !== 'ok') console.log(`${b.padEnd(22)} ${String(r.status).padEnd(5)} ${r.u}  [${[...urls.get(r.u)].join(',')}]`); }
 console.log(tally, `of ${results.length}`);
-fs.writeFileSync('data/import/acc/url-probe.json', JSON.stringify(results, null, 1));
+fs.writeFileSync(`data/import/${conf}/url-probe.json`, JSON.stringify(results, null, 1));

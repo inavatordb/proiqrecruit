@@ -154,3 +154,9 @@ Everything loaded this way is **Needs Review** (shown as "Unverified" on the sit
 was built by `node server/scripts/build-recruiting-logos.mjs` from each program's Wikipedia athletics page (D1: 337/349, D2: 40/259), skipping conference logos and photos.
 **Licensing:** school logos are the institutions' trademarks and mostly non-free images. Hot-linking them is for development/beta — before a commercial launch,
 replace `logo_url` with assets you have permission to use (athletics media kits) via the programs CSV import (`logo_url` column).
+
+## SEC data (2026-10-09)
+
+Same process as the ACC: the supplied SEC file was checked and mostly rejected — see `data/import/sec/REVIEW.md`. Loaded: program codes + working links,
+conference moves, and Auburn/Texas A&M staff from official directories. SEC season records and staff are still empty (no sourced equivalent found).
+Helper scripts take a conference folder: `node server/scripts/probe-urls.mjs sec`, `node server/scripts/check-acc-ncaa.mjs sec`.
