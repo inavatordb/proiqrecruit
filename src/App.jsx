@@ -12,6 +12,8 @@ import AuthPage from './pages/AuthPage';
 const MyListPage = lazy(() => import('./pages/MyListPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const ComparePage = lazy(() => import('./pages/ComparePage'));
+const MaterialsPage = lazy(() => import('./pages/OutreachPages').then((m) => ({ default: m.MaterialsPage })));
+const LettersPage = lazy(() => import('./pages/OutreachPages').then((m) => ({ default: m.LettersPage })));
 const SharedPages = lazy(() => import('./pages/SharedPages'));
 const AdminPage = lazy(() => import('./admin/AdminPage'));
 
@@ -87,6 +89,8 @@ export default function App() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/my-list" element={<MyListPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/materials" element={<MaterialsPage />} />
+          <Route path="/letters" element={<LettersPage />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/admin/*" element={<AdminPage />} />
           <Route path="/schools" element={<SchoolsPage />} />

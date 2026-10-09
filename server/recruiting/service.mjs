@@ -9,10 +9,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {
-  KINDS, SPORTS, DIVISIONS, DEFAULT_SPORT, PIPELINE_KEYS, PROFILE_PRIVACY, CONTACT_METHODS, COACH_ROLE_ORDER, COACH_ROLE_LABEL, STATE_LIST, REGIONS,
+  KINDS, PRIVATE_ENTITIES, SPORTS, DIVISIONS, DEFAULT_SPORT, PIPELINE_KEYS, PROFILE_PRIVACY, CONTACT_METHODS, COACH_ROLE_ORDER, COACH_ROLE_LABEL, STATE_LIST, REGIONS,
   NORMALIZERS, planImport, parseCsvWithHeader, applyAliases, checkColumns, resolveSport, slugify, shortHash, str, text, safeUrl, toBool, toInt, toList, toDate, stateAbbr, regionForState,
   stateDistanceMiles, programIdFor, roundRank, currentYear, isCompletedSeason, normVerification, winPct, SOURCE_TYPES, CAMP_TYPES,
 } from './core.mjs';
+import { createOutreach } from './outreach.mjs';
 
 const newId = (p) => `${p}_${crypto.randomBytes(9).toString('hex')}`;
 const today = (d = new Date()) => d.toISOString().slice(0, 10);
@@ -31,7 +32,7 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     if (ok) { persistEntity(name); if (!PRIVATE.has(name)) catalogVersion++; }
     return ok;
   };
-  const PRIVATE = new Set(['RecruitPlayerProfile', 'RecruitTarget', 'RecruitNote', 'RecruitContact', 'RecruitActivity', 'RecruitCampTrack']);
+  const PRIVATE = new Set(PRIVATE_ENTITIES);
   let catalogVersion = 0;
 
   /* ------------------------------ catalog index ------------------------------ */
@@ -829,6 +830,11 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     return putRow('RecruitPlayerProfile', { ...p, disabled: !!disabled, updated_date: now() });
   }
 
+  const outreach = createOutreach({
+    rows, getRow, putRow, delRow, profileFor, programOf, newId, now, httpErr, logActivity,
+    coachesFor: (programId) => (index().coaches.get(programId) || []).filter((c) => c.active !== false && c.verification_status !== 'archived'),
+  });
+
   return {
     rows, getRow, search, detail, summarize, meta, compare, listCamps, campDetail,
     /** Drop cached indexes after the store was reloaded from the database. */
@@ -838,6 +844,7 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
     profileFor, canAct, saveProfile, rotateShareToken, sharedProfile, sharedList,
     addTarget, updateTarget, removeTarget, addNote, updateNote, deleteNote, addContact, updateContact, deleteContact,
     trackCamp, deleteCampTrack, programWorkspace, noteView, dashboard, myTarget,
+    ...outreach,
   };
 }
 

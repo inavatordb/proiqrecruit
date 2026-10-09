@@ -1,0 +1,384 @@
+# College Scorecard academics (2026-10-09)
+
+230 programs matched an exact name + state; 378 not filled.
+Typical GPA is not published by Scorecard and is left blank.
+
+## Not filled
+- |East Texas A&M (TX) — no exact name match
+- Abilene Christian (TX) — no exact name match
+- Adelphi University (NY) — no exact name match
+- Akron (OH) — no exact name match
+- Albany (NY) — no exact name match
+- Allen University (SC) — no exact name match
+- Anderson University (SC) — no exact name match
+- Angelo State University (TX) — no exact name match
+- Appalachian State (NC) — no exact name match
+- Arizona State (AZ) — no exact name match
+- Army (NY) — no exact name match
+- Ashland University (OH) — no exact name match
+- Augustana University (SD) — no exact name match
+- Austin Peay (TN) — no exact name match
+- Barton College (NC) — no exact name match
+- Baylor (TX) — no exact name match
+- Belmont (TN) — no exact name match
+- Belmont Abbey College (NC) — no exact name match
+- Binghamton (NY) — no exact name match
+- Black Hills State University (SD) — no exact name match
+- Bluefield State University (WV) — no exact name match
+- Bowling Green (OH) — no exact name match
+- Brown (RI) — no exact name match
+- Bryant (RI) — no exact name match
+- Bucknell (PA) — no exact name match
+- Buffalo (NY) — no exact name match
+- BYU (UT) — no exact name match
+- Cal Poly (CA) — no exact name match
+- Cal State Bakersfield (CA) — no exact name match
+- Cal State Fullerton (CA) — no exact name match
+- Cal State Northridge (CA) — no exact name match
+- Caldwell University (NJ) — no exact name match
+- California (CA) — no exact name match
+- California State Polytechnic University, Humboldt (Cal Poly Humboldt) (CA) — no exact name match
+- California State Polytechnic University, Pomona (Cal Poly Pomona) (CA) — no exact name match
+- California State University San Marcos (CA) — no exact name match
+- California State University, Chico (Chico State) (CA) — no exact name match
+- California State University, Dominguez Hills (CA) — no exact name match
+- California State University, East Bay (CA) — no exact name match
+- California State University, Los Angeles (CA) — no exact name match
+- California State University, Monterey Bay (CA) — no exact name match
+- California State University, San Bernardino (CA) — no exact name match
+- California State University, Stanislaus (CA) — no exact name match
+- Campbell (NC) — no exact name match
+- Canisius (NY) — no exact name match
+- Carson–Newman University (TN) — no exact name match
+- Catawba College (NC) — no exact name match
+- Cedarville University (OH) — no exact name match
+- Central Washington University (WA) — no exact name match
+- Charleston (SC) — no exact name match
+- Charleston Southern (SC) — no exact name match
+- Charlotte (NC) — no exact name match
+- Chattanooga (TN) — no exact name match
+- Chestnut Hill College (PA) — no exact name match
+- Chowan University (NC) — no exact name match
+- Christian Brothers University (TN) — no exact name match
+- Cincinnati (OH) — no exact name match
+- Clemson (SC) — no exact name match
+- Cleveland State (OH) — no exact name match
+- Coastal Carolina (SC) — no exact name match
+- Coker University (SC) — no exact name match
+- Colgate (NY) — no exact name match
+- College of Staten Island (NY) — no exact name match
+- Colorado Mesa University (CO) — no exact name match
+- Colorado State (CO) — no exact name match
+- Colorado State University–Pueblo (CO) — no exact name match
+- Columbia (NY) — no exact name match
+- Commonwealth University-Bloomsburg (PA) — no exact name match
+- Commonwealth University-Lock Haven (PA) — no exact name match
+- Commonwealth University-Mansfield (PA) — no exact name match
+- Concord University (WV) — no exact name match
+- Concordia University–St. Paul (MN) — no exact name match
+- Converse University (SC) — no exact name match
+- Cornell (NY) — no exact name match
+- Creighton (NE) — no exact name match
+- D'Youville University (NY) — no exact name match
+- Daemen University (NY) — no exact name match
+- Dallas Baptist University (TX) — no exact name match
+- Dartmouth (NH) — no exact name match
+- Davidson (NC) — no exact name match
+- Davis & Elkins College (WV) — no exact name match
+- Dayton (OH) — no exact name match
+- Dominican University New York (NY) — no exact name match
+- Drexel (PA) — no exact name match
+- Duke (NC) — no exact name match
+- Duquesne (PA) — no exact name match
+- East Carolina (NC) — no exact name match
+- East Central University (OK) — no exact name match
+- East Stroudsburg University of Pennsylvania (PA) — no exact name match
+- East Tennessee State (TN) — no exact name match
+- Eastern New Mexico University (NM) — no exact name match
+- Eastern Washington (WA) — no exact name match
+- Elon (NC) — no exact name match
+- Embry–Riddle Aeronautical University (FL) — no exact name match
+- Emory and Henry University (VA) — no exact name match
+- Erskine College (SC) — no exact name match
+- Fairleigh Dickinson (NJ) — no exact name match
+- Fairmont State University (WV) — no exact name match
+- Felician University (NJ) — no exact name match
+- Ferrum College (VA) — no exact name match
+- Florida Gulf Coast (FL) — no exact name match
+- Fordham (NY) — no exact name match
+- Francis Marion University (SC) — no exact name match
+- Franklin Pierce University (NH) — no exact name match
+- Fresno State (CA) — no exact name match
+- Furman (SC) — no exact name match
+- Gannon University (PA) — no exact name match
+- Gardner–Webb (NC) — no exact name match
+- George Mason (VA) — no exact name match
+- Georgian Court University (NJ) — no exact name match
+- Gonzaga (WA) — no exact name match
+- Green Bay (WI) — no exact name match
+- Hampton (VA) — no exact name match
+- Hawaii (HI) — no exact name match
+- High Point (NC) — no exact name match
+- Hofstra (NY) — no exact name match
+- Holy Family University (PA) — no exact name match
+- Houston (TX) — no exact name match
+- Houston Christian (TX) — no exact name match
+- Incarnate Word (TX) — no exact name match
+- Indiana (IN) — no exact name match
+- Indiana University of Pennsylvania (PA) — no exact name match
+- Iona (NY) — no exact name match
+- IU Indy (IN) — no exact name match
+- James Madison (VA) — no exact name match
+- Jessup University (CA) — no exact name match
+- Kennesaw State (GA) — no exact name match
+- Kent State (OH) — no exact name match
+- King University (TN) — no exact name match
+- Kutztown University of Pennsylvania (PA) — no exact name match
+- La Salle (PA) — no exact name match
+- Lafayette (PA) — no exact name match
+- Lake Erie College (OH) — no exact name match
+- Lamar (TX) — no exact name match
+- Lander University (SC) — no exact name match
+- Le Moyne (NY) — no exact name match
+- Lee University (TN) — no exact name match
+- Lees–McRae College (NC) — no exact name match
+- Lehigh (PA) — no exact name match
+- Lenoir–Rhyne University (NC) — no exact name match
+- Liberty (VA) — no exact name match
+- Lincoln Memorial University (TN) — no exact name match
+- Lincoln University (Pennsylvania) (PA) — no exact name match
+- Lipscomb (TN) — no exact name match
+- LIU (NY) — no exact name match
+- Long Beach State (CA) — no exact name match
+- Longwood (VA) — no exact name match
+- LSU (LA) — no exact name match
+- Lubbock Christian University (TX) — no exact name match
+- Malone University (OH) — no exact name match
+- Manhattan (NY) — no exact name match
+- Marist (NY) — no exact name match
+- Marquette (WI) — no exact name match
+- Mars Hill University (NC) — no exact name match
+- Marshall (WV) — no exact name match
+- Maryland (MD) — no exact name match
+- Maryville University (MO) — no exact name match
+- Memphis (TN) — no exact name match
+- Mercy University (NY) — no exact name match
+- Mercyhurst (PA) — no exact name match
+- Miami (OH) (OH) — no exact name match
+- Michigan (MI) — no exact name match
+- Middle Georgia State University (GA) — no exact name match
+- Middle Tennessee (TN) — no exact name match
+- Midwestern State University (TX) — no exact name match
+- Millersville University of Pennsylvania (PA) — no exact name match
+- Milwaukee (WI) — no exact name match
+- Minnesota (MN) — no exact name match
+- Minnesota State University, Mankato (MN) — no exact name match
+- Minot State University (ND) — no exact name match
+- Missouri (MO) — no exact name match
+- Missouri State (MO) — no exact name match
+- Molloy University (NY) — no exact name match
+- Monmouth (NJ) — no exact name match
+- NC State (NC) — no exact name match
+- Nebraska (NE) — no exact name match
+- Nevada (NV) — no exact name match
+- New Hampshire (NH) — no exact name match
+- New Mexico (NM) — no exact name match
+- New Mexico Highlands University (NM) — no exact name match
+- New Mexico State (NM) — no exact name match
+- Newberry College (SC) — no exact name match
+- Niagara (NY) — no exact name match
+- NJIT (NJ) — no exact name match
+- North Carolina (NC) — no exact name match
+- North Dakota (ND) — no exact name match
+- North Dakota State (ND) — no exact name match
+- North Greenville University (SC) — no exact name match
+- North Texas (TX) — no exact name match
+- Northeastern State University (OK) — no exact name match
+- Northern State University (SD) — no exact name match
+- Northwestern Oklahoma State University (OK) — no exact name match
+- Northwestern State (LA) — no exact name match
+- Ohio (OH) — no exact name match
+- Ohio Dominican University (OH) — no exact name match
+- Ohio State (OH) — no exact name match
+- Oklahoma (OK) — no exact name match
+- Oklahoma Baptist University (OK) — no exact name match
+- Oklahoma Christian University (OK) — no exact name match
+- Oklahoma State (OK) — no exact name match
+- Old Dominion (VA) — no exact name match
+- Omaha (NE) — no exact name match
+- Oral Roberts (OK) — no exact name match
+- Oregon (OR) — no exact name match
+- Oregon State (OR) — no exact name match
+- Pace University (NY) — no exact name match
+- Penn (PA) — no exact name match
+- Penn State (PA) — no exact name match
+- Pennsylvania Western University – California (PennWest California) (PA) — no exact name match
+- Pennsylvania Western University – Clarion (PennWest Clarion) (PA) — no exact name match
+- Pennsylvania Western University – Edinboro (PennWest Edinboro) (PA) — no exact name match
+- Pittsburgh (PA) — no exact name match
+- Point Park University (PA) — no exact name match
+- Portland (OR) — no exact name match
+- Portland State (OR) — no exact name match
+- Prairie View A&M (TX) — no exact name match
+- Presbyterian (SC) — no exact name match
+- Princeton (NJ) — no exact name match
+- Providence (RI) — no exact name match
+- Purdue (IN) — no exact name match
+- Purdue University Northwest (IN) — no exact name match
+- Queens (NC) — no exact name match
+- Queens College (NY) — no exact name match
+- Radford (VA) — no exact name match
+- Rhode Island (RI) — no exact name match
+- Rice (TX) — no exact name match
+- Richmond (VA) — no exact name match
+- Rider (NJ) — no exact name match
+- Robert Morris (PA) — no exact name match
+- Roberts Wesleyan University (NY) — no exact name match
+- Rogers State University (OK) — no exact name match
+- Rutgers (NJ) — no exact name match
+- Sacramento State (CA) — no exact name match
+- Saint Anselm College (NH) — no exact name match
+- Saint Joseph's (PA) — no exact name match
+- Saint Martin's University (WA) — no exact name match
+- Saint Michael's College (VT) — no exact name match
+- Saint Peter's (NJ) — no exact name match
+- Salem University (WV) — no exact name match
+- Sam Houston (TX) — no exact name match
+- Seattle (WA) — no exact name match
+- Seattle Pacific University (WA) — no exact name match
+- Seton Hall (NJ) — no exact name match
+- Seton Hill University (PA) — no exact name match
+- Shaw University (NC) — no exact name match
+- Shawnee State University (OH) — no exact name match
+- Shepherd University (WV) — no exact name match
+- Shippensburg University of Pennsylvania (PA) — no exact name match
+- Siena (NY) — no exact name match
+- Simon Fraser University (British Columbia) — no exact name match
+- Slippery Rock University of Pennsylvania (PA) — no exact name match
+- SMU (TX) — no exact name match
+- South Carolina (SC) — no exact name match
+- South Carolina State (SC) — no exact name match
+- South Dakota (SD) — no exact name match
+- South Dakota State (SD) — no exact name match
+- Southern (LA) — no exact name match
+- Southern Illinois (IL) — no exact name match
+- Southern Indiana (IN) — no exact name match
+- Southern Nazarene University (OK) — no exact name match
+- Southern New Hampshire University (NH) — no exact name match
+- Southern Utah (UT) — no exact name match
+- Southern Wesleyan University (SC) — no exact name match
+- Southwestern Oklahoma State University (OK) — no exact name match
+- St. Bonaventure (NY) — no exact name match
+- St. Cloud State University (MN) — no exact name match
+- St. Edward's University (TX) — no exact name match
+- St. John's (NY) — no exact name match
+- St. Mary's University (TX) — no exact name match
+- St. Thomas Aquinas College (NY) — no exact name match
+- Stanford (CA) — no exact name match
+- Stephen F. Austin (TX) — no exact name match
+- Stony Brook (NY) — no exact name match
+- Sul Ross State University (TX) — no exact name match
+- Syracuse (NY) — no exact name match
+- Tarleton State (TX) — no exact name match
+- TCU (TX) — no exact name match
+- Temple (PA) — no exact name match
+- Tennessee (TN) — no exact name match
+- Tennessee Tech (TN) — no exact name match
+- Texas (TX) — no exact name match
+- Texas A&M (TX) — no exact name match
+- Texas A&M International University (TX) — no exact name match
+- Texas A&M–Corpus Christi (TX) — no exact name match
+- Texas Southern (TX) — no exact name match
+- Texas State (TX) — no exact name match
+- Texas Tech (TX) — no exact name match
+- Texas Woman's University (TX) — no exact name match
+- The Citadel (SC) — no exact name match
+- Thomas Jefferson University (Jefferson) (PA) — no exact name match
+- Tiffin University (OH) — no exact name match
+- Toledo (OH) — no exact name match
+- Trevecca Nazarene University (TN) — no exact name match
+- Tulsa (OK) — no exact name match
+- Tusculum University (TN) — no exact name match
+- UC Davis (CA) — no exact name match
+- UC Irvine (CA) — no exact name match
+- UC Riverside (CA) — no exact name match
+- UC San Diego (CA) — no exact name match
+- UC Santa Barbara (CA) — no exact name match
+- UCLA (CA) — no exact name match
+- UMass (MA) — no exact name match
+- UMass Lowell (MA) — no exact name match
+- UMBC (MD) — no exact name match
+- UNC Asheville (NC) — no exact name match
+- UNC Greensboro (NC) — no exact name match
+- UNC Wilmington (NC) — no exact name match
+- Union University (TN) — no exact name match
+- University of California, Merced (UC Merced) (CA) — no exact name match
+- University of Central Oklahoma (OK) — no exact name match
+- University of Charleston (WV) — no exact name match
+- University of Findlay (OH) — no exact name match
+- University of Illinois at Springfield (IL) — no exact name match
+- University of Jamestown (ND) — no exact name match
+- University of Mary (ND) — no exact name match
+- University of Minnesota Crookston (MN) — no exact name match
+- University of Minnesota Duluth (MN) — no exact name match
+- University of Mount Olive (NC) — no exact name match
+- University of Nebraska at Kearney (NE) — no exact name match
+- University of North Carolina at Pembroke (NC) — no exact name match
+- University of North Georgia (GA) — no exact name match
+- University of Pittsburgh at Johnstown (PA) — no exact name match
+- University of Puerto Rico at Bayamón (Puerto Rico) — no exact name match
+- University of Puerto Rico, Río Piedras (Puerto Rico) — no exact name match
+- University of Sioux Falls (SD) — no exact name match
+- University of South Carolina Aiken (SC) — no exact name match
+- University of South Carolina Beaufort (SC) — no exact name match
+- University of Texas at Dallas (TX) — no exact name match
+- University of Texas at Tyler (TX) — no exact name match
+- University of Texas Permian Basin (TX) — no exact name match
+- University of Wisconsin–Parkside (WI) — no exact name match
+- UNLV (NV) — no exact name match
+- Ursuline College (OH) — no exact name match
+- USC Upstate (SC) — no exact name match
+- UT Martin (TN) — no exact name match
+- UT Rio Grande Valley (TX) — no exact name match
+- Utah (UT) — no exact name match
+- Utah State (UT) — no exact name match
+- Utah Tech (UT) — no exact name match
+- Utah Valley (UT) — no exact name match
+- UTEP (TX) — no exact name match
+- UTSA (TX) — no exact name match
+- Vanderbilt (TN) — no exact name match
+- Vanguard University (CA) — no exact name match
+- VCU (VA) — no exact name match
+- Vermont (VT) — no exact name match
+- Villanova (PA) — no exact name match
+- Virginia (VA) — no exact name match
+- Virginia State University (VA) — no exact name match
+- Virginia Tech (VA) — no exact name match
+- VMI (VA) — no exact name match
+- Wagner (NY) — no exact name match
+- Wake Forest (NC) — no exact name match
+- Walsh University (OH) — no exact name match
+- Washington (WA) — no exact name match
+- Washington State (WA) — no exact name match
+- Wayne State College (NE) — no exact name match
+- Weber State (UT) — no exact name match
+- West Chester University (PA) — no exact name match
+- West Liberty University (WV) — no exact name match
+- West Texas A&M University (TX) — no exact name match
+- West Virginia (WV) — no exact name match
+- West Virginia State University (WV) — no exact name match
+- West Virginia Wesleyan College (WV) — no exact name match
+- Western Carolina (NC) — no exact name match
+- Western Oregon University (OR) — no exact name match
+- Western Washington University (WA) — no exact name match
+- Westminster University (UT) — no exact name match
+- Wheeling University (WV) — no exact name match
+- William & Mary (VA) — no exact name match
+- Wingate University (NC) — no exact name match
+- Winthrop (SC) — no exact name match
+- Wisconsin (WI) — no exact name match
+- Wofford (SC) — no exact name match
+- Wright State (OH) — no exact name match
+- Wyoming (WY) — no exact name match
+- Xavier (OH) — no exact name match
+- Youngstown State (OH) — no exact name match

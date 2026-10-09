@@ -12,6 +12,7 @@ const STAGES = Object.keys(STAGE_LABEL);
 const ACTIVITY = {
   added_school: 'Added', viewed_school: 'Viewed', contacted_coach: 'Contacted coach at', added_camp: 'Added camp for', attended_camp: 'Attended camp at',
   added_note: 'Added a note on', stage_changed: 'Moved',
+  prepared_email: 'Prepared an email to', copied_email: 'Copied an email for', opened_email_app: 'Opened your email app for',
 };
 const TABS = [['schools', 'Schools'], ['pipeline', 'Pipeline'], ['camps', 'Camps'], ['activity', 'Activity']];
 

@@ -98,6 +98,19 @@ export function mountRecruiting(app, deps) {
   mine.delete('/contacts/:id', limit(60), wrap((req) => ({ ok: svc.deleteContact(writer(req), req.params.id) })));
   mine.post('/camps', limit(60), wrap((req) => ({ camp: svc.trackCamp(writer(req), req.body || {}) })));
   mine.delete('/camps/:id', limit(60), wrap((req) => ({ ok: svc.deleteCampTrack(writer(req), req.params.id) })));
+  // Highlights, letter library and email preparation. Nothing here sends email; the athlete sends from their own email app.
+  mine.get('/highlights', wrap((req) => ({ highlights: svc.listHighlights(needPlayer(req)) })));
+  mine.post('/highlights', limit(60), wrap((req) => ({ highlight: svc.addHighlight(writer(req), req.body || {}) })));
+  mine.put('/highlights/order', limit(60), wrap((req) => ({ highlights: svc.reorderHighlights(writer(req), req.body?.ids) })));
+  mine.patch('/highlights/:id', limit(120), wrap((req) => ({ highlight: svc.updateHighlight(writer(req), req.params.id, req.body || {}) })));
+  mine.delete('/highlights/:id', limit(60), wrap((req) => ({ ok: svc.deleteHighlight(writer(req), req.params.id) })));
+  mine.get('/letters', wrap((req) => svc.lettersFor(needPlayer(req))));
+  mine.post('/letters/templates', limit(60), wrap((req) => ({ template: svc.createTemplate(writer(req), req.body || {}) })));
+  mine.patch('/letters/templates/:id', limit(120), wrap((req) => ({ template: svc.updateTemplate(writer(req), req.params.id, req.body || {}) })));
+  mine.delete('/letters/templates/:id', limit(60), wrap((req) => ({ ok: svc.deleteTemplate(writer(req), req.params.id) })));
+  mine.get('/outreach/:programId', wrap((req) => svc.composeData(needPlayer(req), req.params.programId)));
+  mine.post('/outreach/drafts', limit(120), wrap((req) => ({ draft: svc.saveDraft(writer(req), req.body || {}) })));
+  mine.delete('/outreach/drafts/:id', limit(60), wrap((req) => ({ ok: svc.deleteDraft(writer(req), req.params.id) })));
   router.use('/me', mine);
 
   /* ------------------------------------- admin ------------------------------------ */

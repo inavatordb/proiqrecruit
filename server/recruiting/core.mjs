@@ -56,7 +56,7 @@ export const RANKING_TYPES = ['preseason', 'weekly', 'final', 'highest'];
 export const CONTACT_METHODS = ['email', 'phone', 'text', 'in_person', 'camp', 'social', 'other'];
 export const PROFILE_PRIVACY = ['private', 'unlisted', 'public'];
 
-export const PRIVATE_ENTITIES = ['RecruitPlayerProfile', 'RecruitTarget', 'RecruitNote', 'RecruitContact', 'RecruitActivity', 'RecruitCampTrack'];
+export const PRIVATE_ENTITIES = ['RecruitPlayerProfile', 'RecruitTarget', 'RecruitNote', 'RecruitContact', 'RecruitActivity', 'RecruitCampTrack', 'RecruitHighlight', 'RecruitLetterTemplate', 'RecruitOutreachDraft'];
 export const CATALOG_ENTITIES = ['CollegeProgram', 'ProgramCoach', 'ProgramSeason', 'ProgramRanking', 'ProgramCamp', 'IDCampAppearance', 'ProgramConferenceHistory', 'DataSource', 'RecruitImport'];
 export const RECRUITING_ENTITIES = new Set([...PRIVATE_ENTITIES, ...CATALOG_ENTITIES]);
 

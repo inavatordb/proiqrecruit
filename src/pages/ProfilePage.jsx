@@ -103,6 +103,13 @@ export default function ProfilePage() {
         </div>
       </Section>
 
+      <Section title="Recruiting outreach" id="outreach">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <Link to="/materials" className={`${C.card} p-4 block hover:border-[#BFA87C]/50 transition-colors`}><div className="font-black text-white">Recruiting materials</div><div className="text-sm text-slate-400 mt-1">Highlight links from Hudl, YouTube or Vimeo, ready to add to any email.</div></Link>
+          <Link to="/letters" className={`${C.card} p-4 block hover:border-[#BFA87C]/50 transition-colors`}><div className="font-black text-white">Recruiting letters</div><div className="text-sm text-slate-400 mt-1">Five starting letters and your own personal templates for contacting coaches.</div></Link>
+        </div>
+      </Section>
+
       <Section title="Privacy & sharing" id="sharing">
         <div className={`${C.card} p-4 space-y-4`}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">

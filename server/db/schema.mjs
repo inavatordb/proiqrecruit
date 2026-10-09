@@ -28,6 +28,9 @@ export const ENTITIES = [
   { entity: 'RecruitContact', table: 'coach_communications', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['contacted_at', 'contacted_at'], ['follow_up_date', 'follow_up_date']] },
   { entity: 'RecruitActivity', table: 'recruiting_activity', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['type', 'type']] },
   { entity: 'RecruitCampTrack', table: 'camp_tracking', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['camp_id', 'camp_id'], ['status', 'status']] },
+  { entity: 'RecruitHighlight', table: 'recruiting_highlights', cols: [['profile_id', 'profile_id']] },
+  { entity: 'RecruitLetterTemplate', table: 'recruiting_letter_templates', cols: [['profile_id', 'profile_id']] },
+  { entity: 'RecruitOutreachDraft', table: 'recruiting_outreach_drafts', cols: [['profile_id', 'profile_id'], ['program_id', 'program_id'], ['status', 'status']] },
   { entity: 'RecruitImport', table: 'import_runs', cols: [['kind', 'kind'], ['actor', 'actor'], ['filename', 'filename'], ['status', 'status'], ['started_at', 'started_at'], ['completed_at', 'completed_at']] },
 ];
 

@@ -1,7 +1,9 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { ExternalLink, MapPin, GraduationCap, Trophy, Users, Link2, Scale, ShieldCheck, Pencil } from 'lucide-react';
+import { ExternalLink, MapPin, GraduationCap, Trophy, Users, Link2, Scale, ShieldCheck, Pencil, Mail } from 'lucide-react';
+import { useAuth } from '@/lib/AuthContext';
+import ContactCoach from '../ContactCoach';
 import { useProgram } from '../api';
 import { fmtDateLong } from '../api';
 import { C, Chip, DivisionChip, Section, Stat, Loading, ErrorBox, VerificationBadge, SaveButton, ShareButton, SchoolAvatar, CoachEmail, ExtLink, Btn, Empty } from '../ui';
@@ -26,6 +28,12 @@ function ncaaLine(s) {
 export default function SchoolPage() {
   const { slug } = useParams();
   const { data, isLoading, error } = useProgram(slug);
+  const { isAuthenticated } = useAuth();
+  const nav = useNavigate(); const loc = useLocation(); const [sp, setSp] = useSearchParams();
+  const [contacting, setContacting] = useState(false);
+  // Signed-out visitors come back to this school's Contact Coach flow after signing in (?contact=1).
+  useEffect(() => { if (isAuthenticated && sp.get('contact') === '1' && data) { setContacting(true); const n = new URLSearchParams(sp); n.delete('contact'); setSp(n, { replace: true }); } }, [isAuthenticated, sp, data]); // eslint-disable-line react-hooks/exhaustive-deps
+  const contactCoach = () => { if (!isAuthenticated) { nav(`/auth?next=${encodeURIComponent(`${loc.pathname}?contact=1`)}`); return; } setContacting(true); };
   if (isLoading) return <Loading />;
   if (error) return <div className="space-y-4"><ErrorBox error={error} /><Link to="/schools" className="text-red-400 font-semibold">← Back to schools</Link></div>;
   const { program: p, summary, coaches, seasons, rankings, camps, id_appearances: ids, sources, workspace, viewer } = data;
@@ -61,6 +69,7 @@ export default function SchoolPage() {
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
+          <button type="button" onClick={contactCoach} className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 font-black text-white bg-gradient-to-b from-[#8a0f0f] to-[#660000] border border-[#BFA87C]/70 shadow-[0_2px_10px_rgba(102,0,0,.6)] hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BFA87C]"><Mail className="w-4 h-4 text-[#BFA87C]" />Contact Coach</button>
           <SaveButton program={p} target={target} size="md" />
           <ShareButton url={`/schools/${p.slug}`} title={`${p.school_name} Women's Soccer`} />
           <Link to={`/compare?ids=${p.id}`}><Btn variant="secondary" size="sm"><Scale className="w-4 h-4" />Compare</Btn></Link>
@@ -79,6 +88,8 @@ export default function SchoolPage() {
           <SaveButton program={p} target={null} />
         </div>
       )}
+
+      {contacting && <ContactCoach program={p} onClose={() => setContacting(false)} />}
 
       <Section title="Program snapshot" id="snapshot">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
