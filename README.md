@@ -170,3 +170,8 @@ and Cornell/Penn staff from official directories. Helper: `node server/scripts/b
 
 A programs-only file for the rest of D1 was checked the same way — see `data/import/d1-other/REVIEW.md`. Loaded: stable program codes for 346 of 349 D1 programs,
 links that resolve, and conference history that agrees with today's conference. `node server/scripts/check-seed-codes.mjs` reports code coverage.
+
+## Remaining Division II programs (2026-10-09)
+
+A programs-only Division II file was checked the same way — see `data/import/d2-other/REVIEW.md`. Loaded: stable program codes for 234 D2 programs,
+links that resolve, and conference history that agrees with today's conference. Programs the NCAA D2 list does not contain were not created.

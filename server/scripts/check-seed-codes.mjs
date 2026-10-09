@@ -18,7 +18,7 @@ const d1 = progs.filter((p) => p.division === 'D1');
 console.log(`D1 ${d1.length}, D1 with code ${d1.filter((p) => p.program_code).length}, logos ${d1.filter((p) => p.logo_url).length}, athletics link ${d1.filter((p) => p.athletics_website).length}, soccer link ${d1.filter((p) => p.team_website).length}`);
 console.log('D1 without code:', d1.filter((p) => !p.program_code).map((p) => p.school_name).join(', '));
 // every seed row must have been accepted: compare file row counts with what a preview says
-for (const f of fs.readdirSync(seedDir).filter((x) => x.startsWith('programs-') && x.includes('d1-other') || x.startsWith('conference_history-d1-other'))) {
+for (const f of fs.readdirSync(seedDir).filter((x) => (x.startsWith('programs-') || x.startsWith('conference_history-')) && x.includes('-other'))) {
   const kind = f.split('-')[0]; const rows = parseCsv(fs.readFileSync(path.join(seedDir, f), 'utf8'));
   const plan = svc.previewImport(kind, fs.readFileSync(path.join(seedDir, f), 'utf8'), { ignoreProvenance: true });
   console.log(`${f}: ${rows.length} rows; errors on re-preview: ${plan.summary.errors}; would change: ${plan.summary.new + plan.summary.updated}`);
