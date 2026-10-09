@@ -4,7 +4,7 @@ import { MapPin, CalendarDays, DollarSign, Users, ShieldAlert, ExternalLink as E
 import { toast } from 'sonner';
 import { rc, useCamps, useRcMutation, fmtDate, fmtDateLong } from '../api';
 import { useQuery } from '@tanstack/react-query';
-import { C, Btn, Chip, DivisionChip, Loading, ErrorBox, Empty, ExtLink, ShareButton, VerificationBadge, Select, Field, useRequireAuth, Spinner } from '../ui';
+import { C, Btn, Chip, DivisionChip, Loading, ErrorBox, Empty, ExtLink, ShareButton, VerificationBadge, Select, Field, useRequireAuth, Spinner, SchoolAvatar } from '../ui';
 
 const cost = (c) => (c ? (/^\d+(\.\d+)?$/.test(c) ? `$${c}` : c) : '');
 
@@ -26,22 +26,29 @@ export function CampRow({ camp, program, workspace, signedIn, showSchool = true 
   const track = useRcMutation((status) => rc.post('/me/camps', { camp_id: camp.id, status }), { onSuccess: () => toast.success('Camp saved to your plan') });
   const school = program || camp.program;
   return (
-    <div className={`${C.card} p-4 space-y-2.5`}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <Link to={`/camps/${camp.id}`} className="font-black text-white text-lg leading-tight hover:text-red-400">{camp.camp_name}</Link>
-          <div className="flex flex-wrap gap-1.5 mt-1.5">
-            <Chip tone="lime">Official University Camp</Chip><Chip>{camp.camp_type}</Chip>
-            {showSchool && school && <Link to={`/schools/${school.slug}`}><Chip tone="sky">{school.school_name}</Chip></Link>}
-            {camp.verification_status === 'verified' ? <VerificationBadge status="verified" /> : <Chip tone="amber"><ShieldAlert className="w-3 h-3" />Camp information not verified</Chip>}
-            {!camp.upcoming && <Chip>Past</Chip>}
+    <div className={`${C.card} p-4 sm:p-5 space-y-3.5`}>
+      {showSchool && school ? (
+        <div className="flex items-start gap-3.5 pb-3.5 border-b border-white/10">
+          <Link to={`/schools/${school.slug}`} className="shrink-0"><SchoolAvatar school={school} size="w-14 h-14 sm:w-16 sm:h-16" /></Link>
+          <div className="min-w-0 flex-1">
+            <Link to={`/schools/${school.slug}`} className="block text-xl sm:text-2xl font-black text-white leading-tight tracking-tight break-words hover:text-red-400">{school.school_name}</Link>
+            <Link to={`/camps/${camp.id}`} className="block text-sm sm:text-[15px] text-slate-300 mt-0.5 break-words hover:text-red-400">{camp.camp_name}</Link>
           </div>
         </div>
+      ) : (
+        <Link to={`/camps/${camp.id}`} className="block font-black text-white text-xl leading-tight break-words hover:text-red-400">{camp.camp_name}</Link>
+      )}
+      <div className="flex flex-wrap items-center gap-1.5">
+        {school && showSchool && <DivisionChip division={school.division} />}
+        <Chip>{camp.camp_type}</Chip>
+        <Chip tone="lime">Official University Camp</Chip>
+        {camp.verification_status === 'verified' ? <VerificationBadge status="verified" /> : <Chip tone="amber"><ShieldAlert className="w-3 h-3" />Camp information not verified</Chip>}
+        {!camp.upcoming && <Chip>Past</Chip>}
       </div>
-      <CampMeta camp={camp} />
+      <div className="rounded-lg bg-black/30 border border-white/10 px-3.5 py-2.5"><CampMeta camp={camp} /></div>
       {camp.registration_deadline && <div className="text-xs text-amber-200">Register by {fmtDateLong(camp.registration_deadline)}</div>}
       {camp.description && <p className="text-sm text-slate-400 line-clamp-3">{camp.description}</p>}
-      <div className="flex flex-wrap items-center gap-2 pt-1">
+      <div className="flex flex-wrap items-center gap-2 pt-3.5 border-t border-white/10">
         {camp.registration_url && <a href={camp.registration_url} target="_blank" rel="noopener noreferrer nofollow"><Btn size="sm">Register <ExtIcon className="w-3.5 h-3.5" /></Btn></a>}
         {camp.official_camp_url && <a href={camp.official_camp_url} target="_blank" rel="noopener noreferrer nofollow"><Btn variant="secondary" size="sm">School camp page</Btn></a>}
         {camp.contact_email && <a href={`mailto:${camp.contact_email}`} className="text-sm text-red-400 font-semibold">{camp.contact_email}</a>}
@@ -106,7 +113,7 @@ export default function CampsPage() {
       </div>
       <ErrorBox error={error} />
       {isLoading ? <Loading /> : data?.results?.length ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">{data.results.map((c) => <CampRow key={c.id} camp={c} signedIn />)}</div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">{data.results.map((c) => <CampRow key={c.id} camp={c} signedIn />)}</div>
       ) : <Empty title="No camps listed yet">Camp listings are added school by school from official camp pages, so this list grows over time. Check a school's page for its official camps link.</Empty>}
     </div>
   );
