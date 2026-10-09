@@ -175,3 +175,12 @@ links that resolve, and conference history that agrees with today's conference. 
 
 A programs-only Division II file was checked the same way — see `data/import/d2-other/REVIEW.md`. Loaded: stable program codes for 234 D2 programs,
 links that resolve, and conference history that agrees with today's conference. Programs the NCAA D2 list does not contain were not created.
+
+## Official-site crawl (Division I)
+
+`node server/scripts/crawl-athletics.mjs --division D1` reads each team's own athletics site (staff page, completed season
+schedule pages, camps link) into `data/import/crawl/cache/`; `node server/scripts/build-crawl-seeds.mjs` converts the cache to
+`seasons-crawl.csv`, `coaches-crawl.csv`, `programs-crawl.csv` and `data/import/crawl/REPORT.md` (per-conference coverage and
+every failure). Rows are Verified against the page they came from. Seeds load last, so they upgrade older Needs-Review rows, and
+seeded coaches missing from an official staff page are archived. Individual camps (dates, prices) are not imported: only the
+official camps page link.

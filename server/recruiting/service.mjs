@@ -10,7 +10,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {
   KINDS, SPORTS, DIVISIONS, DEFAULT_SPORT, PIPELINE_KEYS, PROFILE_PRIVACY, CONTACT_METHODS, COACH_ROLE_ORDER, COACH_ROLE_LABEL, STATE_LIST, REGIONS,
-  NORMALIZERS, planImport, parseCsvWithHeader, checkColumns, resolveSport, slugify, shortHash, str, text, safeUrl, toBool, toInt, toList, toDate, stateAbbr, regionForState,
+  NORMALIZERS, planImport, parseCsvWithHeader, applyAliases, checkColumns, resolveSport, slugify, shortHash, str, text, safeUrl, toBool, toInt, toList, toDate, stateAbbr, regionForState,
   stateDistanceMiles, programIdFor, roundRank, currentYear, isCompletedSeason, normVerification, winPct, SOURCE_TYPES, CAMP_TYPES,
 } from './core.mjs';
 
@@ -199,10 +199,12 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
   function bootstrap() {
     if (!seedDir || !fs.existsSync(seedDir)) return { loaded: [] };
     const order = ['programs', 'conference_history', 'coaches', 'seasons', 'rankings', 'camps', 'idcamps'];
+    const tier = (f) => (/^programs-d\d\.csv$/.test(f) ? 0 : /ncaa|final/.test(f) ? 1 : /wiki/.test(f) ? 2 : /crawl|official/.test(f) ? 4 : 3);
     const files = fs.readdirSync(seedDir).filter((f) => f.endsWith('.csv'))
       .map((f) => ({ f, kind: f.split('-')[0] })).filter((x) => order.includes(x.kind))
-      // Base lists (programs-d1, programs-d2) first so later files only ever add to existing programs.
-      .sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind) || Number(/^[a-z_]+-d\d/.test(b.f)) - Number(/^[a-z_]+-d\d/.test(a.f)) || a.f.localeCompare(b.f));
+      // Load order within a kind: the base program lists first (later files only add to existing programs), then NCAA/poll
+      // data, then Wikipedia-sourced rows, other research, and finally rows read straight from official sites (strongest source).
+      .sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind) || tier(a.f) - tier(b.f) || a.f.localeCompare(b.f));
     const loaded = [];
     for (const { f, kind } of files) {
       const csv = fs.readFileSync(path.join(seedDir, f), 'utf8');
@@ -218,6 +220,16 @@ export function createRecruitingService({ loadEntity, persistEntity, now = () =>
         putRow(KINDS[kind].entity, rec, { quiet: false });
         recordSource(KINDS[kind].entity, rec, { extracted: `Bundled seed ${f}` });
         n++;
+      }
+      // An official staff page is the whole current staff: older seeded rows for that program that are not on it are no longer current.
+      if (kind === 'coaches' && /crawl/.test(f)) {
+        const ctx = importCtx('coaches'); const keep = new Set(plan.items.filter((i) => i.id).map((i) => i.id));
+        const progs = new Set(parseCsvWithHeader(csv).rows.map((r) => ctx.resolveProgram(applyAliases('coaches', r))?.id).filter(Boolean));
+        for (const c of rows('ProgramCoach')) {
+          if (progs.has(c.program_id) && !keep.has(c.id) && c.origin === 'seed' && c.verification_status !== 'verified' && c.verification_status !== 'archived') {
+            putRow('ProgramCoach', { ...c, verification_status: 'archived', data_verified: false, updated_date: now(), notes: 'Not on the official staff page.' }); n++;
+          }
+        }
       }
       if (n) loaded.push({ file: f, written: n });
     }

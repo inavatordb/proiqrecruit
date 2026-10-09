@@ -640,6 +640,8 @@ export function planImport(kind, rows, ctx, { overwriteVerified = false, ignoreP
       return;
     }
     const changes = diffRecord(prev, rec, ignoreProvenance);
+    // Checking a record against an official source is itself a change, even when every value already matched.
+    if (rec.verification_status === 'verified' && prev.verification_status !== 'verified') changes.verification_status = 'verified';
     if (!Object.keys(changes).length) {
       summary.skipped++; summary.duplicate++;
       items.push({ line, action: 'duplicate', id: rec.id, label, messages: ['already up to date'] });

@@ -112,9 +112,9 @@ describe('import pipeline', () => {
   });
 
   it('keeps 2023-2025 intact when 2026 is imported; current season is flagged', () => {
-    svc.commitImport('seasons', 'school_name,season,wins,losses,ties,verified,source_url\nDuke,2025,14,4,2,yes,https://x.edu');
-    svc.commitImport('seasons', 'school_name,season,wins,losses,ties\nDuke,2026,2,0,0');
-    const d = svc.detail('duke');
+    svc.commitImport('seasons', 'school_name,season,wins,losses,ties,verified,source_url\nAdams State University,2025,14,4,2,yes,https://x.edu');
+    svc.commitImport('seasons', 'school_name,season,wins,losses,ties\nAdams State University,2026,2,0,0');
+    const d = svc.detail('adams-state-university');
     expect(d.seasons.find((s) => s.season === 2025).record).toBe('14-4-2');
     expect(d.current_season.season).toBe(2026);
     expect(d.recent_season_years).not.toContain(2026);
