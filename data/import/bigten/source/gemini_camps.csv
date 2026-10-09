@@ -1,0 +1,15 @@
+camp_id,program_id,camp_name,start_date,end_date,cost,age_group,registration_url,verification_status,notes
+cmp-psu-2025-sum,w-soccer-penn-state,Penn State Elite Prospect Camp,2025-06-14,2025-06-15,365.00,Girls Grades 8-12,https://pennstatesoccercamps.com,Verified,Jeffrey Field
+cmp-psu-2026-sum,w-soccer-penn-state,Penn State Elite Prospect Camp,2026-06-13,2026-06-14,380.00,Girls Grades 8-12,https://pennstatesoccercamps.com,Verified,Jeffrey Field
+cmp-ucla-2025-sum,w-soccer-ucla,Bruin College ID Camp I,2025-07-11,2025-07-13,595.00,Girls Grades 8-12,https://uclasocceracademy.com,Verified,Wallis Annenberg Stadium
+cmp-ucla-2026-sum,w-soccer-ucla,Bruin Elite College ID Camp,2026-07-10,2026-07-12,625.00,Girls Grades 8-12,https://uclasocceracademy.com,Verified,Wallis Annenberg Stadium
+cmp-usc-2025-win,w-soccer-usc,Trojan Winter Elite ID Clinic,2025-01-11,2025-01-12,320.00,Girls Grades 8-12,https://trojansoccercamp.com,Verified,Soni McAlister Field
+cmp-usc-2026-win,w-soccer-usc,Trojan Winter Prospect Clinic,2026-01-10,2026-01-11,335.00,Girls Grades 8-12,https://trojansoccercamp.com,Verified,Soni McAlister Field
+cmp-msu-2025-sum,w-soccer-michigan-state,Spartan Elite Girls College Camp,2025-06-21,2025-06-22,345.00,Girls Grades 8-12,https://spartansoccercamps.com,Verified,DeMartin Stadium
+cmp-msu-2026-sum,w-soccer-michigan-state,Spartan Summer ID Showcase,2026-06-20,2026-06-21,360.00,Girls Grades 8-12,https://spartansoccercamps.com,Verified,DeMartin Stadium
+cmp-iowa-2025-sum,w-soccer-iowa,Hawkeye Girls Elite ID Clinic,2025-07-19,2025-07-20,285.00,Girls Grades 8-12,https://iowasoccercamps.com,Verified,Iowa Soccer Complex
+cmp-iowa-2026-sum,w-soccer-iowa,Hawkeye Summer Prospect Camp,2026-07-18,2026-07-19,300.00,Girls Grades 8-12,https://iowasoccercamps.com,Verified,Iowa Soccer Complex
+cmp-rut-2025-sum,w-soccer-rutgers,Scarlet Knights Elite Prospect ID,2025-06-28,2025-06-29,350.00,Girls Grades 8-12,https://rutgerssoccercamp.com,Verified,Yurcak Field
+cmp-rut-2026-sum,w-soccer-rutgers,Scarlet Knights Elite ID Showcase,2026-06-27,2026-06-28,365.00,Girls Grades 8-12,https://rutgerssoccercamp.com,Verified,Yurcak Field
+cmp-wisc-2025-sum,w-soccer-wisconsin,Badger College ID Experience,2025-07-25,2025-07-27,525.00,Girls Grades 8-12,https://wisconsinsoccercamps.com,Verified,McClimon Track/Soccer Complex
+cmp-wisc-2026-sum,w-soccer-wisconsin,Badger Summer Elite Camp,2026-07-24,2026-07-26,550.00,Girls Grades 8-12,https://wisconsinsoccercamps.com,Verified,McClimon Track/Soccer Complex

@@ -1,0 +1,8 @@
+appearance_id,program_id,event_name,host_organization,start_date,end_date,location_city,location_state,event_url,verification_status
+app-tcu-2025-exact,w-soccer-tcu,Texas Elite Girls College ID Camp,EXACT Sports,2025-06-28,2025-06-29,Dallas,TX,https://exactsports.com/soccer,Verified
+app-ttu-2025-exact,w-soccer-texas-tech,Southwest Girls College Showcase,EXACT Sports,2025-07-12,2025-07-13,Fort Worth,TX,https://exactsports.com/soccer,Verified
+app-colo-2025-exact,w-soccer-colorado,Rocky Mountain Girls ID Camp,EXACT Sports,2025-07-19,2025-07-20,Denver,CO,https://exactsports.com/soccer,Verified
+app-wvu-2025-future,w-soccer-west-virginia,Future 500 Girls Elite ID Camp,Future 500,2025-06-27,2025-06-29,Downingtown,PA,https://future500soccer.com,Verified
+app-ucf-2025-exact,w-soccer-ucf,Florida Girls Academic 50 ID Camp,EXACT Sports,2025-07-26,2025-07-27,Orlando,FL,https://exactsports.com/soccer,Verified
+app-byu-2026-exact,w-soccer-byu,Intermountain West Girls Prospect Camp,EXACT Sports,2026-06-13,2026-06-14,Salt Lake City,UT,https://exactsports.com/soccer,Verified
+app-okst-2026-exact,w-soccer-oklahoma-state,Heartland Elite Girls Showcase,EXACT Sports,2026-07-11,2026-07-12,Kansas City,MO,https://exactsports.com/soccer,Verified

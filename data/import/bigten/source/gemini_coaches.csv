@@ -1,0 +1,34 @@
+coach_id,program_id,first_name,last_name,role,email,phone,verification_status,source_url
+c-ill-1,w-soccer-illinois,Janet,Rayfield,Head Coach,rayfield@illinois.edu,217-244-1144,Verified,https://fightingillini.com/staff-directory
+c-ill-2,w-soccer-illinois,Jeff,Freeman,Associate Head Coach / Recruiting Coordinator,freeman6@illinois.edu,217-244-1144,Verified,https://fightingillini.com/staff-directory
+c-iu-1,w-soccer-indiana,Erwin,van Bennekom,Head Coach,,812-856-0245,Needs Review,https://iuhoosiers.com/sports/womens-soccer/roster#staff
+c-iu-2,w-soccer-indiana,Emily,Bast,Associate Head Coach / Recruiting Coordinator,,812-856-0245,Needs Review,https://iuhoosiers.com/sports/womens-soccer/roster#staff
+c-iowa-1,w-soccer-iowa,Dave,DiIanni,Head Coach,dave-diianni@uiowa.edu,319-335-9265,Verified,https://hawkeyesports.com/staff-directory
+c-iowa-2,w-soccer-iowa,Katelyn,Longino,Associate Head Coach / Recruiting Coordinator,katelyn-longino@uiowa.edu,319-335-9265,Verified,https://hawkeyesports.com/staff-directory
+c-umd-1,w-soccer-maryland,Meghan,Ryan Nemzer,Head Coach,,301-314-7033,Needs Review,https://umterps.com/sports/womens-soccer/roster#staff
+c-umd-2,w-soccer-maryland,Ken,Maspell,Associate Head Coach / Recruiting Coordinator,,301-314-7033,Needs Review,https://umterps.com/sports/womens-soccer/roster#staff
+c-mich-1,w-soccer-michigan,Jennifer,Rock,Head Coach,,734-763-4422,Needs Review,https://mgoblue.com/sports/womens-soccer/roster#staff
+c-mich-2,w-soccer-michigan,Tori,Christ,Associate Head Coach / Recruiting Coordinator,,734-763-4422,Needs Review,https://mgoblue.com/sports/womens-soccer/roster#staff
+c-msu-1,w-soccer-michigan-state,Jeff,Hosler,Head Coach,hoslerj@ath.msu.edu,517-432-1848,Verified,https://msuspartans.com/staff-directory
+c-msu-2,w-soccer-michigan-state,Megan,Link,Associate Head Coach / Recruiting Coordinator,linkm@ath.msu.edu,517-432-1848,Verified,https://msuspartans.com/staff-directory
+c-minn-1,w-soccer-minnesota,Erin,Chastain,Head Coach,,612-625-7888,Needs Review,https://gophersports.com/sports/womens-soccer/roster#staff
+c-minn-2,w-soccer-minnesota,Maya,Hayes,Associate Head Coach / Recruiting Coordinator,,612-625-7888,Needs Review,https://gophersports.com/sports/womens-soccer/roster#staff
+c-neb-1,w-soccer-nebraska,John,Walker,Head Coach,jwalker@huskers.com,402-472-0456,Verified,https://huskers.com/staff-directory
+c-neb-2,w-soccer-nebraska,Ian,Bridge,Associate Head Coach / Recruiting Coordinator,ibridge@huskers.com,402-472-0456,Verified,https://huskers.com/staff-directory
+c-nu-1,w-soccer-northwestern,Michael,Moynihan,Head Coach,,847-491-2570,Needs Review,https://nusports.com/sports/womens-soccer/roster#staff
+c-nu-2,w-soccer-northwestern,Shannon,Neely,Associate Head Coach / Recruiting Coordinator,,847-491-2570,Needs Review,https://nusports.com/sports/womens-soccer/roster#staff
+c-osu-1,w-soccer-ohio-state,Lori,Walker-Hock,Head Coach,,614-292-8482,Needs Review,https://ohiostatebuckeyes.com/sports/w-soccer/roster#staff
+c-osu-2,w-soccer-ohio-state,Gavin,MacPherson,Associate Head Coach / Recruiting Coordinator,,614-292-8482,Needs Review,https://ohiostatebuckeyes.com/sports/w-soccer/roster#staff
+c-ore-1,w-soccer-oregon,Graeme,Abel,Head Coach,,541-346-5381,Needs Review,https://goducks.com/sports/womens-soccer/roster#staff
+c-psu-1,w-soccer-penn-state,Erica,Dambach,Head Coach,,814-863-7477,Needs Review,https://gopsusports.com/sports/womens-soccer/roster#staff
+c-psu-2,w-soccer-penn-state,Tim,Wassell,Associate Head Coach / Recruiting Coordinator,,814-863-7477,Needs Review,https://gopsusports.com/sports/womens-soccer/roster#staff
+c-pur-1,w-soccer-purdue,Rich,Kormann,Head Coach,,765-494-3203,Needs Review,https://purduesports.com/sports/womens-soccer/roster#staff
+c-rut-1,w-soccer-rutgers,Mike,O'Neill,Head Coach,moneill@scarletknights.com,732-445-7803,Verified,https://scarletknights.com/staff-directory
+c-rut-2,w-soccer-rutgers,Meghan,Ryan,Associate Head Coach / Recruiting Coordinator,mryan@scarletknights.com,732-445-7803,Verified,https://scarletknights.com/staff-directory
+c-ucla-1,w-soccer-ucla,Margueritte,Aozasa,Head Coach,,310-206-6708,Needs Review,https://uclabruins.com/sports/womens-soccer/roster#staff
+c-ucla-2,w-soccer-ucla,Gof,Boyko,Associate Head Coach / Recruiting Coordinator,,310-206-6708,Needs Review,https://uclabruins.com/sports/womens-soccer/roster#staff
+c-usc-1,w-soccer-usc,Jane,Alukonis,Head Coach,,213-740-3843,Needs Review,https://usctrojans.com/sports/womens-soccer/roster#staff
+c-usc-2,w-soccer-usc,Sugar,Tuck,Associate Head Coach / Recruiting Coordinator,,213-740-3843,Needs Review,https://usctrojans.com/sports/womens-soccer/roster#staff
+c-uw-1,w-soccer-washington,Nicole,Van Dyke,Head Coach,,206-543-1150,Needs Review,https://gohuskies.com/sports/womens-soccer/roster#staff
+c-wisc-1,w-soccer-wisconsin,Paula,Wilkins,Head Coach,,608-265-2475,Needs Review,https://uwbadgers.com/sports/womens-soccer/roster#staff
+c-wisc-2,w-soccer-wisconsin,Tim,Rosenfeld,Associate Head Coach / Recruiting Coordinator,,608-265-2475,Needs Review,https://uwbadgers.com/sports/womens-soccer/roster#staff

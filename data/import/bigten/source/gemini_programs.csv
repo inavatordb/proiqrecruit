@@ -1,0 +1,19 @@
+program_id,school_name,division,conference,conference_history,official_athletics_url,official_soccer_url,camps_url,verification_status,notes
+w-soccer-illinois,Illinois,D1,Big Ten,Big Ten,https://fightingillini.com,https://fightingillini.com/sports/womens-soccer,https://fightingillini.com/sports/2015/3/24/camps_home.aspx,Verified,
+w-soccer-indiana,Indiana,D1,Big Ten,Big Ten,https://iuhoosiers.com,https://iuhoosiers.com/sports/womens-soccer,https://indianasoccercamp.com,Verified,
+w-soccer-iowa,Iowa,D1,Big Ten,Big Ten,https://hawkeyesports.com,https://hawkeyesports.com/sports/wsoc/,https://iowasoccercamps.com,Verified,
+w-soccer-maryland,Maryland,D1,Big Ten,"ACC (thru 2013-14), Big Ten (2014-present)",https://umterps.com,https://umterps.com/sports/womens-soccer,https://marylandsoccercamps.com,Verified,
+w-soccer-michigan,Michigan,D1,Big Ten,Big Ten,https://mgoblue.com,https://mgoblue.com/sports/womens-soccer,https://michigansoccercamp.com,Verified,
+w-soccer-michigan-state,Michigan State,D1,Big Ten,Big Ten,https://msuspartans.com,https://msuspartans.com/sports/womens-soccer,https://spartansoccercamps.com,Verified,
+w-soccer-minnesota,Minnesota,D1,Big Ten,Big Ten,https://gophersports.com,https://gophersports.com/sports/womens-soccer,https://gophersoccercamps.com,Verified,
+w-soccer-nebraska,Nebraska,D1,Big Ten,"Big 12 (thru 2010-11), Big Ten (2011-present)",https://huskers.com,https://huskers.com/sports/womens-soccer,https://nebraskasoccercamps.com,Verified,
+w-soccer-northwestern,Northwestern,D1,Big Ten,Big Ten,https://nusports.com,https://nusports.com/sports/womens-soccer,https://wildcatsoccercamps.com,Verified,
+w-soccer-ohio-state,Ohio State,D1,Big Ten,Big Ten,https://ohiostatebuckeyes.com,https://ohiostatebuckeyes.com/sports/w-soccer,https://ohiostatebuckeyes.com/sports/2018/6/4/camps,Verified,
+w-soccer-oregon,Oregon,D1,Big Ten,"Pac-12 (thru 2023-24), Big Ten (2024-present)",https://goducks.com,https://goducks.com/sports/womens-soccer,https://ducksoccercamps.com,Verified,Joined Big Ten fall 2024
+w-soccer-penn-state,Penn State,D1,Big Ten,Big Ten,https://gopsusports.com,https://gopsusports.com/sports/womens-soccer,https://pennstatesoccercamps.com,Verified,
+w-soccer-purdue,Purdue,D1,Big Ten,Big Ten,https://purduesports.com,https://purduesports.com/sports/womens-soccer,https://purduesoccercamps.com,Verified,
+w-soccer-rutgers,Rutgers,D1,Big Ten,"Big East (thru 2012-13), American (2013-14), Big Ten (2014-present)",https://scarletknights.com,https://scarletknights.com/sports/womens-soccer,https://rutgerssoccercamp.com,Verified,
+w-soccer-ucla,UCLA,D1,Big Ten,"Pac-12 (thru 2023-24), Big Ten (2024-present)",https://uclabruins.com,https://uclabruins.com/sports/womens-soccer,https://uclasocceracademy.com,Verified,Joined Big Ten fall 2024
+w-soccer-usc,USC,D1,Big Ten,"Pac-12 (thru 2023-24), Big Ten (2024-present)",https://usctrojans.com,https://usctrojans.com/sports/womens-soccer,https://trojansoccercamp.com,Verified,Joined Big Ten fall 2024
+w-soccer-washington,Washington,D1,Big Ten,"Pac-12 (thru 2023-24), Big Ten (2024-present)",https://gohuskies.com,https://gohuskies.com/sports/womens-soccer,https://huskysoccercamps.com,Verified,Joined Big Ten fall 2024
+w-soccer-wisconsin,Wisconsin,D1,Big Ten,Big Ten,https://uwbadgers.com,https://uwbadgers.com/sports/womens-soccer,https://wisconsinsoccercamps.com,Verified,

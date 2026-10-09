@@ -160,3 +160,8 @@ replace `logo_url` with assets you have permission to use (athletics media kits)
 Same process as the ACC: the supplied SEC file was checked and mostly rejected — see `data/import/sec/REVIEW.md`. Loaded: program codes + working links,
 conference moves, and Auburn/Texas A&M staff from official directories. SEC season records and staff are still empty (no sourced equivalent found).
 Helper scripts take a conference folder: `node server/scripts/probe-urls.mjs sec`, `node server/scripts/check-acc-ncaa.mjs sec`.
+
+## Ivy, Big 12, Big Ten data (2026-10-09)
+
+Same process again — see `data/import/REVIEW-ivy-big12-bigten.md`. Loaded: program codes + working links, parsed conference history (Big 12 and Big Ten realignment),
+and Cornell/Penn staff from official directories. Helper: `node server/scripts/build-conference-seeds.mjs <ivy|big12|bigten>`.

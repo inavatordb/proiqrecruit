@@ -1,0 +1,132 @@
+[
+ {
+  "u": "https://brownbears.com",
+  "status": 200,
+  "final": "https://brownbears.com/"
+ },
+ {
+  "u": "https://brownbears.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://brownbears.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://brownsportscamps.com/camps/wsoccer",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://gocolumbialions.com",
+  "status": 200,
+  "final": "https://gocolumbialions.com/"
+ },
+ {
+  "u": "https://gocolumbialions.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://gocolumbialions.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://columbiasoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://cornellbigred.com",
+  "status": 200,
+  "final": "https://cornellbigred.com/"
+ },
+ {
+  "u": "https://cornellbigred.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://cornellbigred.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://cornellcamps.com/sports/womens-soccer",
+  "status": "FAIL",
+  "err": "ERR_TLS_CERT_ALTNAME_INVALID"
+ },
+ {
+  "u": "https://dartmouthsports.com",
+  "status": 200,
+  "final": "https://dartmouthsports.com/"
+ },
+ {
+  "u": "https://dartmouthsports.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://dartmouthsports.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://dartmouthsoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://gocrimson.com",
+  "status": 200,
+  "final": "https://gocrimson.com/"
+ },
+ {
+  "u": "https://gocrimson.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://gocrimson.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://crimsonsoccercamps.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://pennathletics.com",
+  "status": 200,
+  "final": "https://pennathletics.com/splash.aspx?id=splash_4342"
+ },
+ {
+  "u": "https://pennathletics.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://pennathletics.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://pennsoccercamp.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://goprincetontigers.com",
+  "status": 200,
+  "final": "https://goprincetontigers.com/"
+ },
+ {
+  "u": "https://goprincetontigers.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://goprincetontigers.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://princetonsportscamps.com/wsoccer",
+  "status": 404,
+  "final": "https://princetonsportscamps.com/wsoccer"
+ },
+ {
+  "u": "https://yalebulldogs.com",
+  "status": 200,
+  "final": "https://yalebulldogs.com/splash.aspx?id=splash_54"
+ },
+ {
+  "u": "https://yalebulldogs.com/sports/womens-soccer",
+  "status": 200,
+  "final": "https://yalebulldogs.com/sports/womens-soccer"
+ },
+ {
+  "u": "https://bulldogsoccercamp.com",
+  "status": 200,
+  "final": "https://www.bulldogsoccercamp.com/"
+ },
+ {
+  "u": "https://future500soccer.com",
+  "status": "FAIL",
+  "err": "ENOTFOUND"
+ },
+ {
+  "u": "https://exactsports.com/soccer",
+  "status": 200,
+  "final": "https://exactsports.com/soccer"
+ }
+]

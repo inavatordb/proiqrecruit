@@ -1,0 +1,30 @@
+coach_id,program_id,first_name,last_name,role,email,phone,verification_status,source_url
+c-ariz-1,w-soccer-arizona,Becca,Moros,Head Coach,,520-621-4714,Needs Review,https://arizonawildcats.com/sports/womens-soccer/roster#staff
+c-ariz-2,w-soccer-arizona,Lorraine,Quinn,Associate Head Coach / Recruiting Coordinator,,520-621-4714,Needs Review,https://arizonawildcats.com/sports/womens-soccer/roster#staff
+c-asu-1,w-soccer-arizona-state,Graham,Winkworth,Head Coach,,480-965-6577,Needs Review,https://thesundevils.com/sports/womens-soccer/roster#staff
+c-asu-2,w-soccer-arizona-state,Ross,MacKay,Associate Head Coach / Recruiting Coordinator,,480-965-6577,Needs Review,https://thesundevils.com/sports/womens-soccer/roster#staff
+c-bay-1,w-soccer-baylor,Michelle,Lenard,Head Coach,,254-710-3043,Needs Review,https://baylorbears.com/sports/womens-soccer/roster#staff
+c-bay-2,w-soccer-baylor,Lea,McCullough,Associate Head Coach / Recruiting Coordinator,,254-710-3043,Needs Review,https://baylorbears.com/sports/womens-soccer/roster#staff
+c-byu-1,w-soccer-byu,Jennifer,Rockwood,Head Coach,,801-422-5507,Needs Review,https://byucougars.com/sports/womens-soccer/roster#staff
+c-byu-2,w-soccer-byu,Brent,Anderson,Associate Head Coach / Recruiting Coordinator,,801-422-5507,Needs Review,https://byucougars.com/sports/womens-soccer/roster#staff
+c-cin-1,w-soccer-cincinnati,Erica,Dembiec,Head Coach,erica.dembiec@uc.edu,513-556-0567,Verified,https://gobearcats.com/staff-directory
+c-cin-2,w-soccer-cincinnati,Talia,Gavin,Associate Head Coach / Recruiting Coordinator,talia.gavin@uc.edu,513-556-0567,Verified,https://gobearcats.com/staff-directory
+c-colo-1,w-soccer-colorado,Danny,Sanchez,Head Coach,,303-492-4423,Needs Review,https://cubuffs.com/sports/womens-soccer/roster#staff
+c-colo-2,w-soccer-colorado,Dave,Morgan,Associate Head Coach / Recruiting Coordinator,,303-492-4423,Needs Review,https://cubuffs.com/sports/womens-soccer/roster#staff
+c-hou-1,w-soccer-houston,Jaime,Frias,Head Coach,,713-743-0831,Needs Review,https://uhcougars.com/sports/womens-soccer/roster#staff
+c-isu-1,w-soccer-iowa-state,Matt,Fannon,Head Coach,mfannon@iastate.edu,515-294-3486,Verified,https://cyclones.com/staff-directory
+c-isu-2,w-soccer-iowa-state,Jeff,Hoskins,Associate Head Coach / Recruiting Coordinator,jhoskins@iastate.edu,515-294-3486,Verified,https://cyclones.com/staff-directory
+c-ku-1,w-soccer-kansas,Nate,Lie,Head Coach,,785-864-4133,Needs Review,https://kuathletics.com/sports/womens-soccer/roster#staff
+c-ku-2,w-soccer-kansas,Tyler,Stout,Associate Head Coach / Recruiting Coordinator,,785-864-4133,Needs Review,https://kuathletics.com/sports/womens-soccer/roster#staff
+c-ksu-1,w-soccer-kansas-state,Mike,Dibbits,Head Coach,mdibbits@kstatesports.com,785-532-6655,Verified,https://kstatesports.com/staff-directory
+c-okst-1,w-soccer-oklahoma-state,Colin,Carmichael,Head Coach,colin.carmichael@okstate.edu,405-744-5509,Verified,https://okstate.com/staff-directory
+c-okst-2,w-soccer-oklahoma-state,Justin,Elkington,Associate Head Coach / Recruiting Coordinator,justin.elkington@okstate.edu,405-744-5509,Verified,https://okstate.com/staff-directory
+c-tcu-1,w-soccer-tcu,Eric,Bell,Head Coach,,817-257-6680,Needs Review,https://gofrogs.com/sports/womens-soccer/roster#staff
+c-tcu-2,w-soccer-tcu,Ryan,Higginbotham,Associate Head Coach / Recruiting Coordinator,,817-257-6680,Needs Review,https://gofrogs.com/sports/womens-soccer/roster#staff
+c-ttu-1,w-soccer-texas-tech,Tom,Stone,Head Coach,,806-742-7788,Needs Review,https://texastech.com/sports/womens-soccer/roster#staff
+c-ttu-2,w-soccer-texas-tech,Gibbs,Keeton,Associate Head Coach / Recruiting Coordinator,,806-742-7788,Needs Review,https://texastech.com/sports/womens-soccer/roster#staff
+c-ucf-1,w-soccer-ucf,Tiffany,Roberts Sahaydak,Head Coach,troberts@athletics.ucf.edu,407-823-3555,Verified,https://ucfknights.com/staff-directory
+c-ucf-2,w-soccer-ucf,Tim,Sahaydak,Associate Head Coach / Recruiting Coordinator,tsahaydak@athletics.ucf.edu,407-823-3555,Verified,https://ucfknights.com/staff-directory
+c-utah-1,w-soccer-utah,Hideki,Nakada,Head Coach,,801-581-3081,Needs Review,https://utahutes.com/sports/womens-soccer/roster#staff
+c-wvu-1,w-soccer-west-virginia,Nikki,Izzo-Brown,Head Coach,nikki.izzo-brown@mail.wvu.edu,304-293-2300,Verified,https://wvusports.com/staff-directory
+c-wvu-2,w-soccer-west-virginia,Lisa,Stoia,Associate Head Coach / Recruiting Coordinator,lisa.stoia@mail.wvu.edu,304-293-2300,Verified,https://wvusports.com/staff-directory

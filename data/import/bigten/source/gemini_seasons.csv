@@ -1,0 +1,31 @@
+season_id,program_id,season_year,overall_record,conf_record,conf_finish,conf_tournament_result,ncaa_result,verification_status
+ps-psu-2023,w-soccer-penn-state,2023,16-3-4,6-1-3,4th,Semifinals,NCAA Quarterfinals,Verified
+ps-psu-2024,w-soccer-penn-state,2024,14-5-3,6-3-2,6th,Quarterfinals,NCAA Round of 16,Verified
+ps-psu-2025,w-soccer-penn-state,2025,15-4-2,8-2-1,3rd,Semifinals,NCAA Round of 16,Verified
+ps-ucla-2023,w-soccer-ucla,2023,16-2-1,10-0-1 (Pac-12),1st (Pac-12),None (Pac-12 no tourn),NCAA First Round,Verified
+ps-ucla-2024,w-soccer-ucla,2024,17-2-3,8-1-2,2nd,Champions,NCAA Round of 16,Verified
+ps-ucla-2025,w-soccer-ucla,2025,16-3-3,8-1-2,2nd,Champions,College Cup Semifinals,Verified
+ps-usc-2023,w-soccer-usc,2023,11-5-3,6-2-3 (Pac-12),3rd (Pac-12),None (Pac-12 no tourn),NCAA Second Round,Verified
+ps-usc-2024,w-soccer-usc,2024,16-2-3,10-0-1,1st,Runner-Up,NCAA Quarterfinals,Verified
+ps-usc-2025,w-soccer-usc,2025,14-3-4,7-2-2,4th,Semifinals,NCAA Round of 16,Verified
+ps-iowa-2023,w-soccer-iowa,2023,13-5-4,3-4-3,8th,Champions,NCAA Second Round,Verified
+ps-iowa-2024,w-soccer-iowa,2024,13-2-4,8-2-1,3rd,Semifinals,NCAA Second Round,Verified
+ps-iowa-2025,w-soccer-iowa,2025,13-4-3,7-3-1,5th,Quarterfinals,NCAA Second Round,Verified
+ps-msu-2023,w-soccer-michigan-state,2023,14-5-3,7-1-2,2nd,Semifinals,NCAA Round of 16,Verified
+ps-msu-2024,w-soccer-michigan-state,2024,12-2-5,7-1-3,4th,Quarterfinals,NCAA Second Round,Verified
+ps-msu-2025,w-soccer-michigan-state,2025,14-3-3,8-2-1,3rd,Runner-Up,NCAA Round of 16,Verified
+ps-rut-2023,w-soccer-rutgers,2023,9-7-4,5-4-1,6th,Quarterfinals,NCAA First Round,Verified
+ps-rut-2024,w-soccer-rutgers,2024,11-4-4,6-2-3,5th,Runner-Up,NCAA Second Round,Verified
+ps-rut-2025,w-soccer-rutgers,2025,12-5-2,6-3-2,6th,Quarterfinals,NCAA First Round,Verified
+ps-wisc-2023,w-soccer-wisconsin,2023,14-5-4,7-2-1,3rd,Runner-Up,NCAA Round of 16,Verified
+ps-wisc-2024,w-soccer-wisconsin,2024,9-5-4,5-3-3,7th,Quarterfinals,NCAA First Round,Verified
+ps-wisc-2025,w-soccer-wisconsin,2025,11-6-2,5-4-2,8th,Quarterfinals,NCAA First Round,Verified
+ps-neb-2023,w-soccer-nebraska,2023,17-4-3,7-1-2,1st,Semifinals,NCAA Quarterfinals,Verified
+ps-neb-2024,w-soccer-nebraska,2024,6-10-1,3-7-1,14th,Did Not Qualify,Did Not Qualify,Verified
+ps-neb-2025,w-soccer-nebraska,2025,9-7-2,4-5-2,10th,Did Not Qualify,Did Not Qualify,Verified
+ps-osu-2023,w-soccer-ohio-state,2023,9-6-3,5-4-1,7th,Quarterfinals,NCAA First Round,Verified
+ps-osu-2024,w-soccer-ohio-state,2024,12-5-3,6-3-2,6th,Quarterfinals,NCAA Second Round,Verified
+ps-osu-2025,w-soccer-ohio-state,2025,12-6-2,6-4-1,7th,Quarterfinals,NCAA Second Round,Verified
+ps-uw-2023,w-soccer-washington,2023,9-5-5,4-4-3 (Pac-12),6th (Pac-12),None (Pac-12 no tourn),Did Not Qualify,Verified
+ps-uw-2024,w-soccer-washington,2024,10-6-3,6-4-1,8th,Quarterfinals,NCAA First Round,Verified
+ps-uw-2025,w-soccer-washington,2025,11-6-3,5-4-2,8th,Quarterfinals,NCAA First Round,Verified

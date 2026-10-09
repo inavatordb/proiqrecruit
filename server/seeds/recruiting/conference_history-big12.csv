@@ -1,0 +1,25 @@
+program_id,school_name,conference,start_season,end_season,source_url,source_name,source_type,verified,notes
+B12_ARIZ_WSOC,Arizona,Pac-12 Conference,,2023,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_ARIZ_WSOC,Arizona,Big 12 Conference,2024,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_ASU_WSOC,Arizona State,Pac-12 Conference,,2023,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_ASU_WSOC,Arizona State,Big 12 Conference,2024,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_BYU_WSOC,BYU,West Coast Conference,,2022,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_BYU_WSOC,BYU,Big 12 Conference,2023,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_CIN_WSOC,Cincinnati,American Athletic Conference,,2022,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_CIN_WSOC,Cincinnati,Big 12 Conference,2023,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_COLO_WSOC,Colorado,Big 12 Conference,,2010,,Supplied big12 research file; not independently sourced,other,no,Rejoined Big 12 fall 2024
+B12_COLO_WSOC,Colorado,Pac-12 Conference,2011,2023,,Supplied big12 research file; not independently sourced,other,no,Rejoined Big 12 fall 2024
+B12_COLO_WSOC,Colorado,Big 12 Conference,2024,,,Supplied big12 research file; not independently sourced,other,no,Rejoined Big 12 fall 2024
+B12_HOU_WSOC,Houston,Conference USA,,2012,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_HOU_WSOC,Houston,American Athletic Conference,2013,2022,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_HOU_WSOC,Houston,Big 12 Conference,2023,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_TCU_WSOC,TCU,Mountain West Conference,,2011,,Supplied big12 research file; not independently sourced,other,no,
+B12_TCU_WSOC,TCU,Big 12 Conference,2012,,,Supplied big12 research file; not independently sourced,other,no,
+B12_UCF_WSOC,UCF,Conference USA,,2012,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_UCF_WSOC,UCF,American Athletic Conference,2013,2022,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_UCF_WSOC,UCF,Big 12 Conference,2023,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2023
+B12_UTAH_WSOC,Utah,Mountain West Conference,,2010,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_UTAH_WSOC,Utah,Pac-12 Conference,2011,2023,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_UTAH_WSOC,Utah,Big 12 Conference,2024,,,Supplied big12 research file; not independently sourced,other,no,Joined Big 12 fall 2024
+B12_WVU_WSOC,West Virginia,Big East Conference,,2011,,Supplied big12 research file; not independently sourced,other,no,
+B12_WVU_WSOC,West Virginia,Big 12 Conference,2012,,,Supplied big12 research file; not independently sourced,other,no,

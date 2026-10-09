@@ -1,0 +1,28 @@
+season_id,program_id,season_year,overall_record,conf_record,conf_finish,conf_tournament_result,ncaa_result,verification_status
+ps-byu-2023,w-soccer-byu,2023,20-3-3,7-0-3,2nd,Runner-Up,College Cup Semifinals,Verified
+ps-byu-2024,w-soccer-byu,2024,9-6-5,6-2-3,4th,Semifinals,NCAA Second Round,Verified
+ps-byu-2025,w-soccer-byu,2025,13-4-4,7-2-2,3rd,Semifinals,NCAA Round of 16,Verified
+ps-ttu-2023,w-soccer-texas-tech,2023,16-2-5,8-0-2,1st,Semifinals,NCAA Round of 16,Verified
+ps-ttu-2024,w-soccer-texas-tech,2024,14-4-2,8-1-2,2nd,Quarterfinals,NCAA Second Round,Verified
+ps-ttu-2025,w-soccer-texas-tech,2025,13-5-2,7-3-1,4th,Quarterfinals,NCAA Second Round,Verified
+ps-tcu-2023,w-soccer-tcu,2023,10-6-3,6-2-2,3rd,Quarterfinals,Did Not Qualify,Verified
+ps-tcu-2024,w-soccer-tcu,2024,16-3-2,9-0-2,1st,Champions,NCAA Round of 16,Verified
+ps-tcu-2025,w-soccer-tcu,2025,15-3-3,8-1-2,1st,Champions,NCAA Quarterfinals,Verified
+ps-okst-2023,w-soccer-oklahoma-state,2023,12-8-0,5-5-0,7th,Quarterfinals,Did Not Qualify,Verified
+ps-okst-2024,w-soccer-oklahoma-state,2024,14-3-3,6-2-3,3rd,Semifinals,NCAA Second Round,Verified
+ps-okst-2025,w-soccer-oklahoma-state,2025,12-5-3,6-3-2,5th,Quarterfinals,NCAA First Round,Verified
+ps-colo-2023,w-soccer-colorado,2023,13-5-3,5-3-3 (Pac-12),6th (Pac-12),None (Pac-12 no tourn),NCAA First Round,Verified
+ps-colo-2024,w-soccer-colorado,2024,11-5-3,5-3-3,6th,Quarterfinals,NCAA First Round,Verified
+ps-colo-2025,w-soccer-colorado,2025,12-6-2,6-4-1,6th,Quarterfinals,NCAA First Round,Verified
+ps-ku-2023,w-soccer-kansas,2023,4-8-6,1-7-2,13th,Did Not Qualify,Did Not Qualify,Verified
+ps-ku-2024,w-soccer-kansas,2024,13-5-4,6-3-2,5th,Champions,NCAA Second Round,Verified
+ps-ku-2025,w-soccer-kansas,2025,11-6-3,5-4-2,7th,Quarterfinals,NCAA First Round,Verified
+ps-wvu-2023,w-soccer-west-virginia,2023,7-8-4,5-3-2,6th,Quarterfinals,Did Not Qualify,Verified
+ps-wvu-2024,w-soccer-west-virginia,2024,12-5-2,8-2-1,3rd,Quarterfinals,NCAA First Round,Verified
+ps-wvu-2025,w-soccer-west-virginia,2025,13-4-3,7-2-2,2nd,Runner-Up,NCAA Second Round,Verified
+ps-ucf-2023,w-soccer-ucf,2023,9-7-1,5-4-1,6th,Quarterfinals,Did Not Qualify,Verified
+ps-ucf-2024,w-soccer-ucf,2024,4-6-6,2-4-5,11th,Did Not Qualify,Did Not Qualify,Verified
+ps-ucf-2025,w-soccer-ucf,2025,8-7-3,4-5-2,9th,Did Not Qualify,Did Not Qualify,Verified
+ps-bay-2023,w-soccer-baylor,2023,9-7-3,4-4-2,8th,Quarterfinals,Did Not Qualify,Verified
+ps-bay-2024,w-soccer-baylor,2024,8-8-5,2-5-4,10th,Quarterfinals,Did Not Qualify,Verified
+ps-bay-2025,w-soccer-baylor,2025,10-7-2,5-5-1,8th,Quarterfinals,Did Not Qualify,Verified

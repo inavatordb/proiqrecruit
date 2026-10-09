@@ -1,0 +1,17 @@
+coach_id,program_id,first_name,last_name,role,email,phone,verification_status,source_url
+c-brwn-1,w-soccer-brown,Kia,McNeill,Head Coach,,401-863-2348,Needs Review,https://brownbears.com/sports/womens-soccer/roster#staff
+c-brwn-2,w-soccer-brown,Rachael,Sussman,Associate Head Coach / Recruiting Coordinator,,401-863-2348,Needs Review,https://brownbears.com/sports/womens-soccer/roster#staff
+c-col-1,w-soccer-columbia,Tracey,Bartholomew,Head Coach,tb2688@columbia.edu,212-854-3435,Verified,https://gocolumbialions.com/staff-directory
+c-col-2,w-soccer-columbia,Josh,Pratt,Assistant Coach / Recruiting Coordinator,jp3612@columbia.edu,212-854-3435,Verified,https://gocolumbialions.com/staff-directory
+c-corn-1,w-soccer-cornell,Rob,Ferguson,Head Coach,rf387@cornell.edu,607-255-7255,Verified,https://cornellbigred.com/staff-directory
+c-corn-2,w-soccer-cornell,Jackie,Hagopian,Assistant Coach / Recruiting Coordinator,jh2394@cornell.edu,607-255-7255,Verified,https://cornellbigred.com/staff-directory
+c-dart-1,w-soccer-dartmouth,Taylor,Schram,Head Coach,,603-646-3080,Needs Review,https://dartmouthsports.com/sports/womens-soccer/roster#staff
+c-dart-2,w-soccer-dartmouth,Mike,Brizendine,Associate Head Coach / Recruiting Coordinator,,603-646-3080,Needs Review,https://dartmouthsports.com/sports/womens-soccer/roster#staff
+c-harv-1,w-soccer-harvard,Chris,Hamblin,Head Coach,,617-495-2207,Needs Review,https://gocrimson.com/sports/womens-soccer/roster#staff
+c-harv-2,w-soccer-harvard,Mark,Dawson,Associate Head Coach / Recruiting Coordinator,,617-495-2207,Needs Review,https://gocrimson.com/sports/womens-soccer/roster#staff
+c-penn-1,w-soccer-penn,Krissy,Turner,Head Coach,kturn@upenn.edu,215-898-6131,Verified,https://pennathletics.com/staff-directory
+c-penn-2,w-soccer-penn,Megan,Link,Associate Head Coach / Recruiting Coordinator,,215-898-6131,Needs Review,https://pennathletics.com/staff-directory
+c-prin-1,w-soccer-princeton,Sean,Driscoll,Head Coach,sd19@princeton.edu,609-258-3533,Verified,https://goprincetontigers.com/staff-directory
+c-prin-2,w-soccer-princeton,Mike,Poller,Associate Head Coach / Recruiting Coordinator,mpoller@princeton.edu,609-258-3533,Verified,https://goprincetontigers.com/staff-directory
+c-yale-1,w-soccer-yale,Sarah,Martinez,Head Coach,,203-432-1492,Needs Review,https://yalebulldogs.com/sports/womens-soccer/roster#staff
+c-yale-2,w-soccer-yale,Tiffany,Weimer,Associate Head Coach / Recruiting Coordinator,,203-432-1492,Needs Review,https://yalebulldogs.com/sports/womens-soccer/roster#staff

@@ -1,0 +1,13 @@
+camp_id,program_id,camp_name,start_date,end_date,cost,age_group,registration_url,verification_status,notes
+cmp-prin-2025-sum,w-soccer-princeton,Princeton Girls Elite Summer ID Clinic,2025-06-21,2025-06-22,375.00,Girls Grades 8-12,https://princetonsportscamps.com/wsoccer,Verified,Roberts Stadium
+cmp-prin-2026-sum,w-soccer-princeton,Princeton Girls College ID Showcase,2026-06-20,2026-06-21,390.00,Girls Grades 8-12,https://princetonsportscamps.com/wsoccer,Verified,Roberts Stadium
+cmp-harv-2025-sum,w-soccer-harvard,Crimson College ID Prospect Camp,2025-07-12,2025-07-13,385.00,Girls Grades 8-12,https://crimsonsoccercamps.com,Verified,Jordan Field
+cmp-harv-2026-sum,w-soccer-harvard,Crimson Girls Elite Summer Showcase,2026-07-11,2026-07-12,400.00,Girls Grades 8-12,https://crimsonsoccercamps.com,Verified,Jordan Field
+cmp-brwn-2025-sum,w-soccer-brown,Brown Bears College ID Clinic,2025-06-28,2025-06-29,325.00,Girls Grades 9-12,https://brownsportscamps.com/camps/wsoccer,Verified,Stevenson-Pincince Field
+cmp-brwn-2026-sum,w-soccer-brown,Brown Bears Summer Prospect Clinic,2026-06-27,2026-06-28,340.00,Girls Grades 9-12,https://brownsportscamps.com/camps/wsoccer,Verified,Stevenson-Pincince Field
+cmp-col-2025-sum,w-soccer-columbia,Columbia Lions Girls Elite ID Camp,2025-07-19,2025-07-20,350.00,Girls Grades 8-12,https://columbiasoccercamp.com,Verified,Rocco B. Commisso Stadium
+cmp-col-2026-sum,w-soccer-columbia,Columbia Lions Summer ID Clinic,2026-07-18,2026-07-19,365.00,Girls Grades 8-12,https://columbiasoccercamp.com,Verified,Rocco B. Commisso Stadium
+cmp-penn-2025-sum,w-soccer-penn,Quaker Girls College ID Clinic,2025-06-14,2025-06-14,195.00,Girls Grades 8-12,https://pennsoccercamp.com,Verified,Rhodes Field; 1-day clinic
+cmp-penn-2026-sum,w-soccer-penn,Penn Elite Prospect One-Day Clinic,2026-06-13,2026-06-13,210.00,Girls Grades 8-12,https://pennsoccercamp.com,Verified,Rhodes Field; 1-day clinic
+cmp-yale-2025-sum,w-soccer-yale,Bulldog Girls Elite ID Camp,2025-07-26,2025-07-27,330.00,Girls Grades 8-12,https://bulldogsoccercamp.com,Verified,Reese Stadium
+cmp-yale-2026-sum

@@ -1,0 +1,16 @@
+program_id,school_name,conference,start_season,end_season,source_url,source_name,source_type,verified,notes
+B10_UMD_WSOC,Maryland,Atlantic Coast Conference,,2013,,Supplied bigten research file; not independently sourced,other,no,
+B10_UMD_WSOC,Maryland,Big Ten Conference,2014,,,Supplied bigten research file; not independently sourced,other,no,
+B10_NEB_WSOC,Nebraska,Big 12 Conference,,2010,,Supplied bigten research file; not independently sourced,other,no,
+B10_NEB_WSOC,Nebraska,Big Ten Conference,2011,,,Supplied bigten research file; not independently sourced,other,no,
+B10_ORE_WSOC,Oregon,Pac-12 Conference,,2023,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_ORE_WSOC,Oregon,Big Ten Conference,2024,,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_RUT_WSOC,Rutgers,Big East Conference,,2012,,Supplied bigten research file; not independently sourced,other,no,
+B10_RUT_WSOC,Rutgers,American Athletic Conference,2013,2013,,Supplied bigten research file; not independently sourced,other,no,
+B10_RUT_WSOC,Rutgers,Big Ten Conference,2014,,,Supplied bigten research file; not independently sourced,other,no,
+B10_UCLA_WSOC,UCLA,Pac-12 Conference,,2023,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_UCLA_WSOC,UCLA,Big Ten Conference,2024,,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_USC_WSOC,USC,Pac-12 Conference,,2023,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_USC_WSOC,USC,Big Ten Conference,2024,,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_UW_WSOC,Washington,Pac-12 Conference,,2023,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
+B10_UW_WSOC,Washington,Big Ten Conference,2024,,,Supplied bigten research file; not independently sourced,other,no,Joined Big Ten fall 2024
