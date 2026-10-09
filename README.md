@@ -184,3 +184,13 @@ schedule pages, camps link) into `data/import/crawl/cache/`; `node server/script
 every failure). Rows are Verified against the page they came from. Seeds load last, so they upgrade older Needs-Review rows, and
 seeded coaches missing from an official staff page are archived. Individual camps (dates, prices) are not imported: only the
 official camps page link.
+
+## Division II crawl and ID-camp scraper
+
+`node server/scripts/crawl-athletics.mjs --division D2` then `node server/scripts/build-crawl-seeds.mjs --division D2` produce
+`*-crawl-d2.csv` and `data/import/crawl/REPORT-d2.md`, same rules as Division I.
+
+`python server/scripts/camp_scraper.py --state arizona --dry-run` reads collegeidcamps.net state pages (and `--feed` RSS), matches schools to
+`program_id` at >= 88% confidence, and writes `camps-aggregator.csv` / `idcamps-aggregator.csv` seeds. Rows with no usable date (missing,
+past, malformed, "check link") go to `data/import/camps/needs_review_camps.csv`; unmatched schools to `unmatched_camps.csv`. Aggregator rows
+stay Needs Review; with `--check-links` a camp becomes Verified only if its official registration page prints the date.

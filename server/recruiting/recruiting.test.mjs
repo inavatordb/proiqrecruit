@@ -43,9 +43,9 @@ describe('import safety', () => {
 
   it('never stores personal webmail as a coach email', () => {
     expect(isPersonalEmail('coach@gmail.com')).toBe(true);
-    const csv = 'school_name,first_name,last_name,title,email\nAdams State University,Pat,Smith,Head Coach,pat@gmail.com\nAdams State University,Lee,Jones,Assistant Coach,lee@ua.edu';
+    const csv = 'school_name,first_name,last_name,title,email\nChestnut Hill College,Pat,Smith,Head Coach,pat@gmail.com\nChestnut Hill College,Lee,Jones,Assistant Coach,lee@ua.edu';
     svc.commitImport('coaches', csv);
-    const d = svc.detail('adams-state-university');
+    const d = svc.detail('chestnut-hill-college');
     const pat = d.coaches.find((c) => c.last_name === 'Smith');
     expect(pat.email).toBe('');
     expect(pat.email_listed).toBe(false);
@@ -54,11 +54,11 @@ describe('import safety', () => {
   });
 
   it('does not overwrite verified data without an explicit override', () => {
-    const csv = 'school_name,season,wins,losses,ties\nAdams State University,2025,14,4,2';
+    const csv = 'school_name,season,wins,losses,ties\nChestnut Hill College,2025,14,4,2';
     svc.commitImport('seasons', csv);
-    const id = svc.rows('ProgramSeason').find((s) => s.season === 2025 && s.program_id.endsWith('adams-state-university')).id;
+    const id = svc.rows('ProgramSeason').find((s) => s.season === 2025 && s.program_id.endsWith('chestnut-hill-college')).id;
     svc.adminSetStatus('seasons', id, 'verified', 'admin');
-    const changed = 'school_name,season,wins,losses,ties\nAdams State University,2025,1,1,1';
+    const changed = 'school_name,season,wins,losses,ties\nChestnut Hill College,2025,1,1,1';
     const plan = svc.previewImport('seasons', changed);
     expect(plan.summary.review).toBe(1);
     svc.commitImport('seasons', changed);
@@ -68,15 +68,15 @@ describe('import safety', () => {
   });
 
   it('blank incoming values never erase stored ones', () => {
-    svc.commitImport('seasons', 'school_name,season,wins,losses,ties\nAdams State University,2025,14,4,2');
-    svc.commitImport('seasons', 'school_name,season,ncaa_tournament_appearance,ncaa_tournament_round\nAdams State University,2025,yes,Round of 16');
-    const s = svc.rows('ProgramSeason').find((s) => s.season === 2025 && s.program_id.endsWith('adams-state-university'));
+    svc.commitImport('seasons', 'school_name,season,wins,losses,ties\nChestnut Hill College,2025,14,4,2');
+    svc.commitImport('seasons', 'school_name,season,ncaa_tournament_appearance,ncaa_tournament_round\nChestnut Hill College,2025,yes,Round of 16');
+    const s = svc.rows('ProgramSeason').find((s) => s.season === 2025 && s.program_id.endsWith('chestnut-hill-college'));
     expect(s.wins).toBe(14);
     expect(s.ncaa_tournament_round).toBe('Round of 16');
   });
 
   it('reports errors and duplicates', () => {
-    const csv = 'school_name,first_name,last_name\nNoSuchSchool,A,B\nAdams State University,C,D\nAdams State University,C,D';
+    const csv = 'school_name,first_name,last_name\nNoSuchSchool,A,B\nChestnut Hill College,C,D\nChestnut Hill College,C,D';
     const plan = svc.previewImport('coaches', csv);
     expect(plan.summary).toMatchObject({ found: 3, new: 1, duplicate: 1, errors: 1 });
   });
@@ -90,16 +90,16 @@ describe('import safety', () => {
 describe('search + program page', () => {
   it('derives records, rankings and camps only from stored rows', () => {
     const svc = makeSvc(); svc.bootstrap();
-    svc.commitImport('seasons', 'school_name,season,wins,losses,ties,conference_champion\nAdams State University,2025,14,4,2,no\nAdams State University,2024,12,5,3,no\nAdams State University,2023,15,3,2,yes');
-    svc.commitImport('rankings', 'school_name,season,organization,ranking_type,rank,ranking_date\nAdams State University,2025,United Soccer Coaches,weekly,12,2025-10-01\nAdams State University,2025,United Soccer Coaches,final,18,2025-12-10');
+    svc.commitImport('seasons', 'school_name,season,wins,losses,ties,conference_champion\nChestnut Hill College,2025,14,4,2,no\nChestnut Hill College,2024,12,5,3,no\nChestnut Hill College,2023,15,3,2,yes');
+    svc.commitImport('rankings', 'school_name,season,organization,ranking_type,rank,ranking_date\nChestnut Hill College,2025,United Soccer Coaches,weekly,12,2025-10-01\nChestnut Hill College,2025,United Soccer Coaches,final,18,2025-12-10');
     const y = new Date().getUTCFullYear();
-    svc.commitImport('camps', `school_name,camp_name,camp_type,camp_date\nAdams State University,July ID Camp,ID Camp,${y}-07-15\nAdams State University,Prior ID Camp,ID Camp,${y - 1}-07-10`);
-    const d = svc.detail('adams-state-university');
+    svc.commitImport('camps', `school_name,camp_name,camp_type,camp_date\nChestnut Hill College,July ID Camp,ID Camp,${y}-07-15\nChestnut Hill College,Prior ID Camp,ID Camp,${y - 1}-07-10`);
+    const d = svc.detail('chestnut-hill-college');
     expect(d.recent_season_years).toEqual([2025, 2024, 2023]);
     expect(d.rankings[0].organizations[0]).toMatchObject({ highest: 12, final: 18 });
     expect(d.camps.current).toHaveLength(1);
     expect(d.camps.previous).toHaveLength(1);
-    expect(svc.search({ champion: '1' }).results.map((r) => r.school_name)).toEqual(['Adams State University']);
+    expect(svc.search({ champion: '1' }).results.map((r) => r.school_name)).toEqual(['Chestnut Hill College']);
     expect(svc.search({ top: '15', division: 'D2' }).total).toBe(1);
     expect(svc.search({ ranked: '1', division: 'D2' }).total).toBe(1);
   });

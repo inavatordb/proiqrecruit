@@ -16,6 +16,8 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 const CACHE = path.join(root, 'data', 'import', 'crawl', 'cache');
 const SEEDS = path.join(root, 'server', 'seeds', 'recruiting');
 const today = new Date().toISOString().slice(0, 10);
+const di = process.argv.indexOf('--division'); const DIVISION = di >= 0 ? process.argv[di + 1] : 'D1';
+const SUFFIX = DIVISION === 'D1' ? '' : '-' + DIVISION.toLowerCase();
 const PROBE = !process.argv.includes('--no-probe');
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -43,7 +45,7 @@ async function alive(url) {
 }
 
 const files = fs.readdirSync(CACHE).filter((f) => f.endsWith('.json'));
-const caches = files.map((f) => JSON.parse(fs.readFileSync(path.join(CACHE, f), 'utf8')));
+const caches = files.map((f) => JSON.parse(fs.readFileSync(path.join(CACHE, f), 'utf8'))).filter((c) => (c.division || 'D1') === DIVISION);
 
 const seasons = [['program_id', 'school_name', 'season', 'wins', 'losses', 'ties', 'conference_wins', 'conference_losses', 'conference_ties', 'conference', 'source_url', 'source_name', 'source_type', 'verified', 'last_verified_at', 'notes']];
 const coaches = [['program_id', 'school_name', 'first_name', 'last_name', 'title', 'email', 'phone', 'profile_url', 'source_url', 'source_name', 'source_type', 'verified', 'last_verified_at', 'notes']];
@@ -76,7 +78,7 @@ for (const c of caches.sort((a, b) => (a.conference || '').localeCompare(b.confe
   st.seasons += got; st.seasonsPossible += need;
   if (c.camps_url) probeQueue.push({ c, st });
   if (why.length) st.failed.push(`${c.school_name} â€” ${why.join('; ')}`);
-  if (c.camps_url) programs.push([c.program_id, c.school_name, 'soccer', 'women', 'D1', '', c.camps_url, `Official camps link found on team site, read ${today}`, 'official_university', 'no', '']);
+  if (c.camps_url) programs.push([c.program_id, c.school_name, 'soccer', 'women', DIVISION, '', c.camps_url, `Official camps link found on team site, read ${today}`, 'official_university', 'no', '']);
 }
 
 // Camps: only an official camps page that actually loads; the individual camps (dates, prices) are not read.
@@ -103,17 +105,17 @@ for (const row of programs.slice(1)) row[5] = campsByProgram.get(row[0]) || '';
 for (let i = programs.length - 1; i > 0; i--) if (!programs[i][5] || taken.has(programs[i][0])) programs.splice(i, 1);
 // A programs row that adds nothing (no camps link) would only rewrite the soccer page; keep it, the page is verified reachable.
 
-fs.writeFileSync(path.join(SEEDS, 'seasons-crawl.csv'), seasons.map(line).join('\n') + '\n');
-fs.writeFileSync(path.join(SEEDS, 'coaches-crawl.csv'), coaches.map(line).join('\n') + '\n');
-fs.writeFileSync(path.join(SEEDS, 'programs-crawl.csv'), programs.map(line).join('\n') + '\n');
+fs.writeFileSync(path.join(SEEDS, `seasons-crawl${SUFFIX}.csv`), seasons.map(line).join('\n') + '\n');
+fs.writeFileSync(path.join(SEEDS, `coaches-crawl${SUFFIX}.csv`), coaches.map(line).join('\n') + '\n');
+fs.writeFileSync(path.join(SEEDS, `programs-crawl${SUFFIX}.csv`), programs.map(line).join('\n') + '\n');
 
 const md = [`# Official-site crawl â€” coverage report (${today})`, '',
-  `${caches.length} Division I programs crawled. Coaches and season records were read from each team's own athletics site; nothing was guessed.`,
+  `${caches.length} ${DIVISION} programs crawled. Coaches and season records were read from each team's own athletics site; nothing was guessed.`,
   `Completed seasons only (${CURRENT_YEAR} is in progress). Camps: only a link to the official camps page was collected (checked to load); individual camp dates and prices are not imported.`, '',
   '| Conference | Programs | Staff found | Seasons found | Camps link |', '|---|---|---|---|---|'];
 for (const [k, s] of [...stats].sort()) md.push(`| ${k} | ${s.n} | ${s.coaches}/${s.n} | ${s.seasons}/${s.seasonsPossible} | ${s.camps}/${s.n} |`);
 md.push('', '## What could not be read', '');
 for (const [k, s] of [...stats].sort()) { if (!s.failed.length) continue; md.push(`### ${k}`, ...s.failed.map((f) => `- ${f}`), ''); }
 fs.mkdirSync(path.join(root, 'data', 'import', 'crawl'), { recursive: true });
-fs.writeFileSync(path.join(root, 'data', 'import', 'crawl', 'REPORT.md'), md.join('\n'));
+fs.writeFileSync(path.join(root, 'data', 'import', 'crawl', `REPORT${SUFFIX}.md`), md.join('\n'));
 console.log(`seasons ${seasons.length - 1}, coaches ${coaches.length - 1}, programs ${programs.length - 1}, camps links ${campsByProgram.size}`);

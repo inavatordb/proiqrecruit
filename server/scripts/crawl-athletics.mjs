@@ -79,7 +79,7 @@ async function crawlOne(p) {
   const out = fs.existsSync(file) && !FORCE ? JSON.parse(fs.readFileSync(file, 'utf8')) : { program_id: p.program_code || p.id, school_name: p.school_name, conference: p.conference, seasons: {}, coaches: null, camps_url: '' };
   const needWork = FORCE || !out.coaches?.ok || YEARS.some((y) => !out.seasons[y]?.ok && out.seasons[y]?.status !== 404);
   if (!needWork) return out;
-  const save = () => { out.fetched_at = new Date().toISOString(); fs.writeFileSync(file, JSON.stringify(out)); return out; };
+  const save = () => { out.division = DIVISION; out.fetched_at = new Date().toISOString(); fs.writeFileSync(file, JSON.stringify(out)); return out; };
 
   const home = await findHome(p, out);
   if (!home.html) { out.coaches = { ok: false, status: home.status, reason: home.err || `team page not found (HTTP ${home.status})`, rows: [] }; return save(); }

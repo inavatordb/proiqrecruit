@@ -112,17 +112,17 @@ describe('import pipeline', () => {
   });
 
   it('keeps 2023-2025 intact when 2026 is imported; current season is flagged', () => {
-    svc.commitImport('seasons', 'school_name,season,wins,losses,ties,verified,source_url\nAdams State University,2025,14,4,2,yes,https://x.edu');
-    svc.commitImport('seasons', 'school_name,season,wins,losses,ties\nAdams State University,2026,2,0,0');
-    const d = svc.detail('adams-state-university');
+    svc.commitImport('seasons', 'school_name,season,wins,losses,ties,verified,source_url\nChestnut Hill College,2025,14,4,2,yes,https://x.edu');
+    svc.commitImport('seasons', 'school_name,season,wins,losses,ties\nChestnut Hill College,2026,2,0,0');
+    const d = svc.detail('chestnut-hill-college');
     expect(d.seasons.find((s) => s.season === 2025).record).toBe('14-4-2');
     expect(d.current_season.season).toBe(2026);
     expect(d.recent_season_years).not.toContain(2026);
   });
 
   it('stores each ranking as its own record, including week-style types', () => {
-    svc.commitImport('rankings', 'school_name,season,ranking_organization,ranking_type,ranking,ranking_date,source_url\nAdams State University,2025,United Soccer Coaches,Preseason,5,2025-08-15,https://x.edu\nAdams State University,2025,United Soccer Coaches,Week 4,3,2025-09-23,https://x.edu\nAdams State University,2025,United Soccer Coaches,Week 8,2,2025-10-21,https://x.edu\nAdams State University,2025,United Soccer Coaches,Final,4,2025-12-10,https://x.edu');
-    const org = svc.detail('adams-state-university').rankings[0].organizations[0];
+    svc.commitImport('rankings', 'school_name,season,ranking_organization,ranking_type,ranking,ranking_date,source_url\nChestnut Hill College,2025,United Soccer Coaches,Preseason,5,2025-08-15,https://x.edu\nChestnut Hill College,2025,United Soccer Coaches,Week 4,3,2025-09-23,https://x.edu\nChestnut Hill College,2025,United Soccer Coaches,Week 8,2,2025-10-21,https://x.edu\nChestnut Hill College,2025,United Soccer Coaches,Final,4,2025-12-10,https://x.edu');
+    const org = svc.detail('chestnut-hill-college').rankings[0].organizations[0];
     expect(svc.rows('ProgramRanking').filter((r) => r.season === 2025 && r.ranking_date).length).toBeGreaterThanOrEqual(3);
     expect(org).toMatchObject({ highest: 2, final: 4, preseason: 5, weeks: 2 });
   });
